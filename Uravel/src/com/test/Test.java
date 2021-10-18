@@ -9,6 +9,6 @@ public class Test {
 		
 		System.out.println("NOA");
 		
-		System.out.println("끝이다");
+		System.out.println("끝이다.");
   }
 }
