@@ -6,5 +6,7 @@ public class Test {
 		System.out.println("Test 2 : Team ");
 		
 		System.out.println("Park Jun Mi");
+		
+		System.out.println("NOA");
   }
 }
