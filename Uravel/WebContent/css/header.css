@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+header {
+	position: sticky;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+	font-size: large;
+	background: white;
+	z-index: 1002;
+}
+
+.logo, .menu, .login, li {
+	display: inline-block;
+}
+
+header li {
+	margin-inline: 30px;
+}
+
+.logo {
+	float: left;
+	margin: 0;
+	font-weight: bold;
+	margin-inline-start: 60px;
+}
+
+.menu {
+	float: none;
+}
+
+.login {
+	float: right;
+}
+
+header a {
+	text-decoration: none;
+	color: black;
+	vertical-align: middle;
+}
+
+header a:hover {
+	font-weight: bold;
+	background: linear-gradient(to top, skyblue 10%, transparent 10%);
+}
+
+.sub-menu {
+	display: none;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	text-align: center;
+	font-weight: normal;
+}
+
+.menu li:hover .sub-menu {
+	display: table;
+}
+
+.sub-menu li {
+	display: block;
+	margin: 0;
+}
+
+.sub-menu li:hover {
+	font-weight: bold;
+}
+
+@media ( max-width :768px) {
+	header {
+		position: relative;
+		display: inline-block;
+	}
+}
