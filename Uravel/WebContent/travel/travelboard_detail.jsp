@@ -250,8 +250,10 @@ header a:hover {
 	transition: 0.5s;
 }
 </style>
+	<script type="text/javascript" src="dapi.kakao.com/v2/maps/sdk.js?appkey=078e401a64f63ae93818c494f7f8ac99"></script>
+
 </head>
-<body>
+
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
@@ -295,24 +297,9 @@ header a:hover {
 						</div>
 					</div>
 					<div class="map_box1">
-						<div id="">
+						<div id="map">
 							<div class="map_container" style="width: 100%; height: 300px;">
-								<script type="text/javascript"
-									src="//dapi.kakao.com/v2/maps/sdk.js?appkey=078e401a64f63ae93818c494f7f8ac99"></script>
-								<script>
-									var container = document
-											.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 
-									var options = { //지도를 생성할 때 필요한 기본 옵션
-										center : new kakao.maps.LatLng(
-												33.450701, 126.570667), //지도의 중심좌표.
-										level : 3
-									//지도의 레벨(확대, 축소 정도)
-
-									};
-									var map = new kakao.maps.Map(container,
-											options); //지도 생성 및 객체 리턴
-								</script>
 							</div>
 						</div>
 					</div>
@@ -399,8 +386,7 @@ header a:hover {
 						<div class="content_container_review">
 							<ul class="review_list" style="padding: 20px;">
 								<div class="user_review" style="display: block;">
-									<li
-										style="border-top: 1px solid #DADFE6; display: flex; flex-direction: column; align-items: flex-start;">
+									<li style="border-top: 1px solid #DADFE6; display: flex; flex-direction: column; align-items: flex-start;">
 										<div class="user_info_box" style="display: flex;">
 											<div class="info_box_detail"
 												style="cursor: pointer; font-size: 18px; margin-left: 80px; margin-bottom: 20px; margin-top: 20px;">테스트닉네임</div>
@@ -469,5 +455,17 @@ header a:hover {
 	<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
-</body>
-</html>
+<script>
+	var container = document
+	.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+	
+	var options = { //지도를 생성할 때 필요한 기본 옵션
+	center : new kakao.maps.LatLng(
+		33.450701, 126.570667), //지도의 중심좌표.
+	level : 3
+	//지도의 레벨(확대, 축소 정도)
+	
+	};
+	//var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+	var map = new kakao.maps.Map(mapContainer, mapOption); 
+</script>
