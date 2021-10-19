@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+main a {
+	text-decoration: none;
+	color: black;
+}
+
+main a:hover {
+	font-weight: bold;
+	color: dodgerblue;
+}
+
+.admin-main, .admin-side {
+	position: relative;
+	margin: 0;
+	display: inline-block;
+	margin-inline: 50px;
+	vertical-align: top;
+}
+
+.admin-side {
+	background-color: gainsboro;
+	width: 200px;
+	height: auto;
+	padding-bottom: 30px;
+}
+
+.admin-side ul {
+	list-style-type: none;
+	display: inline;
+	padding: 0;
+}
+
+.admin-side li {
+	display: block;
+}
+
+.admin-main {
+	width: auto;
+	height: auto;
+	text-align: left;
+}
+
+.post-list {
+	text-align: center;
+	border-top: 1px black solid;
+	border-bottom: 1px black solid;
+	border-collapse: collapse;
+}
+
+.post-list thead {
+	background-color: gainsboro;
+}
+
+.post-list th, td {
+	padding: 10px;
+}
+
+.post-list a {
+	font-size: small;
+	font-weight: bold;
+}
+
+.pagenation {
+	list-style-type: none;
+	text-align: center;
+	display: block;
+	padding: 0;
+}
+
+.pagenation li {
+	display: inline-flex;
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.page-selected {
+	background-color: whitesmoke;
+	font-weight: bold;
+}
+
+.travel-info-list, travel-info {
+	margin: 0;
+}
+
+.travel-info ul, li {
+	list-style-type: none;
+	display: inline-block;
+	margin-inline: 10px;
+}
+
+.travel-info input[type="text"], input[type="url"] {
+	font-size: small;
+	width: 400px;
+}
+
+.travel-info input[type="submit"], input[type="button"] {
+	font-size: medium;
+	width: 80px;
+	height: 40px;
+}
