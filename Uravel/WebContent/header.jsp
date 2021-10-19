@@ -1,11 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
-request.setCharacterEncoding("UTF-8");
-%>
-<%
-response.setContentType("text/html; charset=UTF-8");
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html; charset=UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +9,11 @@ response.setContentType("text/html; charset=UTF-8");
 <link rel="stylesheet" href="./css/header.css">
 </head>
 <body>
-	<!-- 상단부 -->
+		<!-- 상단부 -->
 	<header>
 		<!-- 로고 : 메인페이지로 이동 -->
 		<h1>
-		<a href="Controller?command=main" class="logo">URAVEL</a>
+			<a href="Controller?command=main" class="logo">URAVEL</a>
 		</h1>
 		<!-- 네비게이션 -->
 		<nav>

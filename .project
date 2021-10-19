@@ -22,6 +22,10 @@
 	</buildSpec>
 	<natures>
 =======
+<<<<<<< HEAD
+	</buildSpec>
+	<natures>
+=======
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
@@ -31,6 +35,7 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 >>>>>>> refs/remotes/origin/master
+>>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
 	</natures>
 </projectDescription>
 >>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
