@@ -6,14 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/header.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+
 </head>
 <body>
 		<!-- 상단부 -->
 	<header>
 		<!-- 로고 : 메인페이지로 이동 -->
 		<h1>
-			<a href="Controller?command=main" class="logo">URAVEL</a>
+			<a href="${pageContext.request.contextPath}/UC?command=main" class="logo">URAVEL</a>
 		</h1>
 		<!-- 네비게이션 -->
 		<nav>
