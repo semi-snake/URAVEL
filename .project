@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Uravel_TeamProject</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+</projectDescription>
+=======
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>Uravel_TeamProject</name>
@@ -20,3 +33,4 @@
 >>>>>>> refs/remotes/origin/master
 	</natures>
 </projectDescription>
+>>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git

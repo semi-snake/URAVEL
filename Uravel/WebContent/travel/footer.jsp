@@ -15,12 +15,11 @@ response.setContentType("text/html; charset=UTF-8");
 footer {
 	position: sticky;
 	bottom: 0;
-  padding-top:20px;
 	width: 100%;
 	height: 100px;
 	background-color: white;
-	z-index:1002;
 }
+
 footer h5 {
 	text-align: center;
 }

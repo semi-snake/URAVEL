@@ -11,22 +11,22 @@ response.setContentType("text/html; charset=UTF-8");
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
 	<!-- 상단부 -->
 	<header>
 		<!-- 로고 : 메인페이지로 이동 -->
 		<h1>
-		<a href="Controller?command=main" class="logo">URAVEL</a>
+			<a href="./main.jsp" class="logo">URAVEL</a>
 		</h1>
 		<!-- 네비게이션 -->
 		<nav>
 			<!-- 네비게이션 : 메뉴 부분 -->
 			<ul class="menu">
-				<li><a href="#">여행지 추천</a> <!-- 하위 메뉴 -->
+				<li><a href="main.jsp">여행지 추천</a> <!-- 하위 메뉴 -->
 					<ul class="sub-menu">
-						<li><a href="#">지역별</a></li>
+						<li><a href="./travel/travel.jsp">지역별</a></li>
 						<li><a href="#">테마별</a></li>
 					</ul></li>
 				<li><a href="#">역사 문화</a></li>
