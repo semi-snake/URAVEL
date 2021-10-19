@@ -5,7 +5,23 @@
 	<projects>
 	</projects>
 	<buildSpec>
+<<<<<<< HEAD
 	</buildSpec>
 	<natures>
+=======
+<<<<<<< HEAD
+	</buildSpec>
+	<natures>
+=======
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+>>>>>>> refs/remotes/origin/master
+>>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
 	</natures>
 </projectDescription>
