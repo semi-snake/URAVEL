@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+*{
+	font-family: "Noto Sans KR", sans-serif !important;
+}
+body{
+	margin-left: 0;
+	margin-right: 0;
+	text-align: center;
+}
+main div {
+	margin-bottom: 100px;
+}
+
+#service-info {
+	width: 100%;
+	height: 400px;
+	background-color: lightblue;
+	background-image:
+		url(https://cdn.pixabay.com/photo/2019/10/02/11/13/seoul-4520712_1280.jpg);
+	background-position: center;
+	background-blend-mode: overlay;
+	background-size: 100%;
+}
+
+#service-info article {
+	display: block;
+	transform: translateY(200%);
+}
+
+.image-list {
+	margin-bottom: 20px;
+}
+
+.image-list img {
+	width: 240px;
+	height: 160px;
+	margin: 0;
+}
+
+.review-list article, .review-list section {
+	display: inline-block;
+	margin-inline: 20px;
+	vertical-align: middle;
+}
+
+.review-list a {
+	text-decoration: none;
+	color: black;
+}
+
+.review-list h5, h6 {
+	text-align: left;
+}
+
+.review-list article img {
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	background: gray;
+}
+
+.image-list a {
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	transition: 0.5s;
+	overflow: hidden;
+}
+
+.image-list a span {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 240px;
+	height: 80px;
+	font-weight: bold;
+	font-size: xx-large;
+	color: white;
+	opacity: 0;
+}
+
+.image-list a:hover {
+	transform: scale(1.1);
+	margin-inline: 10px;
+	filter: grayscale(80%);
+}
+
+.image-list a:hover span {
+	opacity: 1;
+}
+
+.page-list {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.page-list a {
+	float: left;
+	display: block;
+	color: gainsboro;
+	text-align: center;
+	padding: 16px;
+	text-decoration: none;
+	transition: 0.5s;
+}
+
+.page-list a:hover {
+	transform: scale(1.5);
+	color: gray;
+	transition: 0.5s;
+}
+
+table {
+	text-align: left;
+	display: inline-block;
+}
+
+input {
+	font-size: large;
+}
+
+input[name="keyword"] {
+	width: 60%;
+	height: 50px;
+	border-radius: 10;
+	border: 0.5px solid gainsboro;
+}
+
+input[type="submit"], input[type="button"] {
+	width: 100px;
+	height: 50px;
+	border-style: none;
+	border-radius: 5%;
+	font-weight: bold;
+	transition: 0.25s;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+	cursor: pointer;
+	background-color: turquoise;
+	color: white;
+}
+
+@media ( max-width :768px) {
+	#service-info {
+		background-size: 200%;
+	}
+	#service-info article {
+		transform: translateY(100%);
+	}
+	input[name="keyword"] {
+		width: 80%;
+		margin-bottom: 10px;
+	}
+	.image-list img {
+		width: 80%;
+		height: auto;
+	}
+	.image-list img:hover {
+		margin: 15px 0;
+	}
+}
