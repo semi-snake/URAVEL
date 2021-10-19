@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+
+
+</head>
+<body>
+
+<div class="container">
+    <div class="page-header">
+        <h2>1:1 문의작성</h2>
+    </div>    
+
+<!-- New Blog Post - START -->
+<div class="container">
+    <title>QueDetail</title>
+    <div class="row" id="row_style">        
+        <div class="col-md-4   col-md-offset-4">
+            <div class="form-group">
+                <select id="category">
+                    <option value>문의유형 선택</option>
+                    <option value="LOGIN">로그인</option>
+                    <option value="BOARD">게시판</option>
+                    <option value="ETC">기타</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="제목을 입력해주세요 :)">
+            </div>
+            <textarea id="editor" placeholder="내용을 입력해주세요 :)" cols="30" rows="10"></textarea>
+            <br>            
+            <div class="form-group">
+                <button class="btn btn-primary" id="submit">제출하기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-group {
+        width: 235px;
+    }
+
+    #category {
+        width: 235px;
+    }
+
+    #row_style {
+        margin-top: 30px;
+    }
+
+    #submit {
+        display: block;
+        margin: auto;
+    }
+</style>
+
+
+</div>
+
+</body>
+</html>
