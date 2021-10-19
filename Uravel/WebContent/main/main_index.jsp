@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>당신을 위한 여행지 추천 웹사이트, URAVEL</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 <%@ include file = "../common/header.jsp" %>
