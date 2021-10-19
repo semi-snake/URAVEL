@@ -9,10 +9,10 @@
 <head>
 <meta charset="UTF-8">
 <title>역사/문화</title>
-<link rel="stylesheet" href="./css/historyStyle.css">
+<link rel="stylesheet" href="../css/historyStyle.css">
 </head>
 <body>
-<%@ include file = "./header.jsp" %>
+<%@ include file = "../common/header.jsp" %>
 
 	<main>
 		<!-- 사진에 색깔 씌우기 -->
@@ -58,6 +58,6 @@
 		</div>
 	</main>
 
-<%@ include file = "./footer.jsp" %>
+<%@ include file = "../common/footer.jsp" %>
 </body>
 </html>

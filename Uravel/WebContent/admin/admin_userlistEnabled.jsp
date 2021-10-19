@@ -5,22 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/admin.css">
-<script src="./js/admin.js"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/admin.css">
+<script src="../js/admin.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<%@ include file="./header.jsp"%>
+	<%@ include file="../common/header.jsp"%>
 	<main>
 		<!-- 관리자 메뉴 : 사이드 -->
 		<%@ include file="./admin_side.jsp"%>
 		<!-- 관리자 본문 -->
 		<div class="admin-main">
-			<!-- 사용자 정보 관리 : 전체 조회 -->
 			<div class="user-info-list">
 				<h1>사용자 정보 관리</h1>
-				<h2>전체 조회</h2>
+				<h2>활성화된 회원만 조회</h2>
 				<form action="Controller" method="post">
 					<input type="hidden" name="command" value="disabledUser">
 					<table class="post-list">
@@ -36,7 +35,6 @@
 							<th>이메일</th>
 							<th>전화번호</th>
 							<th>역할</th>
-							<th>활성화 여부</th>
 						</thead>
 						<tbody>
 							<tr>
@@ -48,10 +46,9 @@
 								<td>user1@email.com</td>
 								<td>010-1234-5678</td>
 								<td>사용자</td>
-								<td>Y</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" value="2"></td>
+								<td><input type="checkbox" value="1"></td>
 								<td>2</td>
 								<td>user2</td>
 								<td>유저2</td>
@@ -59,10 +56,9 @@
 								<td>user2@email.com</td>
 								<td>010-1234-5678</td>
 								<td>사용자</td>
-								<td>Y</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" value="3"></td>
+								<td><input type="checkbox" value="1"></td>
 								<td>3</td>
 								<td>user3</td>
 								<td>유저3</td>
@@ -70,11 +66,10 @@
 								<td>user3@email.com</td>
 								<td>010-1234-5678</td>
 								<td>사용자</td>
-								<td>Y</td>
 							</tr>
 							<tr style="border-top: 1px black dashed;">
-								<td align="right" colspan="9"><input type="submit"
-									value="비활성화"></td>
+								<td align="right" colspan="7"></td>
+								<td><input type="submit" value="비활성화"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -92,6 +87,7 @@
 			</div>
 		</div>
 	</main>
-	<%@ include file="./footer.jsp"%>
+	<%@ include file="../common/footer.jsp"%>
+
 </body>
 </html>

@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/admin.css">
-<script src="./js/admin.js"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/admin.css">
+<script src="../js/admin.js"></script>
 </head>
 <body>
-	<%@ include file="./header.jsp"%>
+	<%@ include file="../common/header.jsp"%>
 	<main>
 		<!-- 관리자 메뉴 : 사이드 -->
 		<%@ include file="./admin_side.jsp"%>
@@ -76,6 +76,6 @@
 			</div>
 		</div>
 	</main>
-	<%@ include file="./footer.jsp"%>
+	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>

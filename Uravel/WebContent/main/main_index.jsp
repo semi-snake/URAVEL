@@ -7,10 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>당신을 위한 여행지 추천 웹사이트, URAVEL</title>
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<%@ include file = "./header.jsp" %>
+<%@ include file = "../common/header.jsp" %>
     <main>
         <!--서비스 안내-->
         <div id="service-info">
@@ -109,6 +109,6 @@
             </table>
         </div>
     </main>
-<%@ include file = "./footer.jsp" %>
+<%@ include file = "../common/footer.jsp" %>
 </body>
 </html>

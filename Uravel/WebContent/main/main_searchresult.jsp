@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>검색 결과</title>
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 <style>
 	#search-result h1{
 		padding: 100px;
@@ -16,7 +16,7 @@
 </style>
 </head>
 <body>
-<%@ include file = "./header.jsp" %>
+<%@ include file = "../common/header.jsp" %>
 	<main>
         <!--검색 결과 표시-->
         <div id="search-result">
@@ -85,6 +85,6 @@
             </div>
         </div>
     </main>
-<%@ include file = "./footer.jsp" %>
+<%@ include file = "../common/footer.jsp" %>
 </body>
 </html>
