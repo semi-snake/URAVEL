@@ -8,7 +8,9 @@ public class Test {
 		System.out.println("Park Jun Mi");
 		
 		System.out.println("NOA");
-		
-		System.out.println("���̴�.");
+
+		System.out.println("���̴�.");
+    
+		System.out.println("사랑해요 연예가중계");
   }
 }
