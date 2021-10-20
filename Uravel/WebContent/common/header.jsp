@@ -13,7 +13,7 @@
 	<header>
 		<!-- 로고 : 메인페이지로 이동 -->
 		<h1>
-			<a href="${pageContext.request.contextPath}/UC?command=main" class="logo">URAVEL</a>
+			<a href="Controller?command=main" class="logo">URAVEL</a>
 		</h1>
 		<!-- 네비게이션 -->
 		<nav>
