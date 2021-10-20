@@ -33,7 +33,7 @@
 					<ul class="sub-menu">
 						<li><a href="#">FAQ</a></li>
 						<li><a href="#">1:1문의</a></li>
-					</ul></li>
+					</ul></li>	
 			</ul>
 			<!-- 네비게이션 : 로그인 -->
 			<ul class="login">
