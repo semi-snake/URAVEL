@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+
 </head>
 <body>
 		<!-- 상단부 -->
@@ -22,8 +22,8 @@
 			<ul class="menu">
 				<li><a href="#">여행지 추천</a> <!-- 하위 메뉴 -->
 					<ul class="sub-menu">
-						<li><a href="#">지역별</a></li>
-						<li><a href="#">테마별</a></li>
+						<li><a href="../travel/travelarea.jsp">지역별</a></li>
+						<li><a href="../travel/traveltheme.jsp">테마별</a></li>
 					</ul></li>
 				<li><a href="#">역사 문화</a></li>
 				<li><a href="#">후기</a></li>
@@ -32,7 +32,7 @@
 					<ul class="sub-menu">
 						<li><a href="#">FAQ</a></li>
 						<li><a href="#">1:1문의</a></li>
-					</ul></li>
+					</ul></li>	
 			</ul>
 			<!-- 네비게이션 : 로그인 -->
 			<ul class="login">
