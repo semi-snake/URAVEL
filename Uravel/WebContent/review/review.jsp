@@ -65,18 +65,16 @@ div {
 				<option value="5"></option>
 			</select>
 		</div>
-		<br> <br>
+		
 		<div id="search-box">
 			<form action="Controller" method="post">
 				<input type="hidden" name="command" value="searchMain"> <input
 					type="text" name="keyword" placeholder="내용을 입력해주세요"> <input
 					type="submit" value="검색">
-		</div>
+		
 		</form>
-
-		<br>
-
-
+		</div>
+		<div>
 		<table>
 			<colgroup>
 				<col width="100">
