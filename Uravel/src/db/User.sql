@@ -1,5 +1,5 @@
-drop table member;
-drop table social_member;
+DROP TABLE MEMBER;
+DROP TABLE SOCIAL_MEMBER;
 
 CREATE TABLE MEMBER (
   USERNO NUMBER,
