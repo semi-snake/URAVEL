@@ -7,13 +7,13 @@ public class TravelDto {
 	private int themecode;
 	private String address;
 	private String description;
-	private String urlpic;
+	private String url_pic;
 	public TravelDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public TravelDto(int travelno, String travelname, int localcode, int themecode, String address, String description,
-			String urlpic) {
+			String url_pic) {
 		super();
 		this.travelno = travelno;
 		this.travelname = travelname;
@@ -21,7 +21,7 @@ public class TravelDto {
 		this.themecode = themecode;
 		this.address = address;
 		this.description = description;
-		this.urlpic = urlpic;
+		this.url_pic = url_pic;
 	}
 	public int getTravelno() {
 		return travelno;
@@ -59,11 +59,11 @@ public class TravelDto {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getUrlpic() {
+	public String getUrl_pic() {
 		return urlpic;
 	}
-	public void setUrlpic(String urlpic) {
-		this.urlpic = urlpic;
+	public void setUrl_pic(String url_pic) {
+		this.url_pic = url_pic;
 	}
 	
 	
