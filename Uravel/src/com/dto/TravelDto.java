@@ -60,7 +60,7 @@ public class TravelDto {
 		this.description = description;
 	}
 	public String getUrl_pic() {
-		return urlpic;
+		return url_pic;
 	}
 	public void setUrl_pic(String url_pic) {
 		this.url_pic = url_pic;
