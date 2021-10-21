@@ -27,7 +27,7 @@ response.setContentType("text/html; charset=UTF-8");
 		<form name="board_list">
 			<div class="board_list">
 				<table class="table table-striped"
-					style="text-align: center; border: 1px solid #dddddd; margin-left: 10%;">
+					style="text-align: center; border: 1px solid #dddddd">
 
 					<colgroup>
 						<col class="thumnail">

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/register.css">
+<link rel="stylesheet" href="../css/loginstyle.css">
 </head>
 <body>
 	<form action="#" method="post">
