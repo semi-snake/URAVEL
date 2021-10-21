@@ -1,23 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
-request.setCharacterEncoding("UTF-8");
-%>
-<%
-response.setContentType("text/html; charset=UTF-8");
-%>
+    pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html; charset=UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>검색 결과</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <style>
-#search-result h1 {
-	padding: 100px;
-	background-color: skyblue;
-}
+	#search-result h1{
+		padding: 100px;
+		background-color: skyblue;
+	}
 </style>
 </head>
 <body>

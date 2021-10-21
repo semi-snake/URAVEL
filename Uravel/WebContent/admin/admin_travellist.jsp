@@ -5,11 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="${{pageContext.request.contextPath} }/css/style.css">
-<link rel="stylesheet"
-	href="${{pageContext.request.contextPath} }/css/admin.css">
-<script src="${{pageContext.request.contextPath} }/js/admin.js"></script>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
+<script src="${pageContext.request.contextPath}/js/admin.js"></script>
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
