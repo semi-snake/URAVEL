@@ -9,25 +9,29 @@ public class HistoryDto {
 	private String url_pic2;
 	private String source;
 	
+	private String travelname;
+	
 	public HistoryDto() {
 		super();
 	}
 	
-	public HistoryDto(int historyno, int travelno, String description, String url_pic1, String url_pic2,
+	public HistoryDto(int historyno, int travelno, String travelname, String description, String url_pic1, String url_pic2,
 			String source) {
 		super();
 		this.historyno = historyno;
 		this.travelno = travelno;
+		this.travelname = travelname;
 		this.description = description;
 		this.url_pic1 = url_pic1;
 		this.url_pic2 = url_pic2;
 		this.source = source;
 	}
 	
-	public HistoryDto(int historyno, String description, String url_pic1, String url_pic2,
+	public HistoryDto(int historyno, String travelname, String description, String url_pic1, String url_pic2,
 			String source) {
 		super();
 		this.historyno = historyno;
+		this.travelname = travelname;
 		this.description = description;
 		this.url_pic1 = url_pic1;
 		this.url_pic2 = url_pic2;
@@ -45,11 +49,18 @@ public class HistoryDto {
 	public int getTravelno() {
 		return travelno;
 	}
-
+	
 	public void setTravelno(int travelno) {
 		this.travelno = travelno;
 	}
-
+	
+	public String getTravelname() {
+		return travelname;
+	}
+	public void setTravelname(String travelname) {
+		this.travelname = travelname;
+	}
+	
 	public String getDescription() {
 		return description;
 	}
