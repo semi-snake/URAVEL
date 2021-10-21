@@ -2,39 +2,40 @@ package com.travel.dto;
 
 public class locationDto {
 	
-	private int LOCALCODE;
-	private String LOCALNAME;
+	private int localcode;
+	private String localname;
 	
 	
-	
-	
-	public locationDto(int lOCALCODE, String lOCALNAME) {
+	public locationDto(int localcode, String localname) {
 		super();
-		this.LOCALCODE = lOCALCODE;
-		this.LOCALNAME = lOCALNAME;
+		this.localcode = localcode;
+		this.localname = localname;
 	}
 
-	//생성자
-	public locationDto() {
-		super();
+
+	public int getLocalcode() {
+		return localcode;
+	}
+
+
+	public void setLocalcode(int localcode) {
+		this.localcode = localcode;
+	}
+
+
+	public String getLocalname() {
+		return localname;
+	}
+
+
+	public void setLocalname(String localname) {
+		this.localname = localname;
 	}
 	
-	//g&s
-	public int getLOCALCODE() {
-		return LOCALCODE;
-	}
-
-	public void setLOCALCODE(int lOCALCODE) {
-		LOCALCODE = lOCALCODE;
-	}
-
-	public String getLOCALNAME() {
-		return LOCALNAME;
-	}
-
-	public void setLOCALNAME(String lOCALNAME) {
-		LOCALNAME = lOCALNAME;
-	}
+	
+	
+	
+	
 	
 	
 }

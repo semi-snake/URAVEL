@@ -17,17 +17,21 @@ response.setContentType("text/html; charset=UTF-8");
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" href="../css/header.css">
-
+<link rel="stylesheet" href="../css/travelboard_detail.css">
 
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=078e401a64f63ae93818c494f7f8ac99&libraries=services"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+</script>
 
 </head>
 
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
-		<h1 class="page_title">
+		<h1 class="page_title" style="relative;">
 			<div class="page_title_name">테스트용</div>
 		</h1>
 
@@ -55,8 +59,7 @@ response.setContentType("text/html; charset=UTF-8");
 								src="http://drive.google.com/uc?export=view&id=1i9JyxxltWWcXP8cea-KpeXSaOelUfUq0"
 								style="width: 16px; height: 16px;"> <span
 								class="travel_address">주소</span> <span
-								class="travel_address_detail">: 테스트용 주소</span> <span
-								class="map_btn">지도</span>
+								class="travel_address_detail">: 테스트용 주소</span>
 						</div>
 						<div class="tell_num">
 							<img
@@ -78,8 +81,14 @@ response.setContentType("text/html; charset=UTF-8");
 							<h4 class="top_review"
 								style="margin-left: 15px; margin-top: 15px;">대표 리뷰:</h4>
 							<p class="comment" style="margin-left: 15px; margin-top: 15px">
-								여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글<input type="button" value="더보기">
+								여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글
+								여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글
+								여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글
+								여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글
+								여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글
+								여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글
 							</p>
+							<input id="detailViewBtn" type="button" value="더보기" style="margin-left: 15px;" onclick="";>
 
 						</div>
 					</div>
@@ -223,6 +232,22 @@ response.setContentType("text/html; charset=UTF-8");
 	<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
+
+<script type="text/javascript">
+$("#detailViewBtn").click(function(){$(".comment").css("overflow","auto")});
+
+
+var open = $(".comment").css("overflow")
+
+if(open==hidden){
+	$("#detailViewBtn").click(function(){$(".comment").css("overflow","auto")});
+}
+else{
+	$("#detailViewBtn").click(function(){$(".comment").css("overflow","hidden")});
+}
+console.log(open);
+</script>
+
 <script>
 
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

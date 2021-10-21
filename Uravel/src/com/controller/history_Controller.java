@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/historyController")
+
 public class history_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

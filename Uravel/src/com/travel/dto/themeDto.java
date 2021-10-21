@@ -2,40 +2,39 @@ package com.travel.dto;
 
 public class themeDto {
 	
-	private int THEMECODE;
-	private String THEMENAME;
+	private int themecode;
+	private String themename;
 	
 	//생성자
 	public themeDto() {
 		super();
 	}
-	
-	
-	
-	public themeDto(int tHEMECODE, String tHEMENAME) {
+
+	public themeDto(int themecode, String themename) {
 		super();
-		this.THEMECODE = tHEMECODE;
-		this.THEMENAME = tHEMENAME;
+		this.themecode = themecode;
+		this.themename = themename;
 	}
 
-
-
-	//g&s
-	public int getTHEMECODE() {
-		return THEMECODE;
+	public int getThemecode() {
+		return themecode;
 	}
 
-	public void setTHEMECODE(int tHEMECODE) {
-		THEMECODE = tHEMECODE;
+	public void setThemecode(int themecode) {
+		this.themecode = themecode;
 	}
 
-	public String getTHEMENAME() {
-		return THEMENAME;
+	public String getThemename() {
+		return themename;
 	}
 
-	public void setTHEMENAME(String tHEMENAME) {
-		THEMENAME = tHEMENAME;
+	public void setThemename(String themename) {
+		this.themename = themename;
 	}
+	
+	
+	
+
 	
 	
 	

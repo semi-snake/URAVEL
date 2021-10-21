@@ -12,10 +12,6 @@
 		<servlet-class>com.controller.UravelServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>UravelControl2</servlet-name>
-		<servlet-class>com.controller.UravelServlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>UravelControl3</servlet-name>
 		<servlet-class>com.controller.history_Controller</servlet-class>
 	</servlet>
@@ -24,7 +20,7 @@
 		<url-pattern>/UC</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>UravelControl2</servlet-name>
+		<servlet-name>UravelControl</servlet-name>
 		<url-pattern>/Controller</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>

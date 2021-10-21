@@ -2,73 +2,82 @@ package com.travel.dto;
 
 public class travelDto {
 
-	private int TRAVELNO, LOCALCODE, THEMECODE;
-	private String TRAVELNAME, ADDRESS, DESCRIPTION, URL_PIC;
+	private int travelno, localcode, themecode;
+	private String travelname, address, description, url_pic;
 	
 	//생성자
 	public travelDto() {
 		super();
 	}
-	
-	
-	
-	public travelDto(int tRAVELNO, int lOCALCODE, int tHEMECODE, String tRAVELNAME, String aDDRESS, String dESCRIPTION,
-			String uRL_PIC) {
+
+	public travelDto(int travelno, int localcode, int themecode, String travelname, String address, String description,
+			String url_pic) {
 		super();
-		this.TRAVELNO = tRAVELNO;
-		this.LOCALCODE = lOCALCODE;
-		this.THEMECODE = tHEMECODE;
-		this.TRAVELNAME = tRAVELNAME;
-		this.ADDRESS = aDDRESS;
-		this.DESCRIPTION = dESCRIPTION;
-		this.URL_PIC = uRL_PIC;
+		this.travelno = travelno;
+		this.localcode = localcode;
+		this.themecode = themecode;
+		this.travelname = travelname;
+		this.address = address;
+		this.description = description;
+		this.url_pic = url_pic;
 	}
 
+	public int getTravelno() {
+		return travelno;
+	}
 
+	public void setTravelno(int travelno) {
+		this.travelno = travelno;
+	}
 
-	//G&S
-	public int getTRAVELNO() {
-		return TRAVELNO;
+	public int getLocalcode() {
+		return localcode;
 	}
-	public void setTRAVELNO(int tRAVELNO) {
-		TRAVELNO = tRAVELNO;
+
+	public void setLocalcode(int localcode) {
+		this.localcode = localcode;
 	}
-	public int getLOCALCODE() {
-		return LOCALCODE;
+
+	public int getThemecode() {
+		return themecode;
 	}
-	public void setLOCALCODE(int lOCALCODE) {
-		LOCALCODE = lOCALCODE;
+
+	public void setThemecode(int themecode) {
+		this.themecode = themecode;
 	}
-	public int getTHEMECODE() {
-		return THEMECODE;
+
+	public String getTravelname() {
+		return travelname;
 	}
-	public void setTHEMECODE(int tHEMECODE) {
-		THEMECODE = tHEMECODE;
+
+	public void setTravelname(String travelname) {
+		this.travelname = travelname;
 	}
-	public String getTRAVELNAME() {
-		return TRAVELNAME;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setTRAVELNAME(String tRAVELNAME) {
-		TRAVELNAME = tRAVELNAME;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public String getADDRESS() {
-		return ADDRESS;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setADDRESS(String aDDRESS) {
-		ADDRESS = aDDRESS;
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public String getDESCRIPTION() {
-		return DESCRIPTION;
+
+	public String getUrl_pic() {
+		return url_pic;
 	}
-	public void setDESCRIPTION(String dESCRIPTION) {
-		DESCRIPTION = dESCRIPTION;
+
+	public void setUrl_pic(String url_pic) {
+		this.url_pic = url_pic;
 	}
-	public String getURL_PIC() {
-		return URL_PIC;
-	}
-	public void setURL_PIC(String uRL_PIC) {
-		URL_PIC = uRL_PIC;
-	}
+	
 	
 	
 }
