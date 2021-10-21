@@ -18,7 +18,8 @@
 			<li><h3>사용자 정보 관리</h3>
 				<ul>
 					<li><a href="Controller?command=userlistAll">전체 조회</a></li>
-					<li><a href="Controller?command=userListEnabled">활성된 회원만 조회</a></li>
+					<li><a href="Controller?command=userListEnabled">활성된 회원만
+							조회</a></li>
 				</ul></li>
 		</ul>
 	</div>
