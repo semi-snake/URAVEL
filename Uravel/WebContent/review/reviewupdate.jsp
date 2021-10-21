@@ -18,7 +18,7 @@ table {
 	<main>
 		<div class="reviewupdate">
 			<h1>후기 상세조회</h1>
-			<form action="" method="" >
+			<form action="" method="">
 				<input type="hidden" name="command" value="postReview">
 				<table>
 					<colgroup>
@@ -56,11 +56,9 @@ table {
 							<input type="button" value="목록" onclick=""></td>
 					</tr>
 				</table>
-				</form>
-				</div>
 	</main>
-	
-	<%@ include file="../common/footer.jsp"%>
+	</div>
 </body>
 </html>
-
+</body>
+</html>

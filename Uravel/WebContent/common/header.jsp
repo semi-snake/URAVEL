@@ -13,7 +13,7 @@
 	<header>
 		<!-- 로고 : 메인페이지로 이동 -->
 		<h1>
-			<a href="Controller?command=main" class="logo">URAVEL</a>
+			<a href="${pageContext.request.contextPath}/UC?command=main" class="logo">URAVEL</a>
 		</h1>
 		<!-- 네비게이션 -->
 		<nav>
@@ -21,8 +21,8 @@
 			<ul class="menu">
 				<li><a href="#">여행지 추천</a> <!-- 하위 메뉴 -->
 					<ul class="sub-menu">
-						<li><a href="../travel/travelarea.jsp">지역별</a></li>
-						<li><a href="../travel/traveltheme.jsp">테마별</a></li>
+						<li><a href="#">지역별</a></li>
+						<li><a href="#">테마별</a></li>
 					</ul></li>
 				<li><a href="#">역사 문화</a></li>
 				<li><a href="#">후기</a></li>
@@ -31,7 +31,7 @@
 					<ul class="sub-menu">
 						<li><a href="#">FAQ</a></li>
 						<li><a href="#">1:1문의</a></li>
-					</ul></li>	
+					</ul></li>
 			</ul>
 			<!-- 네비게이션 : 로그인 -->
 			<ul class="login">
