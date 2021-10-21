@@ -13,276 +13,30 @@ response.setContentType("text/html; charset=UTF-8");
 <title>게시글 클릭했을 때</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
-	rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap">
 <link rel="stylesheet" href="../css/header.css">
-<<<<<<< HEAD
 <link rel="stylesheet" href="../css/travelboard_detail.css">
-=======
-<style type="text/css">
-* {
-	font-family: 'Noto Sans KR', sans-serif;
-}
 
-footer {
-	bottom: 0;
-	width: 100%;
-	height: 100px;
-	background-color: white;
-}
->>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
-
-<<<<<<< HEAD
-<script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=078e401a64f63ae93818c494f7f8ac99&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=078e401a64f63ae93818c494f7f8ac99&libraries=services"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
-	
-</script>
-=======
-footer h5 {
-	text-align: center;
-}
->>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
 
-header {
-	position: sticky;
-	top: 0;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	width: 100%;
-	height: auto;
-	font-size: large;
-	background: white;
-	z-index: 1;
-	text-align: center;
-}
-
-.logo, .menu, .login, li {
-	display: inline-block;
-}
-
-header li {
-	margin-inline: 30px;
-}
-
-.logo {
-	float: left;
-	margin: 0;
-	font-weight: bold;
-	margin-inline-start: 60px;
-}
-
-.menu {
-	float: none;
-	font-weight: bold;
-}
-
-.login {
-	float: right;
-}
-
-header a {
-	text-decoration: none;
-	color: black;
-	vertical-align: middle;
-}
-
-header a:hover {
-	font-weight: bold;
-	background: linear-gradient(to top, skyblue 10%, transparent 10%);
-}
-
-.sub-menu {
-	display: none;
-	margin: 0;
-	padding: 0;
-	background-color: white;
-	text-align: center;
-	font-weight: normal;
-}
-
-.menu li:hover .sub-menu {
-	display: table;
-}
-
-.sub-menu li {
-	display: block;
-	margin: 0;
-}
-
-.sub-menu li:hover {
-	font-weight: bold;
-}
-
-@media ( max-width :768px) {
-	header {
-		position: relative;
-		display: inline-block;
-	}
-}
-
-.page_title {
-	margin-left: 10%;
-}
-
-.travel_name {
-	font-weight: bold;
-	color: #06AEBD;
-	font-size: 14px;
-}
-
-.travel_name_detail {
-	font-weight: bold;
-	font-size: 16px;
-}
-
-.map_box1 {
-	width: 100%;
-	height: 300px;
-}
-
-.map_name {
-	margin: 5px;
-}
-
-.map_address {
-	margin: 5px;
-}
-
-.travel_address {
-	font-weight: bold;
-	font-size: 16px;
-	color: #06AEBD;
-}
-
-.travel_address_detail {
-	font-weight: bold;
-	font-size: 16px;
-}
-
-.map_btn {
-	font-size: 13px;
-}
-
-.tell_number {
-	font-weight: bold;
-	font-size: 16px;
-	color: #06AEBD;
-}
-
-.tell_num {
-	margin: 5px;
-}
-
-.comment {
-	font-family: arial;
-	color: rgb(133, 146, 166);
-	line-height: 18px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-}
-
-.map_img {
-	position: inherit;
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	border-radius: 2px;
-	overflow: hidden;
-}
-
-.total_review {
-	margin: 5px;
-}
-
-.rating_review {
-	background: rgb(73, 120, 206);
-	display: inline-flex;
-	border-radius: 5px;
-	width: 44px;
-	-webkit-box-pack: center;
-	justify-content: center;
-	height: 22px;
-	-webkit-box-align: center;
-	align-items: center;
-}
-
-.info_box {
-	position: relative;
-	top: -86px;
-	display: inline-block;
-	margin-left: 10%;
-	width: 35%;
-	height: 602px;
-}
-
-.photo_box {
-	position: relative;
-	display: inline-block;
-	border: 1px groove;
-	width: 40%;
-	height: 600px;
-	margin-left: 4%;
-}
-
-.bottom_box {
-	width: 80%;
-	height: 100%;
-	position: relative;
-	border: hidden;
-	margin-left: 10%;
-	margin-right: 10%;
-}
-
-.page_style {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	display: inline-block;
-}
-
-.page_style a {
-	float: left;
-	display: block;
-	color: black;
-	text-align: center;
-	padding: 16px;
-	text-decoration: none;
-	transition: 0.5s;
-}
-
-.page_style a:hover {
-	transform: scale(1.5);
-	color: gray;
-	transition: 0.5s;
-}
-</style>
 </head>
-<body>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
-		<h1 class="page_title" style="relative;">
-			<div class="page_title_name">테스트용</div>
-		</h1>
-
+	<div class="page_title" style="position:relative;">
+		<h1>테스트용</h1>
+	</div>
+	
 		<div class="all_box">
 			<div class="top_box">
 				<div class="info_box">
 					<div
 						style="background-color: rgb(68, 138, 255, 0.1); position: relative;">
 						<div class="map_name">
-							<img
-								src="http://drive.google.com/uc?export=view&id=1i9JyxxltWWcXP8cea-KpeXSaOelUfUq0"
-								style="width: 16px; height: 16px;"> <span
-								class="travel_name">여행지 이름</span> <span
-								class="travel_name_detail" style="font-size: 24px">테스트용</span>
+							<img src="http://drive.google.com/uc?export=view&id=1i9JyxxltWWcXP8cea-KpeXSaOelUfUq0" style="width: 16px; height: 16px;"> 
+								<span class="travel_name">여행지 이름</span> 
+								<span class="travel_name_detail" style="font-size: 24px">테스트용</span>
 						</div>
 						<div class="total_review" style="margin-left: 23px;">
 							<div>
@@ -307,31 +61,14 @@ header a:hover {
 						</div>
 					</div>
 					<div class="map_box1">
-						<div id="">
-							<div class="map_container" style="width: 100%; height: 300px;">
-								<script type="text/javascript"
-									src="//dapi.kakao.com/v2/maps/sdk.js?appkey=078e401a64f63ae93818c494f7f8ac99"></script>
-								<script>
-									var container = document
-											.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+						<div id="map" style="width:100%; height:100%;">
 
-									var options = { //지도를 생성할 때 필요한 기본 옵션
-										center : new kakao.maps.LatLng(
-												33.450701, 126.570667), //지도의 중심좌표.
-										level : 3
-									//지도의 레벨(확대, 축소 정도)
-
-									};
-									var map = new kakao.maps.Map(container,
-											options); //지도 생성 및 객체 리턴
-								</script>
-							</div>
 						</div>
 					</div>
 
 					<div class="review">
 						<div class="comment_box"
-							style="background-color: rgb(68, 138, 255, 0.1); height: 170px;">
+							style="background-color: rgb(68, 138, 255, 0.1); height: 150px;">
 							<h4 class="top_review"
 								style="margin-left: 15px; margin-top: 15px;">대표 리뷰:</h4>
 							<p class="comment" style="margin-left: 15px; margin-top: 15px">
@@ -342,7 +79,7 @@ header a:hover {
 								여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글
 								여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글여기 정말 재밌었고 인상깊고 테스트용에 대한 리뷰 설명글
 							</p>
-							<input id="detailViewBtn" type="button" value="더보기" style="margin-left: 15px;" onclick="";>
+							<input id="detailViewBtn" type="button" value="더보기" style="margin-left: 15px;">
 
 						</div>
 					</div>
@@ -417,8 +154,7 @@ header a:hover {
 						<div class="content_container_review">
 							<ul class="review_list" style="padding: 20px;">
 								<div class="user_review" style="display: block;">
-									<li
-										style="border-top: 1px solid #DADFE6; display: flex; flex-direction: column; align-items: flex-start;">
+									<li style="border-top: 1px solid #DADFE6; display: flex; flex-direction: column; align-items: flex-start;">
 										<div class="user_info_box" style="display: flex;">
 											<div class="info_box_detail"
 												style="cursor: pointer; font-size: 18px; margin-left: 80px; margin-bottom: 20px; margin-top: 20px;">테스트닉네임</div>
@@ -487,21 +223,21 @@ header a:hover {
 	<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
-<<<<<<< HEAD
 
 <script type="text/javascript">
-$("#detailViewBtn").click(function(){$(".comment").css("overflow","auto")});
 
+//$("#detailViewBtn").click(function(){$(".comment").css("overflow","auto")});
 
-var open = $(".comment").css("overflow")
-
-if(open==hidden){
-	$("#detailViewBtn").click(function(){$(".comment").css("overflow","auto")});
-}
-else{
-	$("#detailViewBtn").click(function(){$(".comment").css("overflow","hidden")});
-}
-console.log(open);
+$("#detailViewBtn").click(function(){
+	
+	var open = $(".comment").css("overflow")
+	
+	if(open=="hidden"){ 
+		$(".comment").css("overflow","auto")
+	}else{ 
+		$(".comment").css("overflow","hidden")
+	}
+});
 </script>
 
 <script>
@@ -543,7 +279,3 @@ console.log(open);
 	} 
 	});  
 </script>
-=======
-</body>
-</html>
->>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
