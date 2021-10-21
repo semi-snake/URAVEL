@@ -29,10 +29,10 @@ public class UravelServlet extends HttpServlet {
 		if (command.equals("main")) { // 메인 페이지로 이동
 			WeatherDao w_dao = new WeatherDao();
 			request.setAttribute("w_dto", w_dao.forecast());
-			dispatch("main_index.jsp", request, response);
+			dispatch("main/main_index.jsp", request, response);
 		} else if (command.equals("searchMain")) { // 메인 페이지에서 검색된 결과를 보여줌
 			System.out.println("keyword : " + request.getParameter("keyword"));
-			dispatch("main_searchresult.jsp", request, response);
+			dispatch("main/main_searchresult.jsp", request, response);
 		}
 		/*
 		 * 관리자 페이지 - 여행지 정보 관리
