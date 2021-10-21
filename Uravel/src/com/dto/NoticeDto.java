@@ -1,24 +1,26 @@
 package com.dto;
 
-import java.util.Date;
-
 public class NoticeDto {
 	
 	private int noticeno;
 	private String title;
 	private String content;
-	private Date postdate;
 	public NoticeDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public NoticeDto(int noticeno, String title, String content, Date postdate) {
+	
+	
+	
+	public NoticeDto(int noticeno, String title, String content) {
 		super();
 		this.noticeno = noticeno;
 		this.title = title;
 		this.content = content;
-		this.postdate = postdate;
 	}
+	
+	
+	
 	public int getNoticeno() {
 		return noticeno;
 	}
@@ -37,13 +39,27 @@ public class NoticeDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getPostdate() {
-		return postdate;
-	}
-	public void setPostdate(Date postdate) {
-		this.postdate = postdate;
-	}
-	
-	
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+	

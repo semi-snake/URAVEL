@@ -9,9 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>역사/문화</title>
-<link rel="stylesheet" href="./historyStyle.css">
-<link rel="stylesheet" href="./header.css">
-
+<link rel="stylesheet" href="../css/historyStyle.css">
 </head>
 
 <body>
@@ -105,6 +103,6 @@
     
 	</main>
 
-<%@ include file = "./footer.jsp" %>
+<%@ include file = "../common/footer.jsp" %>
 </body>
 </html>

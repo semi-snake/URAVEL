@@ -1,21 +1,21 @@
 package com.dto;
 
-import java.util.Date;
-
 public class InquiryDto {
+	
 	private int inqno;
 	private int groupno;
 	private int userno;
 	private String que_type;
 	private String title;
 	private String content;
-	private Date postdate;
+	
+	
+	
 	public InquiryDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public InquiryDto(int inqno, int groupno, int userno, String que_type, String title, String content,
-			Date postdate) {
+	public InquiryDto(int inqno, int groupno, int userno, String que_type, String title, String content) {
 		super();
 		this.inqno = inqno;
 		this.groupno = groupno;
@@ -23,8 +23,10 @@ public class InquiryDto {
 		this.que_type = que_type;
 		this.title = title;
 		this.content = content;
-		this.postdate = postdate;
 	}
+	
+	
+	
 	public int getInqno() {
 		return inqno;
 	}
@@ -61,12 +63,22 @@ public class InquiryDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getPostdate() {
-		return postdate;
-	}
-	public void setPostdate(Date postdate) {
-		this.postdate = postdate;
-	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
