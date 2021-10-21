@@ -12,7 +12,7 @@ public class HistoryDto {
 	public HistoryDto() {
 		super();
 	}
-
+	
 	public HistoryDto(int historyno, int travelno, String description, String url_pic1, String url_pic2,
 			String source) {
 		super();
@@ -23,7 +23,17 @@ public class HistoryDto {
 		this.url_pic2 = url_pic2;
 		this.source = source;
 	}
-
+	
+	public HistoryDto(int historyno, String description, String url_pic1, String url_pic2,
+			String source) {
+		super();
+		this.historyno = historyno;
+		this.description = description;
+		this.url_pic1 = url_pic1;
+		this.url_pic2 = url_pic2;
+		this.source = source;
+	}
+	
 	public int getHistoryno() {
 		return historyno;
 	}
