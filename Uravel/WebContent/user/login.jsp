@@ -7,13 +7,18 @@
 <title>로그인 페이지</title>
 <link rel="stylesheet" href="../css/loginstyle.css">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script type="text/javascript">
+	function registForm(){
+		location.href="logincontroller.jsp?command=registform";
+	}
+</script>
 
 </head>
 <body>
 <div class="bg-img">
 		<div class="content">
 			<header>URAVEL</header>
-			<form action="#">
+			<form action="logincontroller.jsp" method="post">
 				<div class="field">
 					<span class="fa fa-user"></span>
 					<input type="text" placeholder="ID">
