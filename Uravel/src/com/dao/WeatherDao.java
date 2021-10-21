@@ -9,7 +9,7 @@ import com.dto.WeatherDto;
 import com.google.gson.JsonObject;
 
 import api.weather.WeatherAPI;
-import common.JDBCTemplate;
+import static common.JDBCTemplate.getConnection;
 
 public class WeatherDao {
 	public WeatherDto forecast() {
@@ -33,7 +33,7 @@ public class WeatherDao {
 	}
 
 	public static String translate(int w_id) {
-		Connection con = JDBCTemplate.getConnection();
+		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		String res = "";
@@ -52,6 +52,7 @@ public class WeatherDao {
 
 			System.out.println("04. 쿼리 실행 및 리턴");
 		} catch (SQLException e) {
+			System.out.println("3/4단계 에러");
 			e.printStackTrace();
 		}
 

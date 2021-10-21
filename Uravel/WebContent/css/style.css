@@ -2,14 +2,16 @@
 
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-*{
+* {
 	font-family: "Noto Sans KR", sans-serif !important;
 }
-body{
+
+body {
 	margin-left: 0;
 	margin-right: 0;
 	text-align: center;
 }
+
 main div {
 	margin-bottom: 100px;
 }
@@ -38,28 +40,6 @@ main div {
 	width: 240px;
 	height: 160px;
 	margin: 0;
-}
-
-.review-list article, .review-list section {
-	display: inline-block;
-	margin-inline: 20px;
-	vertical-align: middle;
-}
-
-.review-list a {
-	text-decoration: none;
-	color: black;
-}
-
-.review-list h5, h6 {
-	text-align: left;
-}
-
-.review-list article img {
-	width: 50px;
-	height: 50px;
-	border-radius: 100%;
-	background: gray;
 }
 
 .image-list a {

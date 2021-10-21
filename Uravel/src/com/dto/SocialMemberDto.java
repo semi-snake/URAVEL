@@ -1,10 +1,10 @@
-package com.login.dto;
+package com.dto;
 
 public class SocialMemberDto {
 
 	private int userid;
 	private String social_type;
-	
+
 	public SocialMemberDto() {
 		super();
 	}
@@ -30,7 +30,5 @@ public class SocialMemberDto {
 	public void setSocial_type(String social_type) {
 		this.social_type = social_type;
 	}
-	
-	
-	
+
 }

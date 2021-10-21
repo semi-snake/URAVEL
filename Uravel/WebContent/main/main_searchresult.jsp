@@ -1,20 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>
-<% response.setContentType("text/html; charset=UTF-8"); %>
+	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+%>
+<%
+response.setContentType("text/html; charset=UTF-8");
+%>
+
+<%@ page import="com.dto.TravelDto"%>
+<%@ page import="java.util.List"%>
+
+<%
+List<TravelDto> res = (List<TravelDto>) request.getAttribute("res");
+%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>검색 결과</title>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<style>
-	#search-result h1{
-		padding: 100px;
-		background-color: skyblue;
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/search.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	function clickArticle(travelno){
+		window.location.href="Controller?command=traveldetail&travelno=" + travelno;
 	}
-</style>
+</script>
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
@@ -26,65 +41,51 @@
 			</h1>
 			<br>
 			<h2>사이트 내 검색</h2>
-			<br>
-			<div class="info-list">
-				<div class="image-list">
-					<a href="#"> <img
-						src="https://cdn.crowdpic.net/list-thumb/thumb_l_0FE32A6276E052E847372AD89788CDB1.jpeg"
-						alt=""> <span>정보1</span>
-					</a> <a href="#"> <img
-						src="https://mblogthumb-phinf.pstatic.net/20150214_255/avnet75_1423874818667ysVFR_JPEG/008.JPG?type=w2"
-						alt=""> <span>정보2</span>
-					</a> <a href="#"> <img
-						src="https://gwanghwamun.seoul.go.kr/mcms/upload/encoding/image/2021/08/MIG_PT_PH_00000608002.jpg"
-						alt=""> <span>정보3</span>
-					</a> <a href="#"> <img
-						src="https://live.staticflickr.com/5598/15354504160_f0997ae50f_b.jpg"
-						alt=""> <span>정보4</span>
-					</a>
-				</div>
+			<div class="result-list">
+				<c:choose>
+					<c:when test="${empty res }">
+						<span>검색된 데이터가 없습니다.</span>
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="dto" items="${res }">
+							<article onclick="clickArticle(${dto.travelno})">
+								<section>
+									<img src="${dto.pic_arr[0]}" alt="${dto.travelname }">
+								</section>
+								<section>
+									<span class="result-list-title">${dto.travelname }</span> <span
+										class="result-list-content">${dto.address }</span> <span
+										class="result-list-content">${dto.description }</span>
+								</section>
+							</article>
+						</c:forEach>
+
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<h2>외부 사이트 리뷰</h2>
 			<br>
 			<div class="review-list">
 				<article>
-					<a href="#">
-						<section>
-							<img
-								src="https://live.staticflickr.com/5598/15354504160_f0997ae50f_b.jpg"
-								alt="리뷰1">
-						</section>
-						<section>
-							<h5>1번 리뷰</h5>
-							<h6>1번 리뷰입니다.</h6>
-						</section>
-					</a>
-				</article>
-				<article>
-					<a href="#">
-						<section>
-							<img
-								src="https://live.staticflickr.com/5598/15354504160_f0997ae50f_b.jpg"
-								alt="리뷰1">
-						</section>
-						<section>
-							<h5>2번 리뷰</h5>
-							<h6>2번 리뷰입니다.</h6>
-						</section>
-					</a>
-				</article>
-				<article>
-					<a href="#">
-						<section>
-							<img
-								src="https://live.staticflickr.com/5598/15354504160_f0997ae50f_b.jpg"
-								alt="리뷰1">
-						</section>
-						<section>
-							<h5>3번 리뷰</h5>
-							<h6>3번 리뷰입니다.</h6>
-						</section>
-					</a>
+					<section>
+						<a href="#"> <img
+							src="https://live.staticflickr.com/5598/15354504160_f0997ae50f_b.jpg"
+							alt="리뷰1"> <span class="review-list-title">1번 리뷰</span> <span
+							class="review-list-content">1번 리뷰입니다.</span>
+						</a>
+					</section>
+					<section>
+						<a href="#"> <img
+							src="https://live.staticflickr.com/5598/15354504160_f0997ae50f_b.jpg"
+							alt="리뷰1"> <span>1번 리뷰</span> <span>1번 리뷰입니다.</span>
+						</a>
+					</section>
+					<section>
+						<a href="#"> <img
+							src="https://live.staticflickr.com/5598/15354504160_f0997ae50f_b.jpg"
+							alt="리뷰1"> <span>1번 리뷰</span> <span>1번 리뷰입니다.</span>
+						</a>
+					</section>
 				</article>
 			</div>
 		</div>

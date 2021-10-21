@@ -56,11 +56,6 @@ main a:hover {
 	padding: 10px;
 }
 
-.post-list a {
-	font-size: small;
-	font-weight: bold;
-}
-
 .pagenation {
 	list-style-type: none;
 	text-align: center;

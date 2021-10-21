@@ -5,7 +5,7 @@
 	version="4.0">
 	<display-name>Uravel</display-name>
 	<welcome-file-list>
-		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>main/default.jsp</welcome-file>
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>UC</servlet-name>

@@ -1,14 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+%>
+<%
+response.setContentType("text/html; charset=UTF-8");
+%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ page import="com.dto.TravelDto"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/admin.css">
 <script src="${pageContext.request.contextPath}/js/admin.js"></script>
 </head>
+<%
+TravelDto res = (TravelDto) request.getAttribute("res");
+%>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
@@ -35,7 +49,7 @@
 					<!-- 게시글 표시 : 여행지 이름 -->
 					<tr>
 						<th>여행지 이름</th>
-						<td>여행지1</td>
+						<td>${res.travelname}</td>
 					</tr>
 					<!-- 게시글 표시 : 여행지 지역 정보 -->
 					<tr>
