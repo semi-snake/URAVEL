@@ -15,33 +15,35 @@
 
 </head>
 <body>
-<div class="bg-img">
+	<div>
 		<div class="content">
 			<header>URAVEL</header>
 			<form action="logincontroller.jsp" method="post">
+			<input type="hidden" name="command" value="login">
 				<div class="field">
 					<span class="fa fa-user"></span>
-					<input type="text" placeholder="ID">
+					<input type="text" placeholder="ID" name="id">
 				</div>
 				<div class="field space">
 					<span class="fa fa-lock"></span>
-					<input type="password" placeholder="Password">
+					<input type="password" placeholder="Password" name="pw">
 				</div>
 				<div class="field">
 					<input type="submit" value="LOGIN">
 				</div>
 				<div class="field space">
-					<input type="submit" value="회원가입">
+					<input type="button" value="회원가입" onclick="">
 				</div>
 				<div class="login">Or login with</div>
+				
 				<div class="kakaotalk">
-				<img src="kakao.png" width="200px" height="50px">
+				
 				</div>
 				<div class="naver">
-				<img src="naver.png" width="200px" height="50px">
+				
 				</div>
 				
-				
+				<%@ include file="./kakaoAPI.jsp"%>
 			</form>
 		</div>
 	</div>
