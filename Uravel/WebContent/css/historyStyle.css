@@ -146,30 +146,6 @@ input[type="submit"]:hover,[type="button"]:hover {
 	opacity: 1;
 }
 
-/***************************/
-/******** Page List ********/
-.page-list {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	display: inline-block;
-}
-
-.page-list a {
-	float: left;
-	display: block;
-	color: gainsboro;
-	text-align: center;
-	padding: 16px;
-	text-decoration: none;
-	transition: 0.5s;
-}
-
-.page-list a:hover {
-	transform: scale(1.5);
-	color: rgb(199, 199, 199);
-	transition: 0.5s;
-}
 
 /*****************************************************************/
 /* History Detail */
@@ -210,6 +186,13 @@ input[type="submit"]:hover,[type="button"]:hover {
 	font-size:12pt;
 	line-height:24px;
 }
+.history-desc-source-text{
+	width:90%;
+	word-break:break-all;
+	font-size:9pt;
+	color: #666666;
+}
+
 
 
 /***********************/

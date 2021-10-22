@@ -8,6 +8,8 @@
 <%@ page import="com.dto.HistoryDto" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<% List<HistoryDto> list = (List<HistoryDto>)request.getAttribute("list"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +26,7 @@
 	    <!-- 상단 제목 및 사진 부분 -->
 	    <div class="history-title">
 	    	<!-- 번역 언어 선택 -->
-	        <select class="choose-lang" onchange="location.href='historyController?command=language">
+	        <select class="choose-lang" onchange="location.href='history_Controller?command=language">
 	            <option value="ko">한국어</option>
 	            <option value="en">English</option>
 	            <option value="ja">日本語</option>
@@ -40,7 +42,7 @@
                 <input type="hidden" name="command" value="history-search">
                 <input type="text" name="keyword">
                 <input type="submit" value="검색">
-                <input type="button" value="글쓰기" onclick="location.href='historyController?command=write'">
+                <input type="button" value="글쓰기" onclick="location.href='history_Controller?command=writeform'">
             </form>
         </div>
     
@@ -53,8 +55,9 @@
 	            </c:when>
 	            <c:otherwise>
 		        	<c:forEach var="dto" items="${list}">
+		        	<c:set var="historyno" value="${dto.historyno}" />
 		            <li>
-		                <a href="history_Controller?command=desc&historyno=${dto.historyno}">
+		                <a href="history_Controller?command=desc&historyno=${historyno}">
 		                   <img src="${dto.url_pic1}">
 		                   <span>${dto.travelname }</span>
 		                </a>
@@ -62,11 +65,8 @@
 		            </c:forEach>
 		        </c:otherwise>
         	</c:choose>
-	          
 	        </ul>
-	        
     	</div>
-    
 	</main>
 
 <%@ include file = "../common/footer.jsp" %>
