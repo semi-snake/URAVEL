@@ -22,10 +22,13 @@ response.setContentType("text/html; charset=UTF-8");
 </head>
 <%
 TravelDto res = (TravelDto) request.getAttribute("res");
+int length = res.getPic_arr().length;
+pageContext.setAttribute("length", length);
 %>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
+		<%@ include file="./admin_title.jsp"%>
 		<!-- 관리자 메뉴 : 사이드 -->
 		<%@ include file="./admin_side.jsp"%>
 		<!-- 관리자 본문 -->
@@ -42,8 +45,10 @@ TravelDto res = (TravelDto) request.getAttribute("res");
 					<!-- 게시글 표시 : 이미지 -->
 					<tr>
 						<th>이미지</th>
-						<td><c:forEach var="i" begin="0" end="${pic_arr.length}">
-								<img width="300px" src="${res.pic_arr[i]}" alt="image">
+						<td><c:forEach var="i" begin="0" end="${length}">
+							<c:if test="${i<length }">
+									<img width="300px" src="${res.pic_arr[i]}" alt="image">
+								</c:if>
 							</c:forEach></td>
 					</tr>
 					<!-- 게시글 표시 : 여행지 이름 -->

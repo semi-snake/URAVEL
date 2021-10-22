@@ -10,6 +10,13 @@ response.setContentType("text/html; charset=UTF-8");
 
 <%@ page import="com.dto.TravelDto"%>
 <%@ page import="java.util.List"%>
+<%
+int pageno = 1;
+if (request.getParameter("page") != null) {
+	pageno = Integer.parseInt(request.getParameter("page"));
+}
+pageContext.setAttribute("pageno", pageno);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,24 +29,21 @@ response.setContentType("text/html; charset=UTF-8");
 	href="${pageContext.request.contextPath}/css/admin.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	$(function(){
-		<%
-			int pageno = 1;
-			if(request.getParameter("page")!=null){
-				pageno = Integer.parseInt(request.getParameter("page"));
-			}
-		%>
-		$('a[title="<%=pageno%>"]').addClass('page-selected');
+	$(function() {
+		$('a[title="${pageno}"]').addClass('page-selected');
 	});
 </script>
 </head>
 <%
 List<TravelDto> res = (List<TravelDto>) request.getAttribute("res");
 int size = (int) request.getAttribute("size");
+int end = (size / 15 + 1);
+pageContext.setAttribute("end", end);
 %>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
+		<%@ include file="./admin_title.jsp"%>
 		<!-- 관리자 메뉴 : 사이드 -->
 		<%@ include file="./admin_side.jsp"%>
 		<!-- 관리자 본문 -->
@@ -120,16 +124,24 @@ int size = (int) request.getAttribute("size");
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
+						<tr style="border-top: 1px black dashed;">
+							<td align="right" colspan="4"></td>
+							<td><a href="Controller?command=insertTravel">등록하기</a></td>
+						</tr>
 					</tbody>
 				</table>
 				<ul class="pagenation">
-					<li><a href="#">이전</a></li>
-					<c:forEach var="i" begin="1" end="${size/15+1}">
+					<c:if test="${pageno ne 1}">
+						<li><a href="${pageContext.request.contextPath}/Controller?command=travellist&page=${pageno-1}">이전</a></li>
+					</c:if>
+					<c:forEach var="i" begin="1" end="${end}">
 						<li><a
-							href="${pageContext.request.contextPath}/Controller?command=travellist&page=${i}" title="${i}">${i}</a>
-						</li>
+							href="${pageContext.request.contextPath}/Controller?command=travellist&page=${i}"
+							title="${i}">${i}</a></li>
 					</c:forEach>
-					<li><a href="#">다음</a></li>
+					<c:if test="${pageno ne end}">
+						<li><a href="${pageContext.request.contextPath}/Controller?command=travellist&page=${pageno+1}">다음</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>

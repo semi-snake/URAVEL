@@ -97,9 +97,9 @@ public class UravelServlet extends HttpServlet {
 		 * 관리자 페이지 - 사용자 정보 관리
 		 */
 		else if (command.equals("userlistAll")) {
-			dispatch("admin_userlistAll.jsp", request, response);
+			dispatch("admin/admin_userlistAll.jsp", request, response);
 		} else if (command.equals("userListEnabled")) {
-			dispatch("admin_userlistEnabled.jsp", request, response);
+			dispatch("admin/admin_userlistEnabled.jsp", request, response);
 		}
 	}
 

@@ -13,6 +13,7 @@
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
+		<%@ include file="./admin_title.jsp"%>
 		<!-- 관리자 메뉴 : 사이드 -->
 		<%@ include file="./admin_side.jsp"%>
 		<!-- 관리자 본문 -->
