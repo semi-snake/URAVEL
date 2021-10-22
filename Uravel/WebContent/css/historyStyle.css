@@ -251,7 +251,7 @@ input[type="submit"]:hover,[type="button"]:hover {
 	text-align:left;
 }
 
-input[name="history-form-writer"],[name="history-form-title"],[name="history-form-url"]{
+input[name="history-form-writer"],[name="history-form-title"],[name="history-form-url"],[name="history-form-source"]{
 	font-size: 11pt;
 	width: 85%;
 	height: 30px;

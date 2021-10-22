@@ -4,14 +4,16 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 
+<%@ page import="java.util.List" %>
+<%@ page import="com.dto.HistoryDto" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>역사/문화</title>
-<link rel="stylesheet" href="./historyStyle.css">
-<link rel="stylesheet" href="./header.css">
-
+<link rel="stylesheet" href="../css/historyStyle.css">
 </head>
 
 <body>
@@ -45,66 +47,28 @@
     	<!-- 목록 -->
     	<div id="history-list">
 	        <ul class="image-list">
-	            <li>
-	                <a href="historyController?command=desc">
-	                    <img src="http://www.heritage.go.kr/unisearch/images/national_treasure/2021062917265903.jpg" alt="">
-	                    <span>경복궁</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a href="historyController?command=desc">
-	                    <img src="http://www.heritage.go.kr/unisearch/images/national_treasure/1611760.jpg" alt="">
-	                    <span>창경궁</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a href="historyController?command=desc">
-	                    <img src="http://www.heritage.go.kr/unisearch/images/history_site/2021070809303201.jpg" alt="">
-	                    <span>덕수궁</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a href="historyController?command=desc">
-	                    <img src="http://www.heritage.go.kr/unisearch/images/history_site/2021071211001301.jpg" alt="">
-	                    <span>선정릉(선릉과 정릉)</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a href="historyController?command=desc">
-	                    <img src="http://www.heritage.go.kr/unisearch/images/history_site/1624838.jpg" alt="">
-	                    <span>백제고분군</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a href="historyController?command=desc">
-	                    <img src="https://cdn.ilyoseoul.co.kr/news/photo/202108/456307_375351_4051.jpg" alt="">
-	                    <span>길상사</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a href="historyController?command=desc">
-	                    <img src="http://www.heritage.go.kr/unisearch/images/national_treasure/2021063016361203.jpg" alt="">
-	                    <span>종묘</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a href="historyController?command=desc">
-	                    <img src="http://www.heritage.go.kr/unisearch/images/national_treasure/2021092813404100.jpg" alt="">
-	                    <span>국립중앙박물관</span>
-	                </a>
-	            </li>
+	        <c:choose>
+	            <c:when test="${empty list}">
+	                <li>글이 존재하지 않습니다.</li>
+	            </c:when>
+	            <c:otherwise>
+		        	<c:forEach var="dto" items="${list}">
+		            <li>
+		                <a href="history_Controller?command=desc&historyno=${dto.historyno}">
+		                   <img src="${dto.url_pic1}">
+		                   <span>${dto.travelname }</span>
+		                </a>
+		            </li>
+		            </c:forEach>
+		        </c:otherwise>
+        	</c:choose>
+	          
 	        </ul>
-	        <div class="page-list">
-	            <a href="#">●</a>
-	            <a href="#">●</a>
-	            <a href="#">●</a>
-	            <a href="#">●</a>
-	        </div>
+	        
     	</div>
-    
     
 	</main>
 
-<%@ include file = "./footer.jsp" %>
+<%@ include file = "../common/footer.jsp" %>
 </body>
 </html>
