@@ -112,14 +112,11 @@ int size = (int) request.getAttribute("size");
 				</table>
 				<ul class="pagenation">
 					<li><a href="#">이전</a></li>
-					<%
-					for (int i = 0; i < size / 15 + 1; i++) {
-					%>
-					<li><a
-						href="${pageContext.request.contextPath}/Controller?command=travellist&page=<%=i + 1%>"><%=i + 1%></a></li>
-					<%
-					}
-					%>
+					<c:forEach var="i" begin="1" end="${size/15+1}">
+						<li><a
+							href="${pageContext.request.contextPath}/Controller?command=travellist&page=${i}">${i}</a>
+						</li>
+					</c:forEach>
 					<li><a href="#">다음</a></li>
 				</ul>
 			</div>

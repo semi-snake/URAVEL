@@ -47,7 +47,12 @@ public class UravelServlet extends HttpServlet {
 		 * 관리자 페이지 - 여행지 정보 관리
 		 */
 		else if (command.equals("travellist")) { // 여행지 정보 리스팅
-			int page = Integer.parseInt(request.getParameter("page"));
+			int page = 0;
+			if (request.getParameter("page") == null) {
+				page = 1;
+			} else {
+				page = Integer.parseInt(request.getParameter("page"));
+			}
 			int begin = page * 15 - 14;
 			int end = page * 15;
 
@@ -62,15 +67,21 @@ public class UravelServlet extends HttpServlet {
 			int travelno = Integer.parseInt(request.getParameter("travelno"));
 
 			TravelDto res = a_dao.selectInfo(travelno);
-
 			request.setAttribute("res", res);
+
 			dispatch("admin/admin_travelinfo.jsp", request, response);
+
 		} else if (command.equals("insertTravel")) { // 여행지 정보 등록 페이지로 이동
 			dispatch("admin/admin_insertinfo.jsp", request, response);
+
 		} else if (command.equals("updateTravel")) { // 여행지 정보 수정 페이지로 이동
 			int travelno = Integer.parseInt(request.getParameter("travelno"));
-			System.out.println("travelno : " + travelno);
+
+			TravelDto res = a_dao.selectInfo(travelno);
+			request.setAttribute("res", res);
+
 			dispatch("admin/admin_updateinfo.jsp", request, response);
+
 		} else if (command.equals("deleteTravel")) { // 여행지 정보 삭제하기
 			int travelno = Integer.parseInt(request.getParameter("travelno"));
 			System.out.println("travelno : " + travelno);
