@@ -9,6 +9,9 @@ response.setContentType("text/html; charset=UTF-8");
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page import="com.dto.TravelDto"%>
+<%
+TravelDto res = (TravelDto) request.getAttribute("res");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +22,17 @@ response.setContentType("text/html; charset=UTF-8");
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin.css">
 <script src="${pageContext.request.contextPath}/js/admin.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- 현재 여행지 정보에 해당하는 SELECT 옵션이 선택되도록 하는 JS 코드 -->
+
+<script>
+	$(function(){
+		document.getElementsByName('localcode')[0].options[<%=res.getLocalcode()-1%>].selected = true;
+		document.getElementsByName('themecode')[0].options[<%=res.getThemecode()-1%>].selected = true;
+	});
+</script>
 </head>
-<%
-TravelDto res = (TravelDto) request.getAttribute("res");
-%>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>

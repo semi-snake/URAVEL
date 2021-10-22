@@ -20,6 +20,18 @@ response.setContentType("text/html; charset=UTF-8");
 	href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function(){
+		<%
+			int pageno = 1;
+			if(request.getParameter("page")!=null){
+				pageno = Integer.parseInt(request.getParameter("page"));
+			}
+		%>
+		$('a[title="<%=pageno%>"]').addClass('page-selected');
+	});
+</script>
 </head>
 <%
 List<TravelDto> res = (List<TravelDto>) request.getAttribute("res");
@@ -114,7 +126,7 @@ int size = (int) request.getAttribute("size");
 					<li><a href="#">이전</a></li>
 					<c:forEach var="i" begin="1" end="${size/15+1}">
 						<li><a
-							href="${pageContext.request.contextPath}/Controller?command=travellist&page=${i}">${i}</a>
+							href="${pageContext.request.contextPath}/Controller?command=travellist&page=${i}" title="${i}">${i}</a>
 						</li>
 					</c:forEach>
 					<li><a href="#">다음</a></li>

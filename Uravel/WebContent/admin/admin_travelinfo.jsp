@@ -42,7 +42,9 @@ TravelDto res = (TravelDto) request.getAttribute("res");
 					<!-- 게시글 표시 : 이미지 -->
 					<tr>
 						<th>이미지</th>
-						<td><img width="300px" src="${res.pic_arr[0]}" alt="image"></td>
+						<td><c:forEach var="i" begin="0" end="${pic_arr.length}">
+								<img width="300px" src="${res.pic_arr[i]}" alt="image">
+							</c:forEach></td>
 					</tr>
 					<!-- 게시글 표시 : 여행지 이름 -->
 					<tr>

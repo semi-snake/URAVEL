@@ -71,8 +71,8 @@ main a:hover {
 }
 
 .page-selected {
-	background-color: whitesmoke;
 	font-weight: bold;
+	color: blue;
 }
 
 .travel-info-list, travel-info {
