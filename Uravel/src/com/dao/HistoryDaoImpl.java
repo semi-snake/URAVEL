@@ -67,6 +67,7 @@ public class HistoryDaoImpl implements HistoryDao {
 			
 			while(rs.next()) {
 				res = new HistoryDto();
+				res.setHistoryno(rs.getInt("historyno"));
 				res.setTravelname(rs.getString("travelname"));
 				res.setUrl_pic1(rs.getString("url_pic1"));
 				res.setUrl_pic2(rs.getString("url_pic2"));
@@ -90,14 +91,14 @@ public class HistoryDaoImpl implements HistoryDao {
 	public boolean insert(Connection con, HistoryDto dto) {
 		int res = 0;
 		try {
-			// INSERT INTO HISTORY(TRAVELNO,TRAVELNAME,URL_PIC1,URL_PIC2,DESCRIPTION,SOURCE) VALUES(?,?,?,?,?)
+			// INSERT INTO HISTORY(HISTORYNO,TRAVELNO,TRAVELNAME,URL_PIC1,URL_PIC2,DESCRIPTION,SOURCE) VALUES(?,?,?,?,?,?,?)
 			pstm = con.prepareStatement(insertSql);
 			pstm.setString(1, dto.getTravelname());
 			pstm.setString(2, dto.getUrl_pic1());
 			pstm.setString(3, dto.getUrl_pic2());
 			pstm.setString(4, dto.getDescription());
 			System.out.println("03.query 준비: "+insertSql);
-			
+						
 			res = pstm.executeUpdate();
 			System.out.println("04.query 실행 및 리턴");
 			
@@ -114,9 +115,30 @@ public class HistoryDaoImpl implements HistoryDao {
 
 	@Override
 	public boolean update(Connection con, HistoryDto dto) {
+		int res = 0;
 		
+		try {
+			//UPDATE HISTORY SET TRAVELNAME=?, URL_PIC1=?, URL_PIC2=?, DESCRIPTION=?, SOURCE=? WHERE HISTORYNO=?
+			pstm = con.prepareStatement(updateSql);
+			pstm.setString(1, dto.getTravelname());
+			pstm.setString(2, dto.getUrl_pic1());
+			pstm.setString(3, dto.getUrl_pic2());
+			pstm.setString(4, dto.getDescription());
+			pstm.setString(5, dto.getSource());
+			pstm.setInt(6, dto.getHistoryno());
+			System.out.println("03.query 준비: "+updateSql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04.query 실행 및 리턴");
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 오류");
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+		}
 		
-		return false;
+		return (res>0)? true:false;
 	}
 
 	@Override

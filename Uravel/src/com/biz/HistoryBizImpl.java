@@ -52,8 +52,17 @@ public class HistoryBizImpl implements HistoryBiz{
 
 	@Override
 	public boolean update(HistoryDto dto) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean res = dao.update(con, dto);
+		
+		if(res) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);
+		System.out.println("05.db 종료\n");
+		
+		return res;
 	}
 
 	@Override

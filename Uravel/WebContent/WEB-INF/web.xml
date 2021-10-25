@@ -11,6 +11,10 @@
 		<servlet-name>UC</servlet-name>
 		<servlet-class>com.controller.UravelServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>UC2</servlet-name>
+		<servlet-class>com.controller.history_Controller</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>UC</servlet-name>
 		<url-pattern>/UC</url-pattern>
@@ -36,7 +40,7 @@
 		<url-pattern>/admin/Controller</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>UC</servlet-name>
+		<servlet-name>UC2</servlet-name>
 		<url-pattern>/history_Controller</url-pattern>
 	</servlet-mapping>
 </web-app>

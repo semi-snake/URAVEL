@@ -157,6 +157,10 @@ input[type="submit"]:hover,[type="button"]:hover {
 	margin-left:60px;
 	margin-right:60px;
 }
+.history-desc-titlebox{
+	width:300px;
+	
+}
 .history-desc-title{
 	margin: 40px 0 1px 40px;
 	color:#333333;
@@ -165,7 +169,7 @@ input[type="submit"]:hover,[type="button"]:hover {
 	margin-left:15px;
 	margin-bottom:50px;
 	border:none;
-	width:20%;
+	width:100%;
 	height:1px;
 	background-color: #b7b7b7;
 }
@@ -234,7 +238,7 @@ input[type="submit"]:hover,[type="button"]:hover {
 	text-align:left;
 }
 
-input[name="history-form-writer"],[name="history-form-title"],[name="history-form-url"],[name="history-form-source"]{
+input[name="history-form-writer"],[name="history-form-title"],[name="history-form-url1"],[name="history-form-url2"],[name="history-form-source"]{
 	font-size: 11pt;
 	width: 85%;
 	height: 30px;

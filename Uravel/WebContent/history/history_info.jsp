@@ -12,7 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <title>역사/문화</title>
-<link rel="stylesheet" href="../css/historyStyle.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/historyStyle.css">
 </head>
 <body>
 <%@ include file = "../common/header.jsp" %>
@@ -22,7 +22,7 @@
 	    <!-- 상단 제목 및 사진 부분 -->
 	    <div class="history-title">
 	    	<!-- 번역 언어 선택 -->
-	        <select class="choose-lang" onchange="location.href='historyController?command=language">
+	        <select class="choose-lang" name="lang" onchange="location.href='historyController?command=language">
 	            <option value="ko">한국어</option>
 	            <option value="en">English</option>
 	            <option value="ja">日本語</option>
@@ -50,10 +50,10 @@
 	    	
 	    	<hr class="history-desc-under02">
 	    	<div class="history-desc-buttons">
-		    	<input type="button" value="수정" onclick="location.href='historyController?command=update'">
+		    	<input type="button" value="수정" onclick="location.href='history_Controller?command=updateform&historyno=${dto.historyno}'">
 		    	<input type="button" value="삭제" onclick="">
-		    	<input type="button" value="글쓰기" onclick="location.href='historyController?command=write'">
-		    	<input type="button" value="목록" onclick="location.href='historyController?command=list'">
+		    	<input type="button" value="글쓰기" onclick="location.href='history_Controller?command=writeform'">
+		    	<input type="button" value="목록" onclick="location.href='history_Controller?command=list'">
 	    	</div>
 	    </article>
 	    
