@@ -49,12 +49,12 @@ public class history_Controller extends HttpServlet {
 			request.setAttribute("dto", dto);
 			
 			System.out.println("desc : "+request.getParameter("desc"));
-			dispatch("history_info.jsp",request,response);
+			dispatch("history/history_info.jsp",request,response);
 			
 		}
 		
 		else if(command.equals("writeform")) {
-			response.sendRedirect("history_insertinfo.jsp");
+			response.sendRedirect("history/history_insertinfo.jsp");
 		}
 		else if(command.equals("write")) {
 			
@@ -85,7 +85,7 @@ public class history_Controller extends HttpServlet {
 			HistoryDto dto = biz.selectOne(historyno);
 			
 			request.setAttribute("dto", dto);
-			dispatch("history_updateinfo.jsp",request,response);
+			dispatch("history/history_updateinfo.jsp",request,response);
 		}
 		
 		else if(command.equals("update")) {
