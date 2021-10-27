@@ -1,24 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.dto.TravelDto"%>
+
 <%
 request.setCharacterEncoding("UTF-8");
 %>
 <%
 response.setContentType("text/html; charset=UTF-8");
 %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ page import="com.dto.TravelDto"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/admin.css">
-<script src="${pageContext.request.contextPath}/js/admin.js"></script>
+<title>관리자 페이지</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+<script src="js/admin.js"></script>
 </head>
 <%
 TravelDto res = (TravelDto) request.getAttribute("res");
@@ -28,9 +28,9 @@ pageContext.setAttribute("length", length);
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
-		<%@ include file="./admin_title.jsp"%>
+		<%@ include file="./admintitle.jsp"%>
 		<!-- 관리자 메뉴 : 사이드 -->
-		<%@ include file="./admin_side.jsp"%>
+		<%@ include file="./adminside.jsp"%>
 		<!-- 관리자 본문 -->
 		<div class="admin-main">
 			<!-- 게시글 상세 조회 -->
@@ -46,7 +46,7 @@ pageContext.setAttribute("length", length);
 					<tr>
 						<th>이미지</th>
 						<td><c:forEach var="i" begin="0" end="${length}">
-							<c:if test="${i<length }">
+								<c:if test="${i<length }">
 									<img width="300px" src="${res.pic_arr[i]}" alt="image">
 								</c:if>
 							</c:forEach></td>
@@ -103,6 +103,11 @@ pageContext.setAttribute("length", length);
 								<c:when test="${res.themecode eq 10 }">호캉스</c:when>
 							</c:choose></td>
 					</tr>
+					<!-- 게시글 표시 : 여행지 주소 -->
+					<tr>
+						<th>주소</th>
+						<td>${res.address }</td>
+					</tr>
 					<!-- 게시글 표시 : 여행지 설명 -->
 					<tr>
 						<th>설명</th>
@@ -113,10 +118,11 @@ pageContext.setAttribute("length", length);
 						<td colspan="2" align="right">
 							<ul>
 								<li><a
-									href="Controller?command=updateTravel&travelno=${res.travelno }">수정</a></li>
+									href="${pageContext.request.contextPath}/Admin?command=updateTravel&travelno=${res.travelno }">수정</a></li>
 								<li><a
-									href="Controller?command=deleteTravel&travelno=${res.travelno }">삭제</a></li>
-								<li><a href="Controller?command=travellist">목록</a></li>
+									href="${pageContext.request.contextPath}/Admin?command=deleteTravel&travelno=${res.travelno }">삭제</a></li>
+								<li><a
+									href="javascript:history.back()">목록</a></li>
 							</ul>
 						</td>
 					</tr>

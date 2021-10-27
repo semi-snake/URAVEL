@@ -29,11 +29,6 @@ pageContext.setAttribute("pageno", pageno);
 <script src="js/admin.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<%
-int size = (int) request.getAttribute("size");
-int end = (size / 20 + 1);
-pageContext.setAttribute("end", end);
-%>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
@@ -42,9 +37,10 @@ pageContext.setAttribute("end", end);
 		<%@ include file="./adminside.jsp"%>
 		<!-- 관리자 본문 -->
 		<div class="admin-main">
+			<!-- 사용자 정보 관리 : 전체 조회 -->
 			<div class="user-info-list">
 				<h1>사용자 정보 관리</h1>
-				<h2>활성화된 회원만 조회</h2>
+				<h2>전체 조회</h2>
 				<form action="Admin" method="post">
 					<input type="hidden" name="command" value="disableUser">
 					<table class="post-list">
@@ -58,13 +54,14 @@ pageContext.setAttribute("end", end);
 								<th>이메일</th>
 								<th>전화번호</th>
 								<th>역할</th>
+								<th>활성화 여부</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:choose>
 								<c:when test="${empty res }">
 									<tr>
-										<td colspan="8">데이터가 존재하지 않습니다.</td>
+										<td colspan="9">데이터가 존재하지 않습니다.</td>
 									</tr>
 								</c:when>
 								<c:otherwise>
@@ -82,33 +79,18 @@ pageContext.setAttribute("end", end);
 													<c:when test="${dto.role eq 'ADMIN'}">관리자</c:when>
 													<c:otherwise>사용자</c:otherwise>
 												</c:choose></td>
+											<td>${dto.enabled }</td>
 										</tr>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>
 							<tr style="border-top: 1px black dashed;">
-								<td colspan="7"></td>
+								<td colspan="8"></td>
 								<td><input type="submit" value="비활성화"></td>
 							</tr>
 						</tbody>
 					</table>
 				</form>
-				<!-- 페이지네이션 -->
-				<ul class="pagenation">
-					<c:if test="${pageno ne 1}">
-						<li><a
-							href="${pageContext.request.contextPath}/Admin?command=userListEnabled&page=${pageno-1}">이전</a></li>
-					</c:if>
-					<c:forEach var="i" begin="1" end="${end}">
-						<li><a
-							href="${pageContext.request.contextPath}/Admin?command=userListEnabled&page=${i}"
-							title="${i}">${i}</a></li>
-					</c:forEach>
-					<c:if test="${pageno ne end}">
-						<li><a
-							href="${pageContext.request.contextPath}/Admin?command=userListEnabled&page=${pageno+1}">다음</a></li>
-					</c:if>
-				</ul>
 				<!--관리자 : 유저 정보 검색-->
 				<div class="search-box-admin">
 					<table>
@@ -126,6 +108,5 @@ pageContext.setAttribute("end", end);
 		</div>
 	</main>
 	<%@ include file="../common/footer.jsp"%>
-
 </body>
 </html>

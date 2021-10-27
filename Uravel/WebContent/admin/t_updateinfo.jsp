@@ -16,35 +16,34 @@ TravelDto res = (TravelDto) request.getAttribute("res");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/admin.css">
-<script src="${pageContext.request.contextPath}/js/admin.js"></script>
+<title>관리자 페이지</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+<script src="js/admin.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!-- 현재 여행지 정보에 해당하는 SELECT 옵션이 선택되도록 하는 JS 코드 -->
 
 <script>
-	$(function(){
-		document.getElementsByName('localcode')[0].options[<%=res.getLocalcode()-1%>].selected = true;
-		document.getElementsByName('themecode')[0].options[<%=res.getThemecode()-1%>].selected = true;
+	$(function() {
+		document.getElementsByName('localcode')[0].options[<%=res.getLocalcode() - 1%>].selected = true;
+		document.getElementsByName('themecode')[0].options[<%=res.getThemecode() - 1%>].selected = true;
 	});
 </script>
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
-		<%@ include file="./admin_title.jsp"%>
+		<%@ include file="./admintitle.jsp"%>
 		<!-- 관리자 메뉴 : 사이드 -->
-		<%@ include file="./admin_side.jsp"%>
+		<%@ include file="./adminside.jsp"%>
 		<!-- 관리자 본문 -->
 		<div class="admin-main">
 			<div class="travel-info">
 				<h1>여행지 정보 관리</h1>
 				<h2>게시글 수정하기</h2>
-				<form action="Controller" method="post">
+				<form action="Admin" method="post">
 					<input type="hidden" name="command" value="updateInfo"> <input
 						type="hidden" name="travelno" value="${res.travelno}">
 					<table>
@@ -108,6 +107,11 @@ TravelDto res = (TravelDto) request.getAttribute("res");
 							</select></td>
 						</tr>
 						<tr>
+							<th>주소</th>
+							<td><input type="text" name="address"
+								value="${res.address }"></td>
+						</tr>
+						<tr>
 							<th>설명</th>
 							<td><textarea name="description" cols="60" rows="10"
 									onkeydown="resize(this)" onkeyup="resize(this)">${res.description }</textarea>
@@ -117,8 +121,7 @@ TravelDto res = (TravelDto) request.getAttribute("res");
 							<td colspan="2" align="right">
 								<ul>
 									<li><input type="submit" value="수정"></li>
-									<li><input type="button" value="취소"
-										onclick="location.href='Controller?command=travelinfo&travelno=${res.travelno}'"></li>
+									<li><input type="button" value="취소" onclick="history.back();"></li>
 								</ul>
 							</td>
 						</tr>

@@ -11,25 +11,23 @@ response.setContentType("text/html; charset=UTF-8");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/admin.css">
-<script src="${pageContext.request.contextPath}/js/admin.js"></script>
+<title>관리자 페이지</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+<script src="js/admin.js"></script>
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
-		<%@ include file="./admin_title.jsp"%>
+		<%@ include file="./admintitle.jsp"%>
 		<!-- 관리자 메뉴 : 사이드 -->
-		<%@ include file="./admin_side.jsp"%>
+		<%@ include file="./adminside.jsp"%>
 		<!-- 관리자 본문 -->
 		<div class="admin-main">
 			<div class="travel-info">
 				<h1>여행지 정보 관리</h1>
 				<h2>게시글 작성하기</h2>
-				<form action="Controller" method="post">
+				<form action="Admin" method="post">
 					<input type="hidden" name="command" value="insertInfo">
 					<table>
 						<colgroup>
@@ -90,6 +88,10 @@ response.setContentType("text/html; charset=UTF-8");
 							</select></td>
 						</tr>
 						<tr>
+							<th>주소</th>
+							<td><input type="text" name="address"></td>
+						</tr>
+						<tr>
 							<th>설명</th>
 							<td><textarea name="description" cols="60" rows="10"
 									onkeydown="resize(this)" onkeyup="resize(this)"></textarea></td>
@@ -97,9 +99,9 @@ response.setContentType("text/html; charset=UTF-8");
 						<tr>
 							<td colspan="2" align="right">
 								<ul>
-									<li><input type="submit" value="수정"></li>
+									<li><input type="submit" value="작성"></li>
 									<li><input type="button" value="취소"
-										onclick="location.href='Controller?command=travellist'"></li>
+										onclick="history.back();"></li>
 								</ul>
 							</td>
 						</tr>

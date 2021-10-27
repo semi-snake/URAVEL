@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.prefered-list-not-found {
+	text-align: center;
+	display: block;
+	margin: 0;
+}
+
+.prefered-list-not-found img {
+	width: 100px;
+	height: auto;
+	margin: 50px;
+	animation: rotate_image 2s linear infinite;
+	transform-origin: center;
+}
+
+@keyframes rotate_image { 
+	100% {
+		transform: rotate(360deg);
+	}
+}

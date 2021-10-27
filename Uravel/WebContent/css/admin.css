@@ -95,3 +95,9 @@ main a:hover {
 	width: 80px;
 	height: 40px;
 }
+
+.search-box-admin {
+	text-align: center;
+	display: block;
+	transform: scale(0.9);
+}

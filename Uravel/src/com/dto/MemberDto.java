@@ -1,14 +1,12 @@
 package com.dto;
 
-import java.util.Date;
-
 public class MemberDto {
 
 	private int userno;
 	private String userid;
 	private String userpw;
 	private String username;
-	private Date birth;
+	private String birth;
 	private String email;
 	private String phone;
 	private String role;
@@ -18,8 +16,8 @@ public class MemberDto {
 		super();
 	}
 
-	public MemberDto(int userno, String userid, String userpw, String username, Date birth, String email, String phone,
-			String role, String enabled) {
+	public MemberDto(int userno, String userid, String userpw, String username, String birth, String email,
+			String phone, String role, String enabled) {
 		super();
 		this.userno = userno;
 		this.userid = userid;
@@ -64,12 +62,13 @@ public class MemberDto {
 		this.username = username;
 	}
 
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
 
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
+
 	}
 
 	public String getEmail() {

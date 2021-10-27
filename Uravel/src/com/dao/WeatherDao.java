@@ -9,31 +9,10 @@ import com.dto.WeatherDto;
 import com.google.gson.JsonObject;
 
 import api.weather.WeatherAPI;
-import static common.JDBCTemplate.getConnection;
+import static common.JDBCTemplate.*;
 
 public class WeatherDao {
-	public WeatherDto forecast() {
-		WeatherDto dto = null;
-		WeatherAPI api = new WeatherAPI();
-
-		JsonObject weather = api.requestInfo("weather");
-		JsonObject main = api.requestInfo("main");
-
-		int w_id = weather.get("id").getAsInt();
-		String description = translate(w_id);
-		String icon = weather.get("icon").getAsString();
-		double temp_cur = Math.round((main.get("temp").getAsDouble() - 273.15) * 10) / 10.0;
-		double temp_min = Math.round((main.get("temp_min").getAsDouble() - 273.15) * 10) / 10.0;
-		double temp_max = Math.round((main.get("temp_max").getAsDouble() - 273.15) * 10) / 10.0;
-		int humidity = main.get("humidity").getAsInt();
-
-		dto = new WeatherDto(w_id, description, icon, temp_cur, temp_min, temp_max, humidity);
-
-		return dto;
-	}
-
-	public static String translate(int w_id) {
-		Connection con = getConnection();
+	public String translate(Connection conn, int w_id) {
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		String res = "";
@@ -42,7 +21,7 @@ public class WeatherDao {
 		System.out.println("03. 쿼리 준비 : " + sql);
 
 		try {
-			pstm = con.prepareStatement(sql);
+			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, Integer.toString(w_id));
 			rs = pstm.executeQuery();
 
@@ -54,6 +33,9 @@ public class WeatherDao {
 		} catch (SQLException e) {
 			System.out.println("3/4단계 에러");
 			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
 		}
 
 		return res;

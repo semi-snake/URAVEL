@@ -22,6 +22,9 @@ pageContext.setAttribute("pageno", pageno);
 int size = (int) request.getAttribute("size");
 int end = (size / 20 + 1);
 pageContext.setAttribute("end", end);
+
+int themecode = (int) request.getAttribute("themecode");
+pageContext.setAttribute("themename", new ThemeDto().getThemename(themecode));
 %>
 <!DOCTYPE html>
 <html>
@@ -49,7 +52,22 @@ pageContext.setAttribute("end", end);
 		<div class="admin-main">
 			<div class="travel-info-list">
 				<h1>여행지 정보 관리</h1>
-				<h2>통합 조회</h2>
+				<h2>테마별 조회 : ${themename }</h2>
+				<table style="text-align: center;">
+					<tr>
+						<c:forEach var="i" begin="${10*j+1 }" end="${10*j+10 }">
+							<c:if test=""></c:if>
+							<c:set var="thmno" value="${i }"></c:set>
+							<%
+							pageContext.setAttribute("thmname", new ThemeDto().getThemename((int) pageContext.getAttribute("thmno")));
+							%>
+							<c:if test="${not empty thmname}">
+								<td><a href="Admin?command=themelist&themecode=${i }">${thmname }</a></td>
+							</c:if>
+						</c:forEach>
+					</tr>
+				</table>
+				<br>
 				<table class="post-list">
 					<colgroup>
 						<col width="10%">
@@ -76,18 +94,16 @@ pageContext.setAttribute("end", end);
 							</c:when>
 							<c:otherwise>
 								<c:forEach var="dto" items="${res }" begin="0" end="20">
-									<c:set var="thmno" value="${dto.themecode }" />
 									<c:set var="locno" value="${dto.localcode }" />
 									<%
-									pageContext.setAttribute("thmname", new ThemeDto().getThemename((int) pageContext.getAttribute("thmno")));
 									pageContext.setAttribute("locname", new LocationDto().getLocalname((int) pageContext.getAttribute("locno")));
 									%>
 									<tr>
 										<td>${dto.travelno}</td>
 										<td><a
 											href="Admin?command=travelinfo&travelno=${dto.travelno}">${dto.travelname}</a></td>
-										<td>${locname }</td>
-										<td>${thmname }</td>
+										<td>${locname}</td>
+										<td>${themename}</td>
 										<td><a
 											href="Admin?command=updateTravel&travelno=${dto.travelno}">수정하기</a></td>
 									</tr>
@@ -103,16 +119,16 @@ pageContext.setAttribute("end", end);
 				<ul class="pagenation">
 					<c:if test="${pageno ne 1}">
 						<li><a
-							href="${pageContext.request.contextPath}/Admin?command=travellist&page=${pageno-1}">이전</a></li>
+							href="${pageContext.request.contextPath}/Admin?command=themelist&themecode=${themecode }&page=${pageno-1}">이전</a></li>
 					</c:if>
 					<c:forEach var="i" begin="1" end="${end}">
 						<li><a
-							href="${pageContext.request.contextPath}/Admin?command=travellist&page=${i}"
+							href="${pageContext.request.contextPath}/Admin?command=themelist&themecode=${themecode }&page=${i}"
 							title="${i}">${i}</a></li>
 					</c:forEach>
 					<c:if test="${pageno ne end}">
 						<li><a
-							href="${pageContext.request.contextPath}/Admin?command=travellist&page=${pageno+1}">다음</a></li>
+							href="${pageContext.request.contextPath}/Admin?command=themelist&themecode=${themecode }&page=${pageno+1}">다음</a></li>
 					</c:if>
 				</ul>
 				<!--관리자 : 여행지 정보 검색-->

@@ -9,8 +9,8 @@ response.setContentType("text/html; charset=UTF-8");
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page import="com.dto.TravelDto"%>
-<%@ page import="com.dto.LocationDto"%>
 <%@ page import="com.dto.ThemeDto"%>
+<%@ page import="com.dto.LocationDto"%>
 <%@ page import="java.util.List"%>
 <%
 int pageno = 1;
@@ -22,6 +22,9 @@ pageContext.setAttribute("pageno", pageno);
 int size = (int) request.getAttribute("size");
 int end = (size / 20 + 1);
 pageContext.setAttribute("end", end);
+
+int localcode = (int) request.getAttribute("localcode");
+pageContext.setAttribute("localname", new LocationDto().getLocalname(localcode));
 %>
 <!DOCTYPE html>
 <html>
@@ -49,7 +52,23 @@ pageContext.setAttribute("end", end);
 		<div class="admin-main">
 			<div class="travel-info-list">
 				<h1>여행지 정보 관리</h1>
-				<h2>통합 조회</h2>
+				<h2>지역별 조회 : ${localname }</h2>
+				<table style="text-align: center;">
+					<c:forEach var="j" begin="0" end="3">
+						<tr>
+							<c:forEach var="i" begin="${11*j+1 }" end="${11*j+11 }">
+								<c:set var="locno" value="${i }"></c:set>
+								<%
+								pageContext.setAttribute("locname", new LocationDto().getLocalname((int) pageContext.getAttribute("locno")));
+								%>
+								<c:if test="${not empty locname}">
+									<td><a href="Admin?command=locallist&localcode=${i }">${locname }</a></td>
+								</c:if>
+							</c:forEach>
+						</tr>
+					</c:forEach>
+				</table>
+				<br>
 				<table class="post-list">
 					<colgroup>
 						<col width="10%">
@@ -77,16 +96,14 @@ pageContext.setAttribute("end", end);
 							<c:otherwise>
 								<c:forEach var="dto" items="${res }" begin="0" end="20">
 									<c:set var="thmno" value="${dto.themecode }" />
-									<c:set var="locno" value="${dto.localcode }" />
 									<%
 									pageContext.setAttribute("thmname", new ThemeDto().getThemename((int) pageContext.getAttribute("thmno")));
-									pageContext.setAttribute("locname", new LocationDto().getLocalname((int) pageContext.getAttribute("locno")));
 									%>
 									<tr>
 										<td>${dto.travelno}</td>
 										<td><a
 											href="Admin?command=travelinfo&travelno=${dto.travelno}">${dto.travelname}</a></td>
-										<td>${locname }</td>
+										<td>${localname}</td>
 										<td>${thmname }</td>
 										<td><a
 											href="Admin?command=updateTravel&travelno=${dto.travelno}">수정하기</a></td>
@@ -103,16 +120,16 @@ pageContext.setAttribute("end", end);
 				<ul class="pagenation">
 					<c:if test="${pageno ne 1}">
 						<li><a
-							href="${pageContext.request.contextPath}/Admin?command=travellist&page=${pageno-1}">이전</a></li>
+							href="${pageContext.request.contextPath}/Admin?command=locallist&localcode=${localcode }&page=${pageno-1}">이전</a></li>
 					</c:if>
 					<c:forEach var="i" begin="1" end="${end}">
 						<li><a
-							href="${pageContext.request.contextPath}/Admin?command=travellist&page=${i}"
+							href="${pageContext.request.contextPath}/Admin?command=locallist&localcode=${localcode }&page=${i}"
 							title="${i}">${i}</a></li>
 					</c:forEach>
 					<c:if test="${pageno ne end}">
 						<li><a
-							href="${pageContext.request.contextPath}/Admin?command=travellist&page=${pageno+1}">다음</a></li>
+							href="${pageContext.request.contextPath}/Admin?command=locallist&localcode=${localcode }&page=${pageno+1}">다음</a></li>
 					</c:if>
 				</ul>
 				<!--관리자 : 여행지 정보 검색-->

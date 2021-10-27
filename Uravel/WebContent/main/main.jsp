@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ page import="com.dto.TravelDto"%>
+<%@ page import="java.util.List"%>
+
 <%
 request.setCharacterEncoding("UTF-8");
 %>
@@ -7,13 +11,120 @@ request.setCharacterEncoding("UTF-8");
 response.setContentType("text/html; charset=UTF-8");
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>당신을 위한 여행지 추천 웹사이트, URAVEL</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/error.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function() {
+		// 로그인 상태 확인 : 로그아웃 상태인 경우에는 사용자 맞춤 리스트를 표시하지 않음
+		<c:choose>
+			<c:when test="${sessionScope.loginUser ne null }">
+				$("#user-list").show();
+			</c:when>
+			<c:otherwise>
+				$("#user-list").hide();
+			</c:otherwise>
+		</c:choose>
+
+		// 인기-여행지-리스트
+		$(".page-list#1 a").click(function(event) {
+			var pageno = $(this).index();
+			var atag = $(".image-list#1 a");
+			
+			atag.fadeOut('slow');
+			
+			switch(pageno){
+			case 1:
+				<c:forEach var="dto" items="${mainPopular }" begin="4" end="7" varStatus = "status">
+				var eachTag = atag.eq(${status.count-1});
+				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
+				eachTag.children("span").html("${dto.travelname}");
+				</c:forEach>
+				break;
+			case 2: 
+				<c:forEach var="dto" items="${mainPopular }" begin="8" end="11" varStatus = "status">
+				var eachTag = atag.eq(${status.count-1});
+				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
+				eachTag.children("span").html("${dto.travelname}");
+				</c:forEach>
+				break;
+			case 3: 
+				<c:forEach var="dto" items="${mainPopular }" begin="12" end="15" varStatus = "status">
+				var eachTag = atag.eq(${status.count-1});
+				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
+				eachTag.children("span").html("${dto.travelname}");
+				</c:forEach>
+				break;
+			case 0:
+			default:
+				<c:forEach var="dto" items="${mainPopular }" begin="0" end="3" varStatus = "status">
+					var eachTag = atag.eq(${status.count-1});
+					eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+					eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
+					eachTag.children("span").html("${dto.travelname}");
+				</c:forEach>
+				break;
+			}
+			atag.fadeIn('slow');
+		});
+		
+		// 사용자-추천-여행지-리스트
+		$(".page-list#2 a").click(function(event) {
+			var pageno = $(this).index();
+			var atag = $(".image-list#2 a");
+			
+			atag.fadeOut('slow');
+			
+			switch(pageno){
+			case 1:
+				<c:forEach var="dto" items="${mainPrefered }" begin="4" end="7" varStatus = "status">
+				var eachTag = atag.eq(${status.count-1});
+				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
+				eachTag.children("span").html("${dto.travelname}");
+				</c:forEach>
+				break;
+			case 2: 
+				<c:forEach var="dto" items="${mainPrefered }" begin="8" end="11" varStatus = "status">
+				var eachTag = atag.eq(${status.count-1});
+				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
+				eachTag.children("span").html("${dto.travelname}");
+				</c:forEach>
+				break;
+			case 3: 
+				<c:forEach var="dto" items="${mainPrefered }" begin="12" end="15" varStatus = "status">
+				var eachTag = atag.eq(${status.count-1});
+				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
+				eachTag.children("span").html("${dto.travelname}");
+				</c:forEach>
+				break;
+			case 0:
+			default:
+				<c:forEach var="dto" items="${mainPrefered }" begin="0" end="3" varStatus = "status">
+					var eachTag = atag.eq(${status.count-1});
+					eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+					eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
+					eachTag.children("span").html("${dto.travelname}");
+				</c:forEach>
+				break;
+			}
+			atag.fadeIn('slow');
+		});
+
+	});
+</script>
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
@@ -27,58 +138,66 @@ response.setContentType("text/html; charset=UTF-8");
 				</span>
 			</article>
 		</div>
+
 		<!--통합 검색창-->
 		<div id="search-box">
-			<form action="Controller" method="post">
+			<form action="Main" method="post">
 				<input type="hidden" name="command" value="searchMain"> <input
 					type="text" name="keyword"> <input type="submit" value="검색">
 			</form>
 		</div>
+
 		<!--여행지 리스트 인기순-->
 		<div id="like-list">
 			<h2>현재 인기 있는 여행지는?</h2>
 			<br>
-			<div class="image-list">
-				<a href="#"> <img
-					src="https://cdn.crowdpic.net/list-thumb/thumb_l_0FE32A6276E052E847372AD89788CDB1.jpeg"
-					alt=""> <span>여행지1</span>
-				</a> <a href="#"> <img
-					src="https://mblogthumb-phinf.pstatic.net/20150214_255/avnet75_1423874818667ysVFR_JPEG/008.JPG?type=w2"
-					alt=""> <span>여행지2</span>
-				</a> <a href="#"> <img
-					src="https://gwanghwamun.seoul.go.kr/mcms/upload/encoding/image/2021/08/MIG_PT_PH_00000608002.jpg"
-					alt=""> <span>여행지3</span>
-				</a> <a href="#"> <img
-					src="https://live.staticflickr.com/5598/15354504160_f0997ae50f_b.jpg"
-					alt=""> <span>여행지4</span>
-				</a>
+			<div class="image-list" id="1">
+				<c:forEach var="dto" items="${mainPopular }" begin="0" end="3">
+					<a href="Main?command=travelinfo&travelno=${dto.travelno }"><img
+						alt="${dto.travelname }" src="${dto.pic_arr[0] }"><span>${dto.travelname}</span></a>
+				</c:forEach>
 			</div>
 			<div class="page-list" id="1">
-				<a href="#">●</a> <a href="#">●</a> <a href="#">●</a> <a href="#">●</a>
+				<a href="#" onClick="return false;">●</a> <a href="#"
+					onClick="return false;">●</a> <a href="#" onClick="return false;">●</a>
+				<a href="#" onClick="return false;">●</a>
 			</div>
 		</div>
+
 		<!--사용자 맞춤 추천 리스트-->
 		<div id="user-list">
 			<h2>좋아할만한 여행지를 추천할게요!</h2>
 			<br>
-			<div class="image-list">
-				<a href="#"> <img
-					src="https://cdn.crowdpic.net/list-thumb/thumb_l_63BB871CACFD256A9DD0F61993571432.jpg"
-					alt=""> <span>여행지1</span>
-				</a> <a href="#"> <img
-					src="https://mediahub.seoul.go.kr/wp-content/uploads/2016/01/cab8f2cc78869c71093fe215305065c7.jpg"
-					alt=""> <span>여행지2</span>
-				</a> <a href="#"> <img src="https://mapio.net/images-p/13904888.jpg"
-					alt=""> <span>여행지3</span>
-				</a> <a href="#"> <img
-					src="http://www.newsinside.kr/news/photo/201710/475571_319948_4453.JPG"
-					alt=""> <span>여행지4</span>
-				</a>
+			<c:if test="${fn:length(mainPrefered)<=0}">
+				<div class="prefered-list-not-found">
+					<img alt="마스코트 이미지"
+						src="https://drive.google.com/uc?export=view&id=1DbmvxdfNU4x0xbOuHwBwwGNCrtAf2bCC">
+					<br> <br> <span>선호하는 여행 타입을 선택하지 않아서 결과를 불러올 수
+						없어요!</span>
+				</div>
+			</c:if>
+			<div class="image-list" id="2">
+				<c:forEach var="dto" items="${mainPrefered }" begin="0" end="3">
+					<a href="Main?command=travelinfo&travelno=${dto.travelno }"><img
+						alt="${dto.travelname }" src="${dto.pic_arr[0] }"><span>${dto.travelname}</span></a>
+				</c:forEach>
 			</div>
 			<div class="page-list" id="2">
-				<a href="#">●</a> <a href="#">●</a> <a href="#">●</a> <a href="#">●</a>
+				<c:if test="${fn:length(mainPrefered)>0}">
+					<a href="#" onClick="return false;">●</a>
+				</c:if>
+				<c:if test="${fn:length(mainPrefered)>4 }">
+					<a href="#" onClick="return false;">●</a>
+				</c:if>
+				<c:if test="${fn:length(mainPrefered)>8 }">
+					<a href="#" onClick="return false;">●</a>
+				</c:if>
+				<c:if test="${fn:length(mainPrefered)>12 }">
+					<a href="#" onClick="return false;">●</a>
+				</c:if>
 			</div>
 		</div>
+
 		<!--날씨 정보-->
 		<div id="weather-info">
 			<h2>현재 서울 날씨는...</h2>
