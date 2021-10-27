@@ -51,7 +51,7 @@
 	    	<hr class="history-desc-under02">
 	    	<div class="history-desc-buttons">
 		    	<input type="button" value="수정" onclick="location.href='history_Controller?command=updateform&historyno=${dto.historyno}'">
-		    	<input type="button" value="삭제" onclick="">
+		    	<input type="button" value="삭제" onclick="location.href='history_Controller?command=delete&historyno=${dto.historyno}'">
 		    	<input type="button" value="글쓰기" onclick="location.href='history_Controller?command=writeform'">
 		    	<input type="button" value="목록" onclick="location.href='history_Controller?command=list'">
 	    	</div>

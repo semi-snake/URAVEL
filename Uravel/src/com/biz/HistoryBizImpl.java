@@ -8,14 +8,15 @@ import java.util.List;
 import com.dao.HistoryDao;
 import com.dao.HistoryDaoImpl;
 import com.dto.HistoryDto;
+import com.dto.TravelDto;
 
 public class HistoryBizImpl implements HistoryBiz{
 	
 	HistoryDao dao = new HistoryDaoImpl();
-	Connection con = getConnection();
 	
 	@Override
 	public List<HistoryDto> selectAll() {
+		Connection con = getConnection();
 		List<HistoryDto> res = dao.selectAll(con);
 		close(con);
 		System.out.println("05.db종료\n");
@@ -25,7 +26,7 @@ public class HistoryBizImpl implements HistoryBiz{
 
 	@Override
 	public HistoryDto selectOne(int historyno) {
-		
+		Connection con = getConnection();
 		HistoryDto res = dao.selectOne(con, historyno);
 		
 		close(con);
@@ -35,8 +36,9 @@ public class HistoryBizImpl implements HistoryBiz{
 	}
 
 	@Override
-	public boolean insert(HistoryDto dto) {
-		boolean res = dao.insert(con, dto);
+	public boolean insert(HistoryDto dto, TravelDto tdto) {
+		Connection con = getConnection();
+		boolean res = dao.insert(con, dto, tdto);
 		
 		if(res) {
 			commit(con);
@@ -52,6 +54,7 @@ public class HistoryBizImpl implements HistoryBiz{
 
 	@Override
 	public boolean update(HistoryDto dto) {
+		Connection con = getConnection();
 		boolean res = dao.update(con, dto);
 		
 		if(res) {
@@ -67,8 +70,18 @@ public class HistoryBizImpl implements HistoryBiz{
 
 	@Override
 	public boolean delete(int historyno) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection con = getConnection();
+boolean res = dao.delete(con, historyno);
+		
+		if(res) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);
+		System.out.println("05.db종료\n");
+		
+		return res;
 	}
 
 	

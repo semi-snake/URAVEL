@@ -5,6 +5,7 @@
 <% response.setContentType("text/html; charset=UTF-8"); %>
 
 <%@ page import="com.dto.HistoryDto" %>
+<%@ page import="com.dto.TravelDto" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -37,7 +38,7 @@
 						<td>구렁이</td>
 					</tr>
 					<tr>
-						<th>글 제목</th>
+						<th>장소명</th>
 						<td><input type="text" name="history-form-title" value="${dto.travelname}"></td>
 					</tr>
 					<tr>

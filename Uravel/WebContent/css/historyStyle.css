@@ -220,7 +220,7 @@ input[type="submit"]:hover,[type="button"]:hover {
 
 
 /*****************************************************************/
-/* History Write */
+/* History Insert */
 /*****************************************************************/
 
 /********************/
@@ -238,9 +238,16 @@ input[type="submit"]:hover,[type="button"]:hover {
 	text-align:left;
 }
 
-input[name="history-form-writer"],[name="history-form-title"],[name="history-form-url1"],[name="history-form-url2"],[name="history-form-source"]{
+input[name="history-form-writer"],[name="history-form-title"],[name="address"],[name="history-form-url1"],[name="history-form-url2"],[name="history-form-source"]{
 	font-size: 11pt;
 	width: 85%;
+	height: 30px;
+	border-radius: 10;
+	border: 0.5px solid gainsboro;
+}
+.localcode[name="localcode"]{
+	font-size: 11pt;
+	width: 50%;
 	height: 30px;
 	border-radius: 10;
 	border: 0.5px solid gainsboro;

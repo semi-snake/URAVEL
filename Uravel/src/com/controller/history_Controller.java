@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.biz.HistoryBizImpl;
 import com.dto.HistoryDto;
+import com.dto.TravelDto;
 
 public class history_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -57,23 +58,39 @@ public class history_Controller extends HttpServlet {
 			response.sendRedirect("history/history_insertinfo.jsp");
 		}
 		else if(command.equals("write")) {
+			//INSERT INTO TRAVEL(TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,URL_PIC) VALUES(TRAVELSEQ.NEXTVAL,?,?,6,?,?,?)
+			String travelname = request.getParameter("history-form-title");
+			int localcode = Integer.parseInt(request.getParameter("localcode"));
+			String address = request.getParameter("address");
+			String url_pic1 = request.getParameter("history-form-url1");
+			String url_pic2 = request.getParameter("history-form-url2");
+			String description = request.getParameter("history-form-content");
+			String url_pic = url_pic1 + "," + url_pic2;
+			String source = request.getParameter("history-form-source");
+			System.out.println(url_pic);
+			System.out.println(description);
+			System.out.println(localcode);
 			
-			int historyno = Integer.parseInt(request.getParameter("historyno").trim());
-			int travelno = Integer.parseInt(request.getParameter("travelno"));
-			String travelname = request.getParameter("travelname");
-			String url_pic1 = request.getParameter("url_pic1");
-			String url_pic2 = request.getParameter("url_pic2");
-			String description = request.getParameter("description");
-			String source = request.getParameter("source");
+			TravelDto tdto = new TravelDto();
+			tdto.setTravelname(travelname);
+			tdto.setLocalcode(localcode);
+			tdto.setAddress(address);
+			tdto.setDescription(description);
+			tdto.setUrl_pic(url_pic);
 			
-			HistoryDto dto = new HistoryDto(historyno,travelno,travelname,url_pic1,url_pic2,description,source);
+			HistoryDto dto = new HistoryDto();
+			dto.setTravelname(travelname);
+			dto.setUrl_pic1(url_pic1);
+			dto.setUrl_pic2(url_pic2);
+			dto.setDescription(description);
+			dto.setSource(source);
 			
-			boolean res = biz.insert(dto);
+			boolean res = biz.insert(dto,tdto);
 			
 			if(res) {
-				jsResponse("글 작성 성공","history_Controller?command=list",response);
+				jsResponse("글 작성 성공","../history_Controller?command=list",response);
 			} else {
-				jsResponse("글 작성 실패","history_Controller?command=writeform",response);
+				jsResponse("글 작성 실패","../history_Controller?command=writeform",response);
 			}
 			
 			System.out.println("write : "+request.getParameter("write"));
@@ -112,6 +129,18 @@ public class history_Controller extends HttpServlet {
 				jsResponse("글 수정 실패","history_Controller?command=update&historyno="+historyno,response);
 			}
 			System.out.println("update : "+request.getParameter("update"));
+			
+		}
+		
+		else if(command.equals("delete")) {
+			int historyno = Integer.parseInt(request.getParameter("historyno"));
+			boolean res = biz.delete(historyno);
+			
+			if(res) {
+				jsResponse("글 삭제 성공","history_Controller?command=list",response);
+			} else {
+				jsResponse("글 삭제 실패","history_Controller?command=desc&historyno="+historyno,response);
+			}
 			
 		}
 	
