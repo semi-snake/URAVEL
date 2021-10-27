@@ -1,22 +1,20 @@
 package com.dto;
 
-import java.util.Date;
 
 public class MemberDto {
 	private int userno;
 	private String userid;
 	private String userpw;
 	private String username;
-	private Date birth;
+	private String birth;
 	private String email;
 	private String phone;
 	private String role;
 	private String enabled;
 	public MemberDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public MemberDto(int userno, String userid, String userpw, String username, Date birth, String email, String phone,
+	public MemberDto(int userno, String userid, String userpw, String username, String birth, String email, String phone,
 			String role, String enabled) {
 		super();
 		this.userno = userno;
@@ -53,10 +51,10 @@ public class MemberDto {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public String getEmail() {

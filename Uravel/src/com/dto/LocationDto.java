@@ -6,7 +6,6 @@ public class LocationDto {
 	private String localname;
 	public LocationDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public LocationDto(int localcode, String localname) {
 		super();

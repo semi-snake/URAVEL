@@ -32,7 +32,7 @@
 					<input type="submit" value="LOGIN">
 				</div>
 				<div class="field space">
-					<input type="button" value="회원가입" onclick="">
+					<input type="button" value="회원가입" onclick="registForm();">
 				</div>
 				<div class="login">Or login with</div>
 				
@@ -44,6 +44,11 @@
 				</div>
 				
 				<%@ include file="./kakaoAPI.jsp"%>
+				
+				
+				
+				
+				
 			</form>
 		</div>
 	</div>

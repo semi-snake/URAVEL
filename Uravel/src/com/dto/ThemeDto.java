@@ -5,7 +5,6 @@ public class ThemeDto {
 	private String themename;
 	public ThemeDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public ThemeDto(int themecode, String themename) {
 		super();
