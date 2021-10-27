@@ -56,14 +56,14 @@ main a:hover {
 	padding: 10px;
 }
 
-.pagenation {
+.pagination {
 	list-style-type: none;
 	text-align: center;
 	display: block;
 	padding: 0;
 }
 
-.pagenation li {
+.pagination li {
 	display: inline-flex;
 	padding: 10px;
 	padding-left: 15px;

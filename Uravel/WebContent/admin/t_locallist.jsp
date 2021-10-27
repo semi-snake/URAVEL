@@ -117,7 +117,7 @@ pageContext.setAttribute("localname", new LocationDto().getLocalname(localcode))
 						</tr>
 					</tbody>
 				</table>
-				<ul class="pagenation">
+				<ul class="pagination">
 					<c:if test="${pageno ne 1}">
 						<li><a
 							href="${pageContext.request.contextPath}/Admin?command=locallist&localcode=${localcode }&page=${pageno-1}">이전</a></li>

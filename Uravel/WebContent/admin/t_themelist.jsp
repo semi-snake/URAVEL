@@ -116,7 +116,7 @@ pageContext.setAttribute("themename", new ThemeDto().getThemename(themecode));
 						</tr>
 					</tbody>
 				</table>
-				<ul class="pagenation">
+				<ul class="pagination">
 					<c:if test="${pageno ne 1}">
 						<li><a
 							href="${pageContext.request.contextPath}/Admin?command=themelist&themecode=${themecode }&page=${pageno-1}">이전</a></li>
