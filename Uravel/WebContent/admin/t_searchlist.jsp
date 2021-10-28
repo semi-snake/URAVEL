@@ -9,6 +9,8 @@ response.setContentType("text/html; charset=UTF-8");
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page import="com.dto.TravelDto"%>
+<%@ page import="com.dto.LocationDto"%>
+<%@ page import="com.dto.ThemeDto"%>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -44,7 +46,9 @@ response.setContentType("text/html; charset=UTF-8");
 			<div class="travel-info-list">
 				<h1>여행지 정보 관리</h1>
 				<h2>검색 결과</h2>
-				<h3>'<%=request.getParameter("keyword") %>'에 대한 검색결과입니다.</h3>
+				<h3>
+					'<%=request.getParameter("keyword")%>'에 대한 검색결과입니다.
+				</h3>
 				<table class="post-list">
 					<colgroup>
 						<col width="10%">
@@ -71,49 +75,19 @@ response.setContentType("text/html; charset=UTF-8");
 							</c:when>
 							<c:otherwise>
 								<c:forEach var="dto" items="${res }">
+									<c:set var="thmno" value="${dto.themecode }" />
+									<c:set var="locno" value="${dto.localcode }" />
+									<%
+									pageContext.setAttribute("thmname", new ThemeDto().getThemename((int) pageContext.getAttribute("thmno")));
+									pageContext.setAttribute("locname", new LocationDto().getLocalname((int) pageContext.getAttribute("locno")));
+									%>
+
 									<tr>
 										<td>${dto.travelno}</td>
 										<td><a
 											href="Admin?command=travelinfo&travelno=${dto.travelno}">${dto.travelname}</a></td>
-										<td><c:choose>
-												<c:when test="${dto.localcode eq 1}">강남구</c:when>
-												<c:when test="${dto.localcode eq 2}">강동구</c:when>
-												<c:when test="${dto.localcode eq 3}">강북구</c:when>
-												<c:when test="${dto.localcode eq 4}">강서구</c:when>
-												<c:when test="${dto.localcode eq 5}">관악구</c:when>
-												<c:when test="${dto.localcode eq 6}">광진구</c:when>
-												<c:when test="${dto.localcode eq 7}">구로구</c:when>
-												<c:when test="${dto.localcode eq 8}">금천구</c:when>
-												<c:when test="${dto.localcode eq 9}">노원구</c:when>
-												<c:when test="${dto.localcode eq 10}">도봉구</c:when>
-												<c:when test="${dto.localcode eq 11}">동대문구</c:when>
-												<c:when test="${dto.localcode eq 12}">동작구</c:when>
-												<c:when test="${dto.localcode eq 13}">마포구</c:when>
-												<c:when test="${dto.localcode eq 14}">서대문구</c:when>
-												<c:when test="${dto.localcode eq 15}">서초구</c:when>
-												<c:when test="${dto.localcode eq 16}">성동구</c:when>
-												<c:when test="${dto.localcode eq 17}">성북구</c:when>
-												<c:when test="${dto.localcode eq 18}">송파구</c:when>
-												<c:when test="${dto.localcode eq 19}">양천구</c:when>
-												<c:when test="${dto.localcode eq 20}">영등포구</c:when>
-												<c:when test="${dto.localcode eq 21}">용산구</c:when>
-												<c:when test="${dto.localcode eq 22}">은평구</c:when>
-												<c:when test="${dto.localcode eq 23}">종로구</c:when>
-												<c:when test="${dto.localcode eq 24}">중구</c:when>
-												<c:when test="${dto.localcode eq 25}">중랑구</c:when>
-											</c:choose></td>
-										<td><c:choose>
-												<c:when test="${dto.themecode eq 1 }">공원</c:when>
-												<c:when test="${dto.themecode eq 2 }">등산</c:when>
-												<c:when test="${dto.themecode eq 3 }">맛집</c:when>
-												<c:when test="${dto.themecode eq 4 }">산책</c:when>
-												<c:when test="${dto.themecode eq 5 }">야경</c:when>
-												<c:when test="${dto.themecode eq 6 }">역사/문화</c:when>
-												<c:when test="${dto.themecode eq 7 }">책방</c:when>
-												<c:when test="${dto.themecode eq 8 }">카페</c:when>
-												<c:when test="${dto.themecode eq 9 }">캠핑</c:when>
-												<c:when test="${dto.themecode eq 10 }">호캉스</c:when>
-											</c:choose></td>
+										<td>${locname }</td>
+										<td>${thmname }</td>
 										<td><a
 											href="Admin?command=updateTravel&travelno=${dto.travelno}">수정하기</a></td>
 									</tr>
