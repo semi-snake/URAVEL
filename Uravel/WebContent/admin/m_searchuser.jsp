@@ -40,7 +40,7 @@ pageContext.setAttribute("pageno", pageno);
 			<!-- 사용자 정보 관리 : 전체 조회 -->
 			<div class="user-info-list">
 				<h1>사용자 정보 관리</h1>
-				<h2>전체 조회</h2>
+				<h2>'<%= request.getParameter("keyword") %>' 검색 결과</h2>
 				<form action="Admin" method="post">
 					<input type="hidden" name="command" value="disableUser">
 					<table class="post-list">
