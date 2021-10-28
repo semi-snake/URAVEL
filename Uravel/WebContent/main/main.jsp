@@ -122,8 +122,8 @@ response.setContentType("text/html; charset=UTF-8");
 			}
 			atag.fadeIn('slow');
 		});
-
 	});
+	
 </script>
 </head>
 <body>
@@ -141,7 +141,7 @@ response.setContentType("text/html; charset=UTF-8");
 
 		<!--통합 검색창-->
 		<div id="search-box">
-			<form action="Main" method="post">
+			<form action="Main" method="post" onsubmit="return checkEmpty();">
 				<input type="hidden" name="command" value="searchMain"> <input
 					type="text" name="keyword"> <input type="submit" value="검색">
 			</form>

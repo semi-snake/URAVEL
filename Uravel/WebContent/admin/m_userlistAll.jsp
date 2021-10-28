@@ -97,7 +97,7 @@ pageContext.setAttribute("end", end);
 					</table>
 				</form>
 				<!-- 페이지네이션 -->
-				<ul class="pagenation">
+				<ul class="pagination">
 					<c:if test="${pageno ne 1}">
 						<li><a
 							href="${pageContext.request.contextPath}/Admin?command=userlistAll&page=${pageno-1}">이전</a></li>
