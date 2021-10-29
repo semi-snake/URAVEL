@@ -225,6 +225,7 @@ response.setContentType("text/html; charset=UTF-8");
 				</tr>
 			</table>
 		</div>
+	<%@ include file="chatbot.jsp"%>
 	</main>
 	<%@ include file="../common/footer.jsp"%>
 </body>
