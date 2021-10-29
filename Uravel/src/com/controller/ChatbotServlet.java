@@ -16,6 +16,11 @@ import com.google.gson.JsonObject;
 
 import api.dialog.Dialog;
 
+/*
+ * 참고  : [Java] Websocket을 이용해서 유저(사이트 운영자)가 다른 유저와 채팅하는 방법
+ * 출처: https://nowonbun.tistory.com/748 [명월 일지]
+*/
+
 @ServerEndpoint("/broadsocket")
 public class ChatbotServlet {
 	private Dialog d = new Dialog();
@@ -88,7 +93,8 @@ public class ChatbotServlet {
 		User user = getUser(userSession);
 		// 접속 리스트에 User가 있으면(당연히 있다. 없으면 버그..)
 		if (user != null) {
-			// 운영자 Client에 유저 key와 메시지를 보낸다.
+
+			// --- 챗봇 부분 추가 --- //
 			JsonObject return_object = d.dialog(uuid, message);
 
 			JsonObject result = return_object.get("result").getAsJsonObject();
