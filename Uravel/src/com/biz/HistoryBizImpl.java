@@ -15,9 +15,9 @@ public class HistoryBizImpl implements HistoryBiz{
 	HistoryDao dao = new HistoryDaoImpl();
 	
 	@Override
-	public List<HistoryDto> selectAll() {
+	public List<HistoryDto> selectAll(String language){
 		Connection con = getConnection();
-		List<HistoryDto> res = dao.selectAll(con);
+		List<HistoryDto> res = dao.selectAll(con,language);
 		close(con);
 		System.out.println("05.db종료\n");
 		
@@ -25,9 +25,9 @@ public class HistoryBizImpl implements HistoryBiz{
 	}
 
 	@Override
-	public HistoryDto selectOne(int historyno) {
+	public HistoryDto selectOne(int historyno, String language) {
 		Connection con = getConnection();
-		HistoryDto res = dao.selectOne(con, historyno);
+		HistoryDto res = dao.selectOne(con, historyno, language);
 		
 		close(con);
 		System.out.println("05.db종료\n");

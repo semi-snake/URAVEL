@@ -13,6 +13,19 @@
 <meta charset="UTF-8">
 <title>역사/문화</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/historyStyle.css">
+<script type="text/javascript">
+function language(clsSelect){
+	
+	var url = "history_Controller?command=desc&historyno=${dto.historyno}&language=";
+	for(var i=0; i<clsSelect.options.length;i++){
+		if(clsSelect.options[i].selected){
+			url += clsSelect.options[i].value;
+		}
+	}
+	
+	document.location=url;
+}
+</script>
 </head>
 <body>
 <%@ include file = "../common/header.jsp" %>
@@ -22,7 +35,7 @@
 	    <!-- 상단 제목 및 사진 부분 -->
 	    <div class="history-title">
 	    	<!-- 번역 언어 선택 -->
-	        <select class="choose-lang" name="lang" onchange="location.href='historyController?command=language">
+	        <select class="choose-lang" name="language" onchange="language(this);">
 	            <option value="ko">한국어</option>
 	            <option value="en">English</option>
 	            <option value="ja">日本語</option>

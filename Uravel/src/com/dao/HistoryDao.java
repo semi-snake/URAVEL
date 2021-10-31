@@ -18,8 +18,8 @@ public interface HistoryDao {
 	
 	String deleteSql = " DELETE FROM HISTORY WHERE HISTORYNO=? ";
 	
-	public List<HistoryDto> selectAll(Connection con);
-	public HistoryDto selectOne(Connection con, int historyno);
+	public List<HistoryDto> selectAll(Connection con, String language);
+	public HistoryDto selectOne(Connection con, int historyno, String language);
 	public boolean insert(Connection con, HistoryDto dto, TravelDto tdto);
 	public int insertTravel(Connection con, TravelDto dto);
 	public boolean update(Connection con, HistoryDto dto);

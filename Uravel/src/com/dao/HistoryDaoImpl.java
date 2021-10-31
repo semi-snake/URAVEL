@@ -7,15 +7,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.TranslationAPI.PapagoNMT;
 import com.dto.HistoryDto;
 import com.dto.TravelDto;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import static common.JDBCTemplateNOA.*;
 
 public class HistoryDaoImpl implements HistoryDao {
+	PapagoNMT papago = new PapagoNMT();
 	
 	@Override
-	public List<HistoryDto> selectAll(Connection con){ // history list
+	public List<HistoryDto> selectAll(Connection con,String language){ // history list
 		PreparedStatement pstm = null;
 		List<HistoryDto> res = new ArrayList<HistoryDto>();
 		ResultSet rs = null;
@@ -33,7 +37,22 @@ public class HistoryDaoImpl implements HistoryDao {
 				tmp.setHistoryno(rs.getInt("historyno"));
 				tmp.setTravelname(rs.getString("travelname"));
 				tmp.setUrl_pic1(rs.getString("url_pic1"));
-				
+				if (language != null) {
+					
+					//translate(String source, String target, String text
+					String travelNameTran = papago.translate(PapagoNMT.KOREAN,language,tmp.getTravelname());
+					JsonParser parser = new JsonParser();
+					JsonElement element = parser.parse(travelNameTran);
+					
+					if(element.getAsJsonObject().get("errorMessage") != null) {
+						System.out.println("번역 오류가 발생했습니다. " + 
+											"[오류코드 : "+ element.getAsJsonObject().get("errorCode").getAsString() +"]");
+					}else if(element.getAsJsonObject().get("message") != null) {
+						System.out.println("번역 결과: ");
+						System.out.println(element.getAsJsonObject().get("message").getAsJsonObject().get("result").getAsJsonObject().get("translatedText").getAsString());
+					}
+					tmp.setTravelname(element.getAsJsonObject().get("message").getAsJsonObject().get("result").getAsJsonObject().get("translatedText").getAsString()); 
+				}
 				res.add(tmp);
 			}
 			
@@ -50,7 +69,7 @@ public class HistoryDaoImpl implements HistoryDao {
 	}
 	
 	@Override
-	public HistoryDto selectOne(Connection con, int historyno) { // description
+	public HistoryDto selectOne(Connection con, int historyno, String language) { // description
 		PreparedStatement pstm = null;
 		HistoryDto res = null;
 		ResultSet rs = null;
@@ -75,7 +94,36 @@ public class HistoryDaoImpl implements HistoryDao {
 				res.setSource(rs.getString("source"));
 				
 			}
-			
+			if (language != null) {
+				
+				//translate(String source, String target, String text
+				String descTran = papago.translate(PapagoNMT.KOREAN,language,res.getDescription());
+				JsonParser parser = new JsonParser();
+				JsonElement element = parser.parse(descTran);
+				
+				if(element.getAsJsonObject().get("errorMessage") != null) {
+					System.out.println("번역 오류가 발생했습니다. " + 
+										"[오류코드 : "+ element.getAsJsonObject().get("errorCode").getAsString() +"]");
+				}else if(element.getAsJsonObject().get("message") != null) {
+					System.out.println("번역 결과: ");
+					System.out.println(element.getAsJsonObject().get("message").getAsJsonObject().get("result").getAsJsonObject().get("translatedText").getAsString());
+				}
+				res.setDescription(element.getAsJsonObject().get("message").getAsJsonObject().get("result").getAsJsonObject().get("translatedText").getAsString()); 
+				
+				
+				String travelNameTran = papago.translate(PapagoNMT.KOREAN, language, res.getTravelname());
+				element = parser.parse(travelNameTran);
+				
+				if(element.getAsJsonObject().get("errorMessage") != null) {
+					System.out.println("번역 오류가 발생했습니다. " + 
+										"[오류코드 : "+ element.getAsJsonObject().get("errorCode").getAsString() +"]");
+				}else if(element.getAsJsonObject().get("message") != null) {
+					System.out.println("번역 결과: ");
+					System.out.println(element.getAsJsonObject().get("message").getAsJsonObject().get("result").getAsJsonObject().get("translatedText").getAsString());
+				}
+				
+				res.setTravelname(element.getAsJsonObject().get("message").getAsJsonObject().get("result").getAsJsonObject().get("translatedText").getAsString());
+			}
 		} catch (SQLException e) {
 			System.out.println("3/4단계 오류");
 			e.printStackTrace();
@@ -86,6 +134,7 @@ public class HistoryDaoImpl implements HistoryDao {
 		
 		return res;
 	}
+	
 	
 	@Override
 	public boolean insert(Connection con, HistoryDto dto, TravelDto tdto) {

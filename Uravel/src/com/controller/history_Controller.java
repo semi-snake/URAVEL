@@ -34,23 +34,32 @@ public class history_Controller extends HttpServlet {
 		}
 		
 		else if(command.equals("list")) {
-			List<HistoryDto> list = biz.selectAll();
+			String language = request.getParameter("language");
+			System.out.println(language);		
+			List<HistoryDto> list = biz.selectAll(language);
 			
 			System.out.println("list : "+request.getParameter("list"));
 			request.setAttribute("list", list);
 			
-			dispatch("history/history_list.jsp",request,response);
+			dispatch("history_list.jsp",request,response);
 			
 		}
 		else if(command.equals("desc")) {
 			int historyno = Integer.parseInt(request.getParameter("historyno"));
 			
-			HistoryDto dto = biz.selectOne(historyno);
+			String language = request.getParameter("language");
+			System.out.println(language);		
 			
+			HistoryDto dto = biz.selectOne(historyno, language);
+			
+			//language 선택한 것을 parameter로 받아오기
+
+			
+
 			request.setAttribute("dto", dto);
 			
 			System.out.println("desc : "+request.getParameter("desc"));
-			dispatch("history/history_info.jsp",request,response);
+			dispatch("history_info.jsp",request,response);
 			
 		}
 		
@@ -99,10 +108,13 @@ public class history_Controller extends HttpServlet {
 		
 		else if(command.equals("updateform")) {
 			int historyno = Integer.parseInt(request.getParameter("historyno"));
-			HistoryDto dto = biz.selectOne(historyno);
+			
+			String language = null;
+			
+			HistoryDto dto = biz.selectOne(historyno,language);
 			
 			request.setAttribute("dto", dto);
-			dispatch("history/history_updateinfo.jsp",request,response);
+			dispatch("history_updateinfo.jsp",request,response);
 		}
 		
 		else if(command.equals("update")) {

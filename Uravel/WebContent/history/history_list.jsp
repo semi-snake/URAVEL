@@ -16,6 +16,19 @@
 <meta charset="UTF-8">
 <title>역사/문화</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/historyStyle.css">
+<script type="text/javascript">
+function language(clsSelect){
+	
+	var url = "history_Controller?command=list&language=";
+	for(var i=0; i<clsSelect.options.length;i++){
+		if(clsSelect.options[i].selected){
+			url += clsSelect.options[i].value;
+		}
+	}
+	
+	document.location=url;
+}
+</script>
 </head>
 
 <body>
@@ -26,11 +39,11 @@
 	    <!-- 상단 제목 및 사진 부분 -->
 	    <div class="history-title">
 	    	<!-- 번역 언어 선택 -->
-	        <select class="choose-lang" name="lang" onchange="location.href='history_Controller?command=language">
+	        <select class="choose-lang" name="language" onchange="language(this);">
 	            <option value="ko">한국어</option>
 	            <option value="en">English</option>
 	            <option value="ja">日本語</option>
-	            <option value="zh-CN">中文</option>
+	            <option value="zh-CN">中文
 	        </select>
 	        <h1 class="history-title-text01">역사 그리고 문화</h1>
 	        <p class="history-title-text02">서울에서 만날 수 있는 우리나라의 역사와 문화</p>
