@@ -34,7 +34,7 @@
 			session.setAttribute("dto", dto);
 			session.setMaxInactiveInterval(60*60);
 			
-			response.sendRedirect("main_index.jsp");
+			response.sendRedirect("../Main?command=main");
 			
 			
 		}else{
@@ -81,7 +81,7 @@
 %>
 		<script type="text/javascript">
 			alert("회원가입성공");
-			location.href="main_index.jsp";
+			location.href="../Main?command=main";
 		</script>
 <%
 		}else{
@@ -98,9 +98,11 @@
 		response.sendRedirect("index.jsp");
 		
 	}else if(command.equals("userinfo")){
-		int userno = Integer.parseInt(request.getParameter("userno"));
+		int userno = ((MemberDto)session.getAttribute("dto")).getUserno();
+		
 		MemberDto dto = dao.selectUser(userno);
 		request.setAttribute("dto", dto);
+		
 		pageContext.forward("userinfo.jsp");
 		
 	}else if(command.equals("updateform")){

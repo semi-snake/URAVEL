@@ -1,8 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>
-<% response.setContentType("text/html; charset=UTF-8"); %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+%>
+<%
+response.setContentType("text/html; charset=UTF-8");
+%>
 
-<%@ page import="com.dto.MemberDto" %>
+<%@ page import="com.dto.MemberDto"%>
 
 <!DOCTYPE html>
 <html>
@@ -13,11 +18,7 @@
 	href="${pageContext.request.contextPath}/css/header.css">
 </head>
 <%
-	MemberDto dto = (MemberDto)session.getAttribute("dto");
-				
-	if(dto == null){
-		pageContext.forward("index.jsp");
-	}
+MemberDto dto = (MemberDto) session.getAttribute("dto");
 %>
 <body>
 	<!-- 상단부 -->
@@ -45,18 +46,29 @@
 						<li><a href="#">FAQ</a></li>
 						<li><a href="#">1:1문의</a></li>
 					</ul></li>
-				<li><a href="userinfo.jsp">마이페이지</a></li>
 			</ul>
 			<!-- 네비게이션 : 로그인 -->
 			<ul class="login">
-			
-				<li><%=dto.getUsername() %>님</li>
-				<li><a href="logincontroller.jsp?command=logout">로그아웃</a></li>
+
+				<%
+				if (dto != null) {
+				%>
+				<li><%=dto.getUsername()%>님</li>
+				<li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=userinfo">마이페이지</a></li>
+				<li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=logout">로그아웃</a></li>
+				<%
+				} else {
+				%>
+				<li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=login">로그인</a></li>
+				<li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=registform">회원가입</a></li>
+				<%
+				}
+				%>
 			</ul>
 		</nav>
 	</header>
 	<!-- 헤더 종료 -->
-	
+
 
 </body>
 </html>
