@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
-request.setCharacterEncoding("UTF-8");
-%>
-<%
-response.setContentType("text/html; charset=UTF-8");
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html; charset=UTF-8"); %>
+
+<%@ page import="com.dto.MemberDto" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +12,13 @@ response.setContentType("text/html; charset=UTF-8");
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/header.css">
 </head>
+<%
+	MemberDto dto = (MemberDto)session.getAttribute("dto");
+				
+	if(dto == null){
+		pageContext.forward("index.jsp");
+	}
+%>
 <body>
 	<!-- 상단부 -->
 	<header>
@@ -40,14 +45,18 @@ response.setContentType("text/html; charset=UTF-8");
 						<li><a href="#">FAQ</a></li>
 						<li><a href="#">1:1문의</a></li>
 					</ul></li>
+				<li><a href="userinfo.jsp">마이페이지</a></li>
 			</ul>
 			<!-- 네비게이션 : 로그인 -->
 			<ul class="login">
-				<li><a href="#">로그인</a></li>
-				<li><a href="#">회원가입</a></li>
+			
+				<li><%=dto.getUsername() %>님</li>
+				<li><a href="logincontroller.jsp?command=logout">로그아웃</a></li>
 			</ul>
 		</nav>
 	</header>
 	<!-- 헤더 종료 -->
+	
+
 </body>
 </html>
