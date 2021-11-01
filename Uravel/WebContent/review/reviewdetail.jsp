@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>  
+<% response.setContentType("text/html; charset=UTF-8"); %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,25 +28,23 @@ table {
 					<col width="400px">
 				</colgroup>
 				<tr>
-					<th><h3>후기게시글1</h3></th>
-					<th>작성자1</th>
+					<th><h3>${dto.title }</h3></th>
+					<th>${dto.userno }</th>
 				</tr>
 				<tr>
-					<td>2021-10-15</td>
+					<td>${dto.postdate }</td>
 				</tr>
 				<tr>
-					<td>내용내용내용......... 내용내용내용......... 내용내용내용.........
-						내용내용내용......... 내용내용내용......... 내용내용내용......... 내용내용내용.........
-						내용내용내용......... 내용내용내용......... 내용내용내용......... 내용내용내용.........
-						내용내용내용......... 내용내용내용.........</td>
+					<td>${dto.content }</td>
 				</tr>
 				<tr>
 					<td><img width="300px" src="" alt="image"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="right"><input type="button" value="수정"
-						onclick=""> <input type="button" value="삭제" onclick="">
-						<input type="button" value="목록" onclick=""></td>
+						onclick="location.href='ReviewController?command=updateform&postno=${dto.postno}'"> 
+						<input type="button" value="삭제" onclick="location.href='ReviewController?command=delete&postno=${dto.postno}'">
+						<input type="button" value="목록" onclick="location.href='ReviewController?command=list'"></td>
 				</tr>
 			</table>
 		</div>

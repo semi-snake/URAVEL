@@ -1,0 +1,166 @@
+@charset "UTF-8";
+footer {
+	position: sticky;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	background-color: white;
+}
+
+footer h5 {
+	text-align: center;
+}
+
+header {
+	position: sticky;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+	font-size: large;
+	background: white;
+	z-index: 1;
+	text-align: center;
+}
+
+.logo, .menu, .login, li {
+	display: inline-block;
+}
+
+header li {
+	margin-inline: 30px;
+}
+
+.logo {
+	float: left;
+	margin: 0;
+	font-weight: bold;
+	margin-inline-start: 60px;
+}
+
+.menu {
+	float: none;
+	font-weight: bold;
+}
+
+.login {
+	float: right;
+	font-weight: bold;
+}
+
+header a {
+	text-decoration: none;
+	color: black;
+	vertical-align: middle;
+}
+
+header a:hover {
+	font-weight: bold;
+	background: linear-gradient(to top, skyblue 10%, transparent 10%);
+}
+
+.sub-menu {
+	display: none;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	text-align: center;
+	font-weight: normal;
+}
+
+.menu li:hover .sub-menu {
+	display: table;
+}
+
+.sub-menu li {
+	display: block;
+	margin: 0;
+}
+
+.sub-menu li:hover {
+	font-weight: bold;
+}
+
+@media ( max-width :768px) {
+	header {
+		position: relative;
+		display: inline-block;
+	}
+}
+
+.page_list {
+	position: sticky;
+	margin-left: 42%;
+	padding: 0;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.page_list a {
+	float: left;
+	display: block;
+	color: gray;
+	text-align: center;
+	padding: 16px;
+	text-decoration: none;
+	transition: 0.5s;
+}
+
+.page_list a:hover {
+	transform: scale(1.5);
+	color: gray;
+	transition: 0.5s;
+}
+
+.image-list img {
+	width: 240px;
+	height: 160px;
+	margin: 0;
+}
+
+.thumnail {
+	width: 15%;
+	text-align: center;
+}
+
+.number {
+	width: 9%;
+	text-align: center;
+}
+
+.tag {
+	width: 9%;
+	text-align: center;
+}
+
+.title {
+	width: 49%;
+	text-align: center;
+}
+
+.date {
+	width: 14%;
+	text-align: center;
+}
+
+.recommend {
+	width: 9%;
+	text-align: center;
+}
+
+.board_list {
+	padding: 50px 250px;
+}
+
+.post_area {
+	float: right;
+	margin-right: 20%;
+}
+
+.search_box {
+	float: left;
+	margin-left: 45%;
+	text-align: center;
+}

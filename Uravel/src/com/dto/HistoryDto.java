@@ -4,12 +4,11 @@ public class HistoryDto {
 	
 	private int historyno;
 	private int travelno;
+	private String travelname;
 	private String description;
 	private String url_pic1;
 	private String url_pic2;
 	private String source;
-	
-	private String travelname;
 	
 	public HistoryDto() {
 		super();
@@ -31,6 +30,16 @@ public class HistoryDto {
 			String source) {
 		super();
 		this.historyno = historyno;
+		this.travelname = travelname;
+		this.description = description;
+		this.url_pic1 = url_pic1;
+		this.url_pic2 = url_pic2;
+		this.source = source;
+	}
+	
+	public HistoryDto(String travelname, String description, String url_pic1, String url_pic2,
+			String source) {
+		super();
 		this.travelname = travelname;
 		this.description = description;
 		this.url_pic1 = url_pic1;

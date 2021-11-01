@@ -10,27 +10,27 @@ public class JDBCTemplate {
 	public static Connection getConnection() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("01.드라이버 연결");
+			System.out.println("01. 드라이버 연결");
 		} catch (ClassNotFoundException e) {
-			System.out.println("01.드라이버 연결 실패");
 			e.printStackTrace();
+			System.out.println("01. 드라이버 연결 오류");
 		}
 		
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String id = "KH";
-		String pw = "KH";
+		String id="KH";
+		String pw="KH";
 		
 		Connection con = null;
 		
 		try {
-			con = DriverManager.getConnection(url,id,pw);
-			System.out.println("02.계정 연결");
+			con = DriverManager.getConnection(url, id, pw);
+			System.out.println("02. 계정 연결");
 			
 			con.setAutoCommit(false);
 			
 		} catch (SQLException e) {
-			System.out.println("02.계정 연결 실패");
 			e.printStackTrace();
+			System.out.println("02. 계정 연결 오류");
 		}
 		
 		return con;
@@ -43,6 +43,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void close(Statement stmt) {
 		try {
 			stmt.close();
@@ -50,6 +51,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void close(ResultSet rs) {
 		try {
 			rs.close();
@@ -65,6 +67,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void rollback(Connection con) {
 		try {
 			con.rollback();
