@@ -1,26 +1,30 @@
 package com.biz;
 
-import static common.JDBCTemplateNOA.*;
+import static common.JDBCTemplateNOA.close;
+import static common.JDBCTemplateNOA.commit;
+import static common.JDBCTemplateNOA.getConnection;
+import static common.JDBCTemplateNOA.rollback;
 
 import java.sql.Connection;
 import java.util.List;
 
 import com.dao.HistoryDao;
 import com.dao.HistoryDaoImpl;
+import com.dao.TravelDao;
 import com.dto.HistoryDto;
 import com.dto.TravelDto;
 
-public class HistoryBizImpl implements HistoryBiz{
-	
+public class HistoryBizImpl implements HistoryBiz {
+
 	HistoryDao dao = new HistoryDaoImpl();
-	
+
 	@Override
-	public List<HistoryDto> selectAll(String language){
+	public List<HistoryDto> selectAll(String language) {
 		Connection con = getConnection();
-		List<HistoryDto> res = dao.selectAll(con,language);
+		List<HistoryDto> res = dao.selectAll(con, language);
 		close(con);
 		System.out.println("05.db종료\n");
-		
+
 		return res;
 	}
 
@@ -28,27 +32,32 @@ public class HistoryBizImpl implements HistoryBiz{
 	public HistoryDto selectOne(int historyno, String language) {
 		Connection con = getConnection();
 		HistoryDto res = dao.selectOne(con, historyno, language);
-		
+
 		close(con);
 		System.out.println("05.db종료\n");
-		
+
 		return res;
 	}
 
 	@Override
 	public boolean insert(HistoryDto dto, TravelDto tdto) {
 		Connection con = getConnection();
+		TravelDao tdao = new TravelDao();
+		tdto.setTravelno(tdao.getTopNumber(con) + 1);
+		
 		boolean res = dao.insert(con, dto, tdto);
 		
-		if(res) {
+		
+		
+		if (res) {
 			commit(con);
-		}else {
+		} else {
 			rollback(con);
 		}
-		
+
 		close(con);
 		System.out.println("05.db종료\n");
-		
+
 		return res;
 	}
 
@@ -56,37 +65,32 @@ public class HistoryBizImpl implements HistoryBiz{
 	public boolean update(HistoryDto dto) {
 		Connection con = getConnection();
 		boolean res = dao.update(con, dto);
-		
-		if(res) {
+
+		if (res) {
 			commit(con);
-		}else {
+		} else {
 			rollback(con);
 		}
 		close(con);
 		System.out.println("05.db 종료\n");
-		
+
 		return res;
 	}
 
 	@Override
 	public boolean delete(int historyno) {
 		Connection con = getConnection();
-boolean res = dao.delete(con, historyno);
-		
-		if(res) {
+		boolean res = dao.delete(con, historyno);
+
+		if (res) {
 			commit(con);
-		}else {
+		} else {
 			rollback(con);
 		}
 		close(con);
 		System.out.println("05.db종료\n");
-		
+
 		return res;
 	}
 
-	
-	
-	
-	
-	
 }

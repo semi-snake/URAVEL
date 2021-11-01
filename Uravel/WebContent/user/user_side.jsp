@@ -11,11 +11,11 @@
 	<div class="admin-side">
 		<h1>마이페이지</h1>
 		<ul class="admin-menu">
-			<li><h3><a href="Controller?command=myinfo">내 정보 관리</a></h3></li>
+			<li><h3><a href="userinfo.jsp">내 정보 관리</a></h3></li>
 	
-			<li><h3><a href="Controller?command=myfavorite">좋아하는 여행지</a></h3></li>
+			<li><h3><a href="userfavorite.jsp">좋아하는 여행지</a></h3></li>
 
-			<li><h3><a href="Controller?command=mypost">게시글 관리</a></h3></li>
+			<li><h3><a href="userpost.jsp">게시글 관리</a></h3></li>
 		</ul>
 	</div>
 </body>

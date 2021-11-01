@@ -64,7 +64,7 @@ public class history_Controller extends HttpServlet {
 		}
 		
 		else if(command.equals("writeform")) {
-			response.sendRedirect("history/history_insertinfo.jsp");
+			response.sendRedirect("history_insertinfo.jsp");
 		}
 		else if(command.equals("write")) {
 			//INSERT INTO TRAVEL(TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,URL_PIC) VALUES(TRAVELSEQ.NEXTVAL,?,?,6,?,?,?)
@@ -97,9 +97,9 @@ public class history_Controller extends HttpServlet {
 			boolean res = biz.insert(dto,tdto);
 			
 			if(res) {
-				jsResponse("글 작성 성공","../history_Controller?command=list",response);
+				jsResponse("글 작성 성공","history_Controller?command=list",response);
 			} else {
-				jsResponse("글 작성 실패","../history_Controller?command=writeform",response);
+				jsResponse("글 작성 실패","history_Controller?command=writeform",response);
 			}
 			
 			System.out.println("write : "+request.getParameter("write"));

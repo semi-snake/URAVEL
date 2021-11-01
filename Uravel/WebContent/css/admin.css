@@ -18,6 +18,12 @@ main a:hover {
 	vertical-align: top;
 }
 
+.admin-main {
+	width: auto;
+	height: auto;
+	text-align: left;
+}
+
 .admin-side {
 	background-color: gainsboro;
 	width: 200px;
@@ -35,12 +41,6 @@ main a:hover {
 	display: block;
 }
 
-.admin-main {
-	width: auto;
-	height: auto;
-	text-align: left;
-}
-
 .post-list {
 	text-align: center;
 	border-top: 1px black solid;
@@ -56,19 +56,14 @@ main a:hover {
 	padding: 10px;
 }
 
-.post-list a {
-	font-size: small;
-	font-weight: bold;
-}
-
-.pagenation {
+.pagination {
 	list-style-type: none;
 	text-align: center;
 	display: block;
 	padding: 0;
 }
 
-.pagenation li {
+.pagination li {
 	display: inline-flex;
 	padding: 10px;
 	padding-left: 15px;
@@ -76,11 +71,11 @@ main a:hover {
 }
 
 .page-selected {
-	background-color: whitesmoke;
 	font-weight: bold;
+	color: blue;
 }
 
-.travel-info-list, travel-info {
+.travel-info-list, .travel-info {
 	margin: 0;
 }
 
@@ -99,4 +94,10 @@ main a:hover {
 	font-size: medium;
 	width: 80px;
 	height: 40px;
+}
+
+.search-box-admin {
+	text-align: center;
+	display: block;
+	transform: scale(0.9);
 }

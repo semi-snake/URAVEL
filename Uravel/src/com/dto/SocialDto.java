@@ -5,7 +5,6 @@ public class SocialDto {
 	private String socialtype;
 	public SocialDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public SocialDto(String userid, String socialtype) {
 		super();

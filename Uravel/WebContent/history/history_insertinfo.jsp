@@ -30,12 +30,10 @@
 	    <div class="history-write">
 			<form action="history_Controller" method="post" class="history-write-form">
 				<input type="hidden" name="command" value="write">
-				<input type="hidden" name="historyno" value="${dto.historyno}">
-				<input type="hidden" name="travelno" value="${dto.historyno}">
 				<table class="history-table">
 					<tr>
 						<th>작성자</th>
-						<td><input type="text" name="history-form-writer" value="구렁이" readonly="readonly"></td>
+						<td><input type="text" name="history-form-writer" value="${sessionScope.dto.username}" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<th>장소명</th>
