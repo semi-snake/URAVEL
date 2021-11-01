@@ -11,14 +11,16 @@ response.setContentType("text/html; charset=UTF-8");
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/header.css">
 </head>
 <body>
 	<!-- 상단부 -->
 	<header>
 		<!-- 로고 : 메인페이지로 이동 -->
 		<h1>
-			<a href="Main?command=main" class="logo">URAVEL</a>
+			<a href="${pageContext.request.contextPath}/Main?command=main"
+				class="logo">URAVEL</a>
 		</h1>
 		<!-- 네비게이션 -->
 		<nav>
@@ -31,7 +33,8 @@ response.setContentType("text/html; charset=UTF-8");
 					</ul></li>
 				<li><a href="#">역사 문화</a></li>
 				<li><a href="#">후기</a></li>
-				<li><a href="#">공지사항</a></li>
+				<li><a
+					href="${pageContext.request.contextPath }/Notice?command=noticelist">공지사항</a></li>
 				<li><a href="#">고객센터</a> <!-- 하위 메뉴 -->
 					<ul class="sub-menu">
 						<li><a href="#">FAQ</a></li>

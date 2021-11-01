@@ -5,8 +5,10 @@ import static common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.List;
 
+import com.dao.HistoryDao;
 import com.dao.TravelDao;
 import com.dao.WeatherDao;
+import com.dto.HistoryDto;
 import com.dto.TravelDto;
 import com.dto.WeatherDto;
 import com.google.gson.JsonObject;
@@ -15,12 +17,24 @@ import api.weather.WeatherAPI;
 
 public class MainBiz {
 	private TravelDao t_dao = new TravelDao();
+	private HistoryDao h_dao = new HistoryDao();
 	private WeatherDao w_dao = new WeatherDao();
 
 	public List<TravelDto> search(String keyword) {
 		Connection conn = getConnection();
 
 		List<TravelDto> res = t_dao.search(conn, keyword);
+
+		close(conn);
+		System.out.println("05. db 종료\n");
+
+		return res;
+	}
+
+	public List<HistoryDto> search(String keyword, String isHistorySearch) {
+		Connection conn = getConnection();
+
+		List<HistoryDto> res = h_dao.search(conn, keyword);
 
 		close(conn);
 		System.out.println("05. db 종료\n");

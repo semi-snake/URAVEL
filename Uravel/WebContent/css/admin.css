@@ -18,6 +18,12 @@ main a:hover {
 	vertical-align: top;
 }
 
+.admin-main {
+	width: auto;
+	height: auto;
+	text-align: left;
+}
+
 .admin-side {
 	background-color: gainsboro;
 	width: 200px;
@@ -33,12 +39,6 @@ main a:hover {
 
 .admin-side li {
 	display: block;
-}
-
-.admin-main {
-	width: auto;
-	height: auto;
-	text-align: left;
 }
 
 .post-list {
@@ -75,7 +75,7 @@ main a:hover {
 	color: blue;
 }
 
-.travel-info-list, travel-info {
+.travel-info-list, .travel-info {
 	margin: 0;
 }
 

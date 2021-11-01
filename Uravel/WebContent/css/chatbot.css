@@ -14,8 +14,9 @@
 .visible-chatbot {
 	position: fixed;
 	bottom: 0;
-	right: 0;
+	right: 10px;
 	z-index: 1003;
+	animation: bounce .3s ease 10 alternate;
 }
 
 #chatting-area {
@@ -50,4 +51,10 @@
 
 #chatting-area input[type="button"] {
 	width: 20%;
+}
+
+@keyframes bounce { 
+	100% {
+	bottom: 20px;
+	}
 }

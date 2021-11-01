@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.biz.MainBiz;
+import com.dto.HistoryDto;
 import com.dto.MemberDto;
 import com.dto.TravelDto;
 
@@ -55,7 +56,11 @@ public class MainServlet extends HttpServlet {
 
 		} else if (command.equals("searchMain")) { // 메인 페이지에서 검색된 결과를 보여줌
 			List<TravelDto> res = biz.search(request.getParameter("keyword"));
+			List<HistoryDto> res_h = biz.search(request.getParameter("keyword"), null);
+
 			request.setAttribute("res", res);
+			request.setAttribute("res_h", res_h);
+
 			dispatch("main/searchresult.jsp", request, response);
 		}
 	}

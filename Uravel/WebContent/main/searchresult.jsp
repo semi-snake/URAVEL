@@ -25,6 +25,9 @@ response.setContentType("text/html; charset=UTF-8");
 	function clickArticle(travelno){
 		window.location.href="Main?command=traveldetail&travelno=" + travelno;
 	}
+	function clickHistory(historyno){
+		window.location.href="history_controller?command=desc&historyno=" + historyno;
+	}
 </script>
 </head>
 <body>
@@ -38,6 +41,7 @@ response.setContentType("text/html; charset=UTF-8");
 			<br>
 			<h2>사이트 내 검색</h2>
 			<div class="result-list">
+				<h3>여행지 게시글 검색 결과</h3>
 				<c:choose>
 					<c:when test="${empty res }">
 						<div class="prefered-list-not-found">
@@ -63,10 +67,35 @@ response.setContentType("text/html; charset=UTF-8");
 					</c:otherwise>
 				</c:choose>
 			</div>
+			<div class="result-list">
+				<h3>역사문화 게시글 검색 결과</h3>
+				<c:choose>
+					<c:when test="${empty res_h }">
+						<div class="prefered-list-not-found">
+							<img alt="마스코트 이미지"
+								src="https://drive.google.com/uc?export=view&id=1DbmvxdfNU4x0xbOuHwBwwGNCrtAf2bCC">
+							<br> <br> <span>검색된 데이터가 없습니다.</span>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="dto" items="${res_h }">
+							<article onclick="clickHistory(${dto.historyno})">
+								<section>
+									<img src="${dto.url_pic1}" alt="${dto.travelname }">
+								</section>
+								<section>
+									<span class="result-list-title">${dto.travelname }</span><span
+										class="result-list-content">${dto.description }</span>
+								</section>
+							</article>
+						</c:forEach>
+
+					</c:otherwise>
+				</c:choose>
+			</div>
 			<h2>외부 사이트 리뷰</h2>
 			<br>
-			<div class="review-list">
-			</div>
+			<div class="review-list"></div>
 		</div>
 	</main>
 	<%@ include file="../common/footer.jsp"%>
