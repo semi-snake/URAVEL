@@ -9,7 +9,7 @@
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
 	function registForm(){
-		location.href="logincontroller.jsp?command=registform";
+		location.href="logincontroller.jsp?command=registform"
 	}
 </script>
 

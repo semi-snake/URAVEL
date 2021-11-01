@@ -29,6 +29,28 @@
 			document.getElementsByName("userid")[0].focus();
 		}
 	}
+	function typeChk(){
+		var msg = "테마 선택 완료.\n";
+		var chk = document.getElementsByName("tema");
+		
+		for(var i=0; i<chk.length; i++){
+			if(chk[i].checked){
+				msg += (" " + chk[i].value + "\n");
+			}
+		}
+		alert(msg);
+	}
+	function localChk(){
+		var msg = "지역 선택 완료.\n";
+		var chk = document.getElementsByName("local");
+		
+		for(var i=0; i<chk.length; i++){
+			if(chk[i].checked){
+				msg += (" " + chk[i].value + "\n");
+			}
+		}
+		alert(msg);
+	}
 	
 </script>
 
@@ -36,6 +58,7 @@
 <body>
 	<form action="logincontroller.jsp" method="post">
 		<input type="hidden" name="command" value="insertuser">
+		<input type="hidden" name="command" value="insertlocal">
 
 	<div class="main-signup">
 		<h1>URAVEL</h1>
@@ -132,7 +155,7 @@
 				<label><input type="checkbox" name="tema" value="food">맛집</label>
 				<label><input type="checkbox" name="tema" value="hiking">등산</label>
 				<label><input type="checkbox" name="tema" value="camping">캠핑</label><br><br>
-				<label><input type="submit" value="저장" onclick="idChkConfirm();"></label>
+				<label><input type="button" value="저장" onclick="typeChk();"></label>
 				<label><input type="reset" value="취소"></label>
 				</span>
 			</div>
@@ -165,7 +188,7 @@
 				<label><input type="checkbox" name="local" value="종로구">종로구</label>
 				<label><input type="checkbox" name="local" value="중구">중구</label><br><br>
 				<label><input type="checkbox" name="local" value="중랑구">중랑구</label><br><br>
-				<label><input type="submit" value="저장" onclick="idChkConfirm();"></label>
+				<label><input type="button" value="저장" onclick="localChk();"></label>
 				<label><input type="reset" value="취소"></label>
 				</span>
 			</div>

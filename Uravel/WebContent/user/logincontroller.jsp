@@ -7,6 +7,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.dao.MemberDao" %>
 <%@ page import="com.dto.MemberDto" %>
+<%@ page import="com.dao.LocationDao" %>
+<%@ page import="com.dto.LocationDto" %>
     
 <!DOCTYPE html>
 <html>
@@ -161,10 +163,38 @@
 			
 		}
 	}
-
-
+	
+	LocationDao localdao = new LocationDao();
+	
+	if(command.equals("insertLocal")){
+		int localcode = Integer.parseInt(request.getParameter("localcode"));
+		String localname = request.getParameter("localname");
+		
+		LocationDto localdto = new LocationDto();
+		localdto.setLocalcode(localcode);
+		localdto.setLocalname(localname);
+		
+		int res = localdao.insertLocal(localdto);
+		
+		if(res>0){
 %>
-
+		<script type="text/javascript">
+			alert("저장완료");
+		</script>
+<%			
+		}else{
+%>
+		<script type="text/javascript">
+			alert("저장실패");
+		</script>
+<%
+			
+		}
+	}
+	
+		
+		
+%>
 
 
 
