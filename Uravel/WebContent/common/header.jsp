@@ -54,13 +54,29 @@ MemberDto dto = (MemberDto) session.getAttribute("dto");
 				if (dto != null) {
 				%>
 				<li><%=dto.getUsername()%>님</li>
-				<li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=userinfo">마이페이지</a></li>
-				<li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=logout">로그아웃</a></li>
+
+				<%
+				if (!dto.getRole().equals("ADMIN")) {
+				%>
+				<li><a
+					href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=userinfo">마이페이지</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=logout">로그아웃</a></li>
 				<%
 				} else {
 				%>
-				<li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=login">로그인</a></li>
-				<li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=registform">회원가입</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/Admin?command=travellist">관리자페이지</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=logout">로그아웃</a></li>
+				<%
+				}
+				} else {
+				%>
+				<li><a
+					href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=login">로그인</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=registform">회원가입</a></li>
 				<%
 				}
 				%>
