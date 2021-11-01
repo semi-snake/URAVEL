@@ -146,30 +146,6 @@ input[type="submit"]:hover,[type="button"]:hover {
 	opacity: 1;
 }
 
-/***************************/
-/******** Page List ********/
-.page-list {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	display: inline-block;
-}
-
-.page-list a {
-	float: left;
-	display: block;
-	color: gainsboro;
-	text-align: center;
-	padding: 16px;
-	text-decoration: none;
-	transition: 0.5s;
-}
-
-.page-list a:hover {
-	transform: scale(1.5);
-	color: rgb(199, 199, 199);
-	transition: 0.5s;
-}
 
 /*****************************************************************/
 /* History Detail */
@@ -181,6 +157,10 @@ input[type="submit"]:hover,[type="button"]:hover {
 	margin-left:60px;
 	margin-right:60px;
 }
+.history-desc-titlebox{
+	width:300px;
+	
+}
 .history-desc-title{
 	margin: 40px 0 1px 40px;
 	color:#333333;
@@ -189,7 +169,7 @@ input[type="submit"]:hover,[type="button"]:hover {
 	margin-left:15px;
 	margin-bottom:50px;
 	border:none;
-	width:20%;
+	width:100%;
 	height:1px;
 	background-color: #b7b7b7;
 }
@@ -210,6 +190,13 @@ input[type="submit"]:hover,[type="button"]:hover {
 	font-size:12pt;
 	line-height:24px;
 }
+.history-desc-source-text{
+	width:90%;
+	word-break:break-all;
+	font-size:9pt;
+	color: #666666;
+}
+
 
 
 /***********************/
@@ -233,7 +220,7 @@ input[type="submit"]:hover,[type="button"]:hover {
 
 
 /*****************************************************************/
-/* History Write */
+/* History Insert */
 /*****************************************************************/
 
 /********************/
@@ -251,9 +238,16 @@ input[type="submit"]:hover,[type="button"]:hover {
 	text-align:left;
 }
 
-input[name="history-form-writer"],[name="history-form-title"],[name="history-form-url"]{
+input[name="history-form-writer"],[name="history-form-title"],[name="address"],[name="history-form-url1"],[name="history-form-url2"],[name="history-form-source"]{
 	font-size: 11pt;
 	width: 85%;
+	height: 30px;
+	border-radius: 10;
+	border: 0.5px solid gainsboro;
+}
+.localcode[name="localcode"]{
+	font-size: 11pt;
+	width: 50%;
 	height: 30px;
 	border-radius: 10;
 	border: 0.5px solid gainsboro;

@@ -12,49 +12,23 @@ import java.util.List;
 import com.dto.HistoryDto;
 import com.dto.TravelDto;
 
-public class HistoryDao {
-	/*
-	 * ######################################################## 메인페이지에서 사용되는 메소드
-	 * search ########################################################
-	 */
-	public List<HistoryDto> search(Connection conn, String keyword) {
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-
-		List<HistoryDto> res = new ArrayList<HistoryDto>();
-
-		String sql = "SELECT * FROM HISTORY h WHERE TRAVELNAME LIKE ? OR DESCRIPTION LIKE ?";
-		String keyword_sql = "%" + keyword + "%";
-		System.out.println("03. 쿼리 준비 : " + sql + ", 키워드 : " + keyword);
-
-		try {
-			pstm = conn.prepareStatement(sql);
-			pstm.setString(1, keyword_sql);
-			pstm.setString(2, keyword_sql);
-
-			rs = pstm.executeQuery();
-			System.out.println("04. 쿼리 실행 및 결과 리턴");
-
-			while (rs.next()) {
-				HistoryDto dto = new HistoryDto();
-				dto.setHistoryno(rs.getInt("historyno"));
-				dto.setTravelname(rs.getString("travelname"));
-				dto.setDescription(rs.getString("description"));
-				dto.setUrl_pic1(rs.getString("url_pic1"));
-
-				res.add(dto);
-			}
-		} catch (SQLException e) {
-			System.out.println("3/4단계 에러");
-			e.printStackTrace();
-		} finally {
-			close(rs);
-			close(pstm);
-		}
-		return res;
-	}
-
-	/*
-	 * ########################################################
-	 */
+public interface HistoryDao {
+	
+	String selectAllSql = " SELECT HISTORYNO, TRAVELNAME, URL_PIC1 FROM HISTORY ORDER BY HISTORYNO DESC ";
+	String selectOneSql = " SELECT HISTORYNO, TRAVELNAME, URL_PIC1, URL_PIC2, DESCRIPTION, SOURCE FROM HISTORY WHERE HISTORYNO=?";
+	
+	String insertTravelSql = " INSERT INTO TRAVEL(TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,URL_PIC) VALUES(TRAVELSEQ.NEXTVAL,?,?,6,?,?,?) ";
+	String insertHistorySql = " INSERT INTO HISTORY(TRAVELNO,HISTORYNO,TRAVELNAME,URL_PIC1,URL_PIC2,DESCRIPTION,SOURCE) VALUES(?,HISTORYSEQ.NEXTVAL,?,?,?,?,?) ";
+	
+	String updateHistorySql = " UPDATE HISTORY SET TRAVELNAME=?, URL_PIC1=?, URL_PIC2=?, DESCRIPTION=?, SOURCE=? WHERE HISTORYNO=?";
+	
+	String deleteSql = " DELETE FROM HISTORY WHERE HISTORYNO=? ";
+	
+	public List<HistoryDto> selectAll(Connection con, String language);
+	public HistoryDto selectOne(Connection con, int historyno, String language);
+	public boolean insert(Connection con, HistoryDto dto, TravelDto tdto);
+	public int insertTravel(Connection con, TravelDto dto);
+	public boolean update(Connection con, HistoryDto dto);
+	public boolean delete(Connection con, int dto);
+	
 }

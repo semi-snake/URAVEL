@@ -27,6 +27,10 @@
 		<servlet-class>com.controller.TravelController</servlet-class>
 	</servlet>
 	
+		<servlet-name>UC2</servlet-name>
+		<servlet-class>com.controller.history_Controller</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>MainServlet</servlet-name>
 		<url-pattern>/Main</url-pattern>
@@ -57,4 +61,11 @@
 		<url-pattern>/TravelController</url-pattern>
 	</servlet-mapping>
 	
+		<servlet-name>UC2</servlet-name>
+		<url-pattern>/history_Controller</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UC2</servlet-name>
+		<url-pattern>/history/history_Controller</url-pattern>
+	</servlet-mapping>
 </web-app>
