@@ -38,6 +38,28 @@
          
          
       }else{
+=======
+	String command = request.getParameter("command");
+	System.out.println("[command: " + command + "]");
+	
+	MemberDao dao = new MemberDao();
+	
+	if(command.equals("login")){
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		MemberDto dto = dao.login(id,pw);
+		
+		if(dto.getUserid() != null){
+			
+			session.setAttribute("dto", dto);
+			session.setMaxInactiveInterval(60*60);
+			
+			response.sendRedirect("../Main?command=main");
+			
+			
+		}else{
+>>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
 %>
       <script type="text/javascript">
          alert("login 실패");
@@ -79,10 +101,17 @@
       
       if(res>0){
 %>
+<<<<<<< HEAD
       <script type="text/javascript">
          alert("회원가입성공");
          location.href="../Main?command=main";
       </script>
+=======
+		<script type="text/javascript">
+			alert("회원가입성공");
+			location.href="../Main?command=main";
+		</script>
+>>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
 <%
       }else{
 %>
@@ -91,6 +120,7 @@
          location.href="logincontroller.jsp?command=registform";
       </script>
 
+<<<<<<< HEAD
 <%         
       }
    }else if(command.equals("logout")){
@@ -128,6 +158,45 @@
       boolean res = dao.updateUser(dto);
       
       if(res){
+=======
+<%			
+		}
+	}else if(command.equals("logout")){
+		session.invalidate();
+		response.sendRedirect("index.jsp");
+		
+	}else if(command.equals("userinfo")){
+		int userno = ((MemberDto)session.getAttribute("dto")).getUserno();
+		
+		MemberDto dto = dao.selectUser(userno);
+		request.setAttribute("dto", dto);
+		
+		pageContext.forward("userinfo.jsp");
+		
+	}else if(command.equals("updateform")){
+		int userno = Integer.parseInt(request.getParameter("userno"));
+		MemberDto dto = dao.selectUser(userno);
+		
+		request.setAttribute("dto", dto);
+		pageContext.forward("updateuser.jsp");
+		
+	}else if(command.equals("updateuser")){
+		
+		String userpw = request.getParameter("userpw");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		int userno = Integer.parseInt(request.getParameter("userno"));
+		
+		MemberDto dto = new MemberDto();
+		dto.setUserpw(userpw);
+		dto.setEmail(email);
+		dto.setPhone(phone);
+		dto.setUserno(userno);
+		
+		boolean res = dao.updateUser(dto);
+		
+		if(res){
+>>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
 %>
       <script type="text/javascript">
          alert("수정 완료");

@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.dao.HistoryDao;
+import com.dao.HistoryDaoImpl;
 import com.dao.TravelDao;
 import com.dao.WeatherDao;
 import com.dto.HistoryDto;
@@ -17,7 +18,7 @@ import api.weather.WeatherAPI;
 
 public class MainBiz {
 	private TravelDao t_dao = new TravelDao();
-	private HistoryDao h_dao = new HistoryDao();
+	private HistoryDao h_dao = new HistoryDaoImpl();
 	private WeatherDao w_dao = new WeatherDao();
 
 	public List<TravelDto> search(String keyword) {
