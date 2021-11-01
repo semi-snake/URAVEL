@@ -95,7 +95,7 @@
 		}
 	}else if(command.equals("logout")){
 		session.invalidate();
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("../Main?command=main");
 		
 	}else if(command.equals("userinfo")){
 		int userno = ((MemberDto)session.getAttribute("dto")).getUserno();
