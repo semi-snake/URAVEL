@@ -7,6 +7,7 @@
 	<welcome-file-list>
 		<welcome-file>main/default.jsp</welcome-file>
 	</welcome-file-list>
+	
 	<servlet>
 		<servlet-name>MainServlet</servlet-name>
 		<servlet-class>com.controller.MainServlet</servlet-class>
@@ -15,24 +16,45 @@
 		<servlet-name>AdminServlet</servlet-name>
 		<servlet-class>com.controller.AdminServlet</servlet-class>
 	</servlet>
+
+	<servlet>
+		<servlet-name>UravelControl3</servlet-name>
+		<servlet-class>com.controller.history_Controller</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>Travel</servlet-name>
+		<servlet-class>com.controller.TravelController</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>MainServlet</servlet-name>
 		<url-pattern>/Main</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>MainServlet</servlet-name>
 		<url-pattern>/main/Main</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>MainServlet</servlet-name>
 		<url-pattern>/common/Main</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>AdminServlet</servlet-name>
 		<url-pattern>/Admin</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>AdminServlet</servlet-name>
 		<url-pattern>/admin/Admin</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Travel</servlet-name>
+		<url-pattern>/TravelController</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

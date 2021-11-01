@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 DROP TABLE HISTORY;
+>>>>>>> branch 'master' of https://github.com/junmipark/Uravel_TeamProject.git
 
 CREATE TABLE HISTORY (
   "HISTORYNO" NUMBER NOT NULL,
