@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>  
+<% response.setContentType("text/html; charset=UTF-8"); %> 
+<%@ page import="java.util.List" %>
+<%@ page import="com.dto.ReviewDto" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +21,7 @@ div {
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
+
 	<main>
 		<div class="reviewlist">
 			<h1>후기 게시판</h1>
@@ -60,24 +67,23 @@ div {
 			</select>&nbsp; <select name="orderlist">
 				<option value="1">최신순</option>
 				<option value="2">좋아요순</option>
-				<option value="3"></option>
-				<option value="4"></option>
-				<option value="5"></option>
+				<option value="3">내 후기</option>
+				
 			</select>
 		</div>
 		<br> <br>
 		<div id="search-box">
-			<form action="Controller" method="post">
-				<input type="hidden" name="command" value="searchMain"> <input
-					type="text" name="keyword" placeholder="내용을 입력해주세요"> <input
-					type="submit" value="검색">
+			<form action="ReviewController" method="post">
+				<input type="hidden" name="command" value="searchReview"> 
+				<input type="text" name="keyword" placeholder="내용을 입력해주세요"> 
+				<input type="submit" value="검색">
+			</form>
 		</div>
-		</form>
 
 		<br>
 
 
-		<table>
+		<table id="review-table">
 			<colgroup>
 				<col width="100">
 				<col width="300">
@@ -91,22 +97,26 @@ div {
 				<th>Date</th>
 			</thead>
 			<tbody>
+		<c:choose>
+			<c:when test="${empty list }">
 				<tr>
-
-					<td>1</td>
-					<td><a href="boarddetatil.jsp/">후기 게시글 1</a></td>
-					<td>작성자1</td>
-					<td>2021-10-15</td>
+					<td colspan="4">=============================작성된 글이 없습니다.==================================</td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td><a href="boarddetail.jsp">후기 게시글 2</a></td>
-					<td>작성자2</td>
-					<td>2021-10-15</td>
+			</c:when>
+			<c:otherwise>
+				<c:forEach items="${list }" var="dto">
+				<tr>		
+					<td>${dto.postno }</td>
+					<td><a href="ReviewController?command=detail&postno=${dto.postno}">${dto.title }</a></td>
+					<td>${dto.userno }</td>
+					<td>${dto.postdate }</td>
 				</tr>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
 				<tr>
 					<td colspan="4" align="right"><input type="button" value="등록"
-						onclick="location.href='answer.do?command=boardwrite'"></td>
+						onclick="location.href='${pageContext.request.contextPath}/ReviewController?command=writeform'"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -119,7 +129,7 @@ div {
 			<li><a href="#">5</a></li>
 			<li><a href="#">다음</a></li>
 		</ul>
-		</div>
+		
 	</main>
 	<%@ include file="../common/footer.jsp"%>
 </body>

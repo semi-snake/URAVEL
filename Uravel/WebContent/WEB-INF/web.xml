@@ -7,10 +7,16 @@
 	<welcome-file-list>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	
 	<servlet>
 		<servlet-name>UC</servlet-name>
 		<servlet-class>com.controller.UravelServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ReviewController</servlet-name>
+		<servlet-class>com.controller.ReviewController</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>UC</servlet-name>
 		<url-pattern>/UC</url-pattern>
@@ -38,5 +44,13 @@
 	<servlet-mapping>
 		<servlet-name>UC</servlet-name>
 		<url-pattern>/history_Controller</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReviewController</servlet-name>
+		<url-pattern>/ReviewController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReviewController</servlet-name>
+		<url-pattern>/review/ReviewController</url-pattern>
 	</servlet-mapping>
 </web-app>
