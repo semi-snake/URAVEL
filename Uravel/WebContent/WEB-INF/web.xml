@@ -27,8 +27,11 @@
 		<servlet-class>com.controller.TravelController</servlet-class>
 	</servlet>
 	
+	<servlet>
 		<servlet-name>UC2</servlet-name>
 		<servlet-class>com.controller.history_Controller</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>ReviewController</servlet-name>
 		<servlet-class>com.controller.ReviewController</servlet-class>
 	</servlet>
@@ -63,12 +66,16 @@
 		<url-pattern>/TravelController</url-pattern>
 	</servlet-mapping>
 	
+	<servlet-mapping>
 		<servlet-name>UC2</servlet-name>
 		<url-pattern>/history_Controller</url-pattern>
 	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>UC2</servlet-name>
 		<url-pattern>/history/history_Controller</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>ReviewController</servlet-name>
 		<url-pattern>/ReviewController</url-pattern>
 	</servlet-mapping>

@@ -1,4 +1,4 @@
-package com.TranslationAPI;
+package api.TranslationAPI;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
