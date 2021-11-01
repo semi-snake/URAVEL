@@ -5,38 +5,34 @@
 	version="4.0">
 	<display-name>Uravel</display-name>
 	<welcome-file-list>
-		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>main/default.jsp</welcome-file>
 	</welcome-file-list>
 	<servlet>
-		<servlet-name>UC</servlet-name>
-		<servlet-class>com.controller.UravelServlet</servlet-class>
+		<servlet-name>MainServlet</servlet-name>
+		<servlet-class>com.controller.MainServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<servlet-class>com.controller.AdminServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>UC</servlet-name>
-		<url-pattern>/UC</url-pattern>
+		<servlet-name>MainServlet</servlet-name>
+		<url-pattern>/Main</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>UC</servlet-name>
-		<url-pattern>/main/UC</url-pattern>
+		<servlet-name>MainServlet</servlet-name>
+		<url-pattern>/main/Main</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>UC</servlet-name>
-		<url-pattern>/Controller</url-pattern>
+		<servlet-name>MainServlet</servlet-name>
+		<url-pattern>/common/Main</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>UC</servlet-name>
-		<url-pattern>/main/Controller</url-pattern>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/Admin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>UC</servlet-name>
-		<url-pattern>/common/Controller</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>UC</servlet-name>
-		<url-pattern>/admin/Controller</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>UC</servlet-name>
-		<url-pattern>/history_Controller</url-pattern>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/admin/Admin</url-pattern>
 	</servlet-mapping>
 </web-app>
