@@ -21,8 +21,8 @@
 			<ul class="menu">
 				<li><a href="#">여행지 추천</a> <!-- 하위 메뉴 -->
 					<ul class="sub-menu">
-						<li><a href="#">지역별</a></li>
-						<li><a href="#">테마별</a></li>
+						<li><a href="../travel/travelarea.jsp">지역별</a></li>
+						<li><a href="../travel/traveltheme.jsp">테마별</a></li>
 					</ul></li>
 				<li><a href="#">역사 문화</a></li>
 				<li><a href="#">후기</a></li>

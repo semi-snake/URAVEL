@@ -4,6 +4,13 @@
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
+html, body {
+   cursor:
+      url('https://drive.google.com/uc?export=view&id=1UpN346n3uGJ41ooyMXnL1lr7rwtHc97r'),
+      auto;
+}
+
+
 footer {
 	bottom: 0;
 	width: 100%;

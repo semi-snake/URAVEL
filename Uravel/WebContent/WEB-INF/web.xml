@@ -7,6 +7,7 @@
 	<welcome-file-list>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	
 	<servlet>
 		<servlet-name>UC</servlet-name>
 		<servlet-class>com.controller.UravelServlet</servlet-class>
@@ -16,37 +17,50 @@
 		<servlet-name>UravelControl3</servlet-name>
 		<servlet-class>com.controller.history_Controller</servlet-class>
 	</servlet>
-
+	
+	<servlet>
+		<servlet-name>Travel</servlet-name>
+		<servlet-class>com.controller.TravelController</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>UC</servlet-name>
 		<url-pattern>/UC</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
 
-		<servlet-name>UravelControl</servlet-name>
-
-		
-		<url-pattern>/main/UC</url-pattern>
-	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>UC</servlet-name>
-
+		<url-pattern>/main/UC</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>UC</servlet-name>
 		<url-pattern>/Controller</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>UC</servlet-name>
 		<url-pattern>/main/Controller</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>UC</servlet-name>
 		<url-pattern>/common/Controller</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>UC</servlet-name>
 		<url-pattern>/admin/Controller</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>UC</servlet-name>
 		<url-pattern>/history_Controller</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Travel</servlet-name>
+		<url-pattern>/TravelController</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

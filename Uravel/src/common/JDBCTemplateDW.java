@@ -20,13 +20,13 @@ public class JDBCTemplateDW {
 			String id = "DW";
 			String pw = "DW";
 			
-			Connection con = null;
+			Connection conn = null;
 			
 			try {
-				con = DriverManager.getConnection(url,id,pw);
+				conn = DriverManager.getConnection(url,id,pw);
 				System.out.println("02. 계정 연결");
 				
-				con.setAutoCommit(false);
+				conn.setAutoCommit(false);
 				
 			} catch (SQLException e) {
 				System.out.println("02. 계정 연결 실패");
@@ -35,12 +35,12 @@ public class JDBCTemplateDW {
 					
 			
 					
-					return con;
+					return conn;
 		}
 		
-		public static void close(Connection con) {
+		public static void close(Connection conn) {
 			try {
-				con.close();
+				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -61,16 +61,16 @@ public class JDBCTemplateDW {
 		}
 		
 		
-		public static void commit(Connection con) {
+		public static void commit(Connection conn) {
 			try {
-				con.commit();
+				conn.commit();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		public static void rollback(Connection con) {
+		public static void rollback(Connection conn) {
 			try {
-				con.rollback();
+				conn.rollback();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
