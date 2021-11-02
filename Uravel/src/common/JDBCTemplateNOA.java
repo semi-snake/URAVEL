@@ -17,8 +17,8 @@ public class JDBCTemplateNOA {
 		}
 
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String id = "NOA";
-		String pw = "NOA";
+		String id = "DW";
+		String pw = "DW";
 
 		Connection con = null;
 

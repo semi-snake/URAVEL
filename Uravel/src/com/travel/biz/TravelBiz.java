@@ -10,20 +10,30 @@ public class TravelBiz {
 	
 	TravelDwDao travelDao = new TravelDwDao();
 	
-	// 지역구명, 여행지 목록 호출
+	// 지역구명 호출
 	public String selectLocalName(int localcode) {
 		return travelDao.selectLocalName(localcode);
 	}
-
-	public List<TravelListDto> selectTravelList(int listcode) {
-		return travelDao.selectTravelList(listcode);
+	
+	// 테마명 호출
+	public String selectThemeName(int themecode) {
+		return travelDao.selectThemeName(themecode);
 	}
-
+	
+	// 지역별 리스트 호출
+	public List<TravelListDto> selectTravelList(int areaListCode) {
+		return travelDao.selectTravelList(areaListCode);
+	}
+	
+	// 테마별 여행지 리스트 호출
+	public List<TravelListDto> selectThemeList(int themeListCode) {
+		return travelDao.selectThemeList(themeListCode);
+	}
+	
+	// 여행지 리스트 상세보기
 	public TravelDetailDto selectTravelDetail(int travelno) {
 		return travelDao.selectTravelDetail(travelno);
 	}
+	
 
-	public List<TravelListDto> selectThemeList(int themecode) {
-		return travelDao.selectThemeName(themecode);
-	}
 }

@@ -37,21 +37,44 @@ public class TravelDwDao {
 		
 		return localName;
 	}
+	
+	public String selectThemeName(int themecode){
+		Connection conn = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String themeName = "";
+		try {
+			String sql = "SELECT THEMENAME FROM THEME WHERE THEMECODE = ?";
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, themecode);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				themeName = rs.getString("THEMENAME");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+		}
+		
+		return themeName;
+	}
 
-	public List<TravelListDto> selectTravelList(int listcode) {
+	public List<TravelListDto> selectTravelList(int areaListCode) {
 		Connection conn = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		List<TravelListDto> travelList = new ArrayList<TravelListDto>();
 		try {
-			String sql = "SELECT URL_PIC, TR.TRAVELNO, TH.THEMENAME, TRAVELNAME, LIKE_COUNT, LOCALCODE "
-					   + " FROM TRAVEL TR "
-					   + " JOIN THEME TH ON TR.THEMECODE = TH.THEMECODE "
-					   + " LEFT JOIN LIKE_COUNT L ON TR.TRAVELNO = L.TRAVELNO "
-					   + " WHERE LOCALCODE = ? " 
-					   + " ORDER BY TR.TRAVELNO ASC ";
+			String sql = " SELECT * FROM TRAVEL "
+					+ " LEFT JOIN THEME USING(THEMECODE) " 
+					+ " LEFT JOIN (SELECT TRAVELNO, COUNT(*) AS LIKE_COUNT FROM LIKE_COUNT GROUP BY TRAVELNO) USING(TRAVELNO) " 
+					+ " WHERE LOCALCODE=? " 
+					+ " ORDER BY TRAVELNO ";
 			pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, listcode);
+			pstm.setInt(1, areaListCode);
 			rs = pstm.executeQuery();
 			
 			while (rs.next()) {
@@ -73,6 +96,45 @@ public class TravelDwDao {
 		}
 		
 		return travelList;
+	}
+	
+	public List<TravelListDto> selectThemeList(int themeListCode) {
+		
+		Connection conn = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<TravelListDto> themeList = new ArrayList<TravelListDto>();
+		
+		try {
+			String sql =  " SELECT * FROM TRAVEL " 
+					+ " LEFT JOIN THEME USING(THEMECODE) " 
+					+ " LEFT JOIN (SELECT TRAVELNO, COUNT(*) AS LIKE_COUNT FROM LIKE_COUNT GROUP BY TRAVELNO) USING(TRAVELNO) " 
+					+ " WHERE THEMECODE=? "
+					+ " ORDER BY TRAVELNO ";
+			
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, themeListCode);
+			rs = pstm.executeQuery();
+		
+			while (rs.next()) {
+				TravelListDto travelDto = new TravelListDto();
+				travelDto.setUrl_pic(rs.getString("URL_PIC"));
+				travelDto.setTravelno(rs.getInt("TRAVELNO"));
+				travelDto.setThemename(rs.getString("THEMENAME"));
+				travelDto.setTravelname(rs.getString("TRAVELNAME"));
+				travelDto.setLike_count(rs.getInt("LIKE_COUNT"));
+				
+				themeList.add(travelDto);
+				}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+		};
+		
+		return themeList;
 	}
 
 	public TravelDetailDto selectTravelDetail(int travelno) {
@@ -107,7 +169,7 @@ public class TravelDwDao {
 				
 				
 			}
-			System.out.println(rs.getRow());
+			
 		} 
 		catch(Exception e) {
 			e.printStackTrace();
@@ -121,34 +183,54 @@ public class TravelDwDao {
 		
 	}
 
-	public List<TravelListDto> selectThemeName(int themecode) {
+	public TravelDetailDto selectThemeDetail(int travelno) {
 		
 		Connection conn = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		List<TravelListDto> travelList = new ArrayList<TravelListDto>();
+		TravelDetailDto themeDetail = new TravelDetailDto();
 		
+		//여기서 받는 code의 값은 DB의 travelno의 값
 		try {
-			String sql = "SELECT TR.URL_PIC, TR.TRAVELNO,TH.THEMENAME, TR.TRAVELNAME, LIKE_COUNT, TH.THEMECODE "
-					+ " FROM THEME TH "
-					+ " JOIN TRAVEL TR ON TH.THEMECODE = TR.THEMECODE "
-					+ " LEFT JOIN LIKE_COUNT L ON TR.TRAVELNO = L.TRAVELNO "
-					+ " WHERE TH.THEMECODE = ? "
-					+ " ORDER BY TR.TRAVELNO ASC ";
+			String sql = "SELECT TR.travelname, COUNTNO, ADDRESS, URL_PIC, TRAVELNO "
+					+ " FROM TRAVEL TR "
+					+ " LEFT JOIN (SELECT travelno, COUNT(travelno) AS COUNTNO FROM like_count GROUP BY travelno) using(travelno)"
+					+ " WHERE TRAVELNO = ? "
+					+ " ORDER BY TRAVELNO ASC";
 			
 			pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, themecode);
+			pstm.setInt(1, travelno);
+			
 			rs = pstm.executeQuery();
-		}
+			
+			while(rs.next()) {
+				
+				themeDetail.setTravelName(rs.getString("TRAVELNAME"));
+				themeDetail.setLike_count(rs.getInt("COUNTNO"));
+				themeDetail.setTravelAddress(rs.getString("ADDRESS"));
+				themeDetail.setUrl_pic(rs.getString("URL_PIC"));
+				themeDetail.setTravelno(rs.getInt("TRAVELNO"));
+				
+				return themeDetail;
+				
+				
+			}
+			
+		} 
 		catch(Exception e) {
 			e.printStackTrace();
-		} finally {
+		}
+			finally {
 			close(rs);
 			close(pstm);
-		};
-		
-		 return null;
 		}
+		
+		return null;
+		
+	}
+
+
+
 }
 
 

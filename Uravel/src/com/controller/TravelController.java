@@ -49,20 +49,33 @@ public class TravelController extends HttpServlet {
 			
 			}
 			
-			else if(command.equals("detail")) {
+			else if(command.equals("areadetail")) {
 				TravelDetailDto travelDetail = travelBiz.selectTravelDetail(Integer.parseInt(request.getParameter("travelno")));
 				request.setAttribute("travelDetail", travelDetail);
 				
 				dispatch("travel/travelboard_detail.jsp", request, response);
 			}
 			
+			else if(command.equals("themedetail")) {
+				TravelDetailDto travelDetail = travelBiz.selectTravelDetail(Integer.parseInt(request.getParameter("travelno")));
+				request.setAttribute("travelDetail", travelDetail);
+				
+				dispatch("travel/themeboard_detail.jsp", request, response);
+			}
+			
 			else if(command.equals("theme")) {
 				List<TravelListDto> themeList = travelBiz.selectThemeList(Integer.parseInt(request.getParameter("themecode")));
 				request.setAttribute("themeList", themeList);
 				
-				dispatch("travel/travelThemeBoard.jsp", request, response);
+				String themeName = travelBiz.selectThemeName(Integer.parseInt(request.getParameter("themecode")));
+				request.setAttribute("themeName",themeName);
+				
+				
+				dispatch("travel/themeboard.jsp", request, response);
 				
 			}
+			
+
 			
 			
 		
