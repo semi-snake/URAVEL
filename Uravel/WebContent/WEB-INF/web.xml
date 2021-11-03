@@ -29,6 +29,10 @@
       <servlet-name>ReviewController</servlet-name>
       <servlet-class>com.controller.ReviewController</servlet-class>
    </servlet>
+   <servlet>
+      <servlet-name>FaqController</servlet-name>
+      <servlet-class>com.controller.FaqController</servlet-class>
+   </servlet>
 
    <servlet-mapping>
       <servlet-name>MainServlet</servlet-name>
@@ -76,5 +80,13 @@
    <servlet-mapping>
       <servlet-name>ReviewController</servlet-name>
       <url-pattern>/review/ReviewController</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>FaqController</servlet-name>
+      <url-pattern>/FAQ</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>FaqController</servlet-name>
+      <url-pattern>/faq/FAQ</url-pattern>
    </servlet-mapping>
 </web-app>
