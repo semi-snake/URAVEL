@@ -16,6 +16,13 @@ response.setContentType("text/html; charset=UTF-8");
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/header.css">
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+	font-family: "Noto Sans KR", sans-serif !important;
+}
+</style>
 </head>
 <%
 MemberDto dto = (MemberDto) session.getAttribute("dto");
@@ -34,17 +41,22 @@ MemberDto dto = (MemberDto) session.getAttribute("dto");
 			<ul class="menu">
 				<li><a href="#">여행지 추천</a> <!-- 하위 메뉴 -->
 					<ul class="sub-menu">
-						<li><a href="../travel/travelarea.jsp">지역별</a></li>
-						<li><a href="../travel/traveltheme.jsp">테마별</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/travel/travelarea.jsp">지역별</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/travel/traveltheme.jsp">테마별</a></li>
 					</ul></li>
-				<li><a href="#">역사 문화</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/history/history_Controller?command=list">역사
+						문화</a></li>
 				<li><a href="#">후기</a></li>
 				<li><a
 					href="${pageContext.request.contextPath }/Notice?command=noticelist">공지사항</a></li>
 				<li><a href="#">고객센터</a> <!-- 하위 메뉴 -->
 					<ul class="sub-menu">
 						<li><a href="#">FAQ</a></li>
-						<li><a href="#">1:1문의</a></li>
+						<li><a
+							href="${pageContext.request.contextPath }/Inquiry?command=inqlist">1:1문의</a></li>
 					</ul></li>
 			</ul>
 			<!-- 네비게이션 : 로그인 -->
@@ -53,7 +65,7 @@ MemberDto dto = (MemberDto) session.getAttribute("dto");
 				<%
 				if (dto != null) {
 				%>
-				<li><%=dto.getUsername()%>님</li>
+				<li><a id="username"><%=dto.getUsername()%>님! 안녕하세요!</a></li>
 
 				<%
 				if (!dto.getRole().equals("ADMIN")) {
@@ -66,7 +78,8 @@ MemberDto dto = (MemberDto) session.getAttribute("dto");
 				} else {
 				%>
 				<li><a
-					href="${pageContext.request.contextPath}/Admin?command=travellist">관리자페이지</a></li>
+					href="${pageContext.request.contextPath}/Admin?command=travellist">관리자
+						페이지</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=logout">로그아웃</a></li>
 				<%
@@ -84,7 +97,5 @@ MemberDto dto = (MemberDto) session.getAttribute("dto");
 		</nav>
 	</header>
 	<!-- 헤더 종료 -->
-
-
 </body>
 </html>

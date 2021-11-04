@@ -10,6 +10,7 @@ response.setContentType("text/html; charset=UTF-8");
 
 <%@ page import="com.dto.NoticeDto"%>
 <%@ page import="java.util.List"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,6 @@ response.setContentType("text/html; charset=UTF-8");
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/admin.css">
 <link rel="stylesheet" href="css/notice.css">
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>

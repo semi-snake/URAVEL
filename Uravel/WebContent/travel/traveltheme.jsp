@@ -43,8 +43,7 @@ response.setContentType("text/html; charset=UTF-8");
 		<div id="history-list">
 			<ul class="image-list">
 				<div class="list_kind_5">
-					<li><a href="http://localhost:8787/Uravel/TravelController?themeCode=
-					<%= %>&command=theme"> 
+					<li><a href="http://localhost:8787/Uravel/TravelController?themeCode=&command=theme"> 
 					<img src="http://drive.google.com/uc?export=view&id=1kG8ag4WBWAXeTk-TWhVXjGibA6IkYr9F"
 							alt="야경"> <span>야경</span>
 					</a></li>

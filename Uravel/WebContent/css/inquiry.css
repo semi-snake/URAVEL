@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.post-list thead {
+	background-color: #f9f9f9 !important;
+}
+
+.page-selected {
+	color: #575151 !important;
+}
+
+.notice-main {
+	position: relative;
+	margin: 0;
+	display: inline-block;
+	margin-inline: 50px;
+	vertical-align: top;
+	text-align: left;
+}
+
+.notice-main input[type="submit"]:hover, input[type="button"]:hover {
+	background-color: #feb062 !important;
+}
+
+.notice-info-list, .notice-info {
+	margin: 0;
+}
+
+.notice-info-list tr, .notice-info tr {
+	font-size: larger;
+}
+
+.notice-info ul, li {
+	list-style-type: none;
+	display: inline-block;
+	margin-inline: 10px;
+}
+
+.notice-info input[type="text"], textarea {
+	font-size: large;
+	width: 400px;
+}
+
+.notice-info input[type="submit"], input[type="button"] {
+	font-size: medium;
+	width: 80px;
+	height: 40px;
+}
+
+.notice-detail-content {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}

@@ -1,4 +1,4 @@
-package com.travel.dto;
+package com.dto;
 
 
 public class TravelListDto {

@@ -5,52 +5,57 @@
 /*****************************************************************/
 @charset "UTF-8";
 
-*{
-    margin-left: 0;
-    margin-right: 0;
+* {
+	margin-left: 0;
+	margin-right: 0;
 }
+
 main div {
 	margin-bottom: 50px;
 }
 
 /*********************/
 /******* Title *******/
-.bg-white{
-	width:100%;
-    height:350px;
-    background-color:rgba(223, 223, 223, 0.623);
-    position: absolute;
-} 
-.history-title{
-	
-    width:100%;
-    height:350px;
-    overflow:hidden;
-    background-image: url("http://drive.google.com/uc?export=view&id=1QNK1lHQzEAIb8RwPk4cQHILTehczwNnt");
-    background-size: cover;
-}
-.history-title h1,p,select{
-    position: relative; 
-    z-index:1000;
-}
-.history-title-text01{
-	margin:60px 0 0 120px;
-    margin-top:70px;
-    font-size: 25pt;
-    color:rgb(19, 19, 19);
-}
-.history-title-text02{
-    margin-left: 120px;
-    font-size: 13pt;
-    color:rgb(56, 56, 56);
-}
-.choose-lang{
-    margin: 50px 0 0 85%;
-    width:80px;
-    height:21px;
-    font-size:11pt;
+.bg-white {
+	width: 100%;
+	height: 350px;
+	background-color: rgba(223, 223, 223, 0.623);
+	position: absolute;
 }
 
+.history-title {
+	width: 100%;
+	height: 350px;
+	overflow: hidden;
+	background-image:
+		url("http://drive.google.com/uc?export=view&id=1QNK1lHQzEAIb8RwPk4cQHILTehczwNnt");
+	background-size: cover;
+}
+
+.history-title h1, p, select {
+	position: relative;
+	z-index: 1000;
+}
+
+.history-title-text01 {
+	margin: 60px 0 0 120px;
+	margin-top: 70px;
+	font-size: 25pt;
+	color: rgb(19, 19, 19);
+}
+
+.history-title-text02 {
+	margin-left: 120px;
+	font-size: 13pt;
+	color: rgb(56, 56, 56);
+}
+
+.choose-lang {
+	margin: 50px 0 0 85%;
+	width: 80px;
+	height: 21px;
+	font-size: 11pt;
+}
 
 /*****************************************************************/
 /* History Main */
@@ -58,9 +63,10 @@ main div {
 
 /**************************/
 /******* Search Box *******/
-#search-box-history{
-	text-align:center;
+#search-box-history {
+	text-align: center;
 }
+
 input {
 	font-size: large;
 }
@@ -72,7 +78,7 @@ input[name="keyword"] {
 	border: 0.5px solid gainsboro;
 }
 
-input[type="submit"],[type="button"] {
+input[type="submit"], [type="button"] {
 	width: 100px;
 	height: 50px;
 	border-style: none;
@@ -82,7 +88,7 @@ input[type="submit"],[type="button"] {
 	margin-left: 10px;
 }
 
-input[type="submit"]:hover,[type="button"]:hover {
+input[type="submit"]:hover, [type="button"]:hover {
 	cursor: pointer;
 	background-color: turquoise;
 	color: white;
@@ -90,30 +96,29 @@ input[type="submit"]:hover,[type="button"]:hover {
 
 /**********************************/
 /*********** Image List ***********/
-
-#history-list{
-    text-align: center;
-    
+#history-list {
+	text-align: center;
 }
+
 .image-list {
-    margin-bottom: 20px;
-    margin-left:auto;
-    margin-right: auto;
-    list-style: none;
-    text-align: center;
-    width:85%;
-
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	list-style: none;
+	text-align: center;
+	width: 85%;
 }
-.image-list li{
-    list-style-type:none;
-    display:inline-block;
-    padding:10px;
+
+.image-list li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 10px;
 }
 
 .image-list li img {
-    width: 240px;
-    height: 160px;
-    margin: 0;
+	width: 240px;
+	height: 160px;
+	margin: 0;
 }
 
 .image-list li a {
@@ -146,78 +151,80 @@ input[type="submit"]:hover,[type="button"]:hover {
 	opacity: 1;
 }
 
-
 /*****************************************************************/
 /* History Detail */
 /*****************************************************************/
 
 /***********************/
 /******** Title ********/
-.history-desc{
-	margin-left:60px;
-	margin-right:60px;
+.history-desc {
+	margin-left: 60px;
+	margin-right: 60px;
 }
-.history-desc-titlebox{
-	width:300px;
-	
+
+.history-desc-titlebox {
+	width: 300px;
 }
-.history-desc-title{
+
+.history-desc-title {
 	margin: 40px 0 1px 40px;
-	color:#333333;
+	color: #333333;
 }
-.history-desc-under01{
-	margin-left:15px;
-	margin-bottom:50px;
-	border:none;
-	width:100%;
-	height:1px;
+
+.history-desc-under01 {
+	margin-left: 15px;
+	margin-bottom: 50px;
+	border: none;
+	width: 100%;
+	height: 1px;
 	background-color: #b7b7b7;
 }
 
 /***********************/
 /***** Description *****/
-.history-desc-content-img{
-	text-align:center;
-}
-.history-desc-content-img img{
-	width:70%;
-	margin-bottom:25px;
+.history-desc-content-img {
+	text-align: center;
 }
 
-.history-desc-content-text{
-	margin:0 40px 70px 40px;
-	color:#444444;
-	font-size:12pt;
-	line-height:24px;
+.history-desc-content-img img {
+	width: 70%;
+	margin-bottom: 25px;
 }
-.history-desc-source-text{
-	width:90%;
-	word-break:break-all;
-	font-size:9pt;
+
+.history-desc-content-text {
+	margin: 0 40px 70px 40px;
+	color: #444444;
+	font-size: 12pt;
+	line-height: 24px;
+}
+
+.history-desc-source-text {
+	width: 90%;
+	word-break: break-all;
+	font-size: 9pt;
 	color: #666666;
 }
 
-
-
 /***********************/
 /******** Buttons ********/
-.history-desc-under02{
-	border:none;
-	height:1px;
+.history-desc-under02 {
+	border: none;
+	height: 1px;
 	background-color: #b7b7b7;
 }
-.history-desc-buttons{
-	text-align:right;
-	margin-right:30px;
+
+.history-desc-buttons {
+	text-align: right;
+	margin-right: 30px;
 }
-.history-desc-buttons input[type="button"]{
+
+.history-desc-buttons input[type="button"] {
 	width: 75px;
 	height: 35px;
-	margin-left:8px;
+	margin-left: 8px;
 	font-size: 12pt;
-	color:#333333;
-}	
-
+	color: #333333;
+}
 
 /*****************************************************************/
 /* History Insert */
@@ -225,48 +232,54 @@ input[type="submit"]:hover,[type="button"]:hover {
 
 /********************/
 /******* Form *******/
-
-.history-write-form, .history-update-form{
+.history-write-form, .history-update-form {
 	margin-left: 15%;
-	color:#555555;
-}
-.history-table tr, .history-update-table tr{
-	height:45px;
-}
-.history-table tr th, .history-update-table tr th{
-	width:100px;
-	text-align:left;
+	color: #555555;
 }
 
-input[name="history-form-writer"],[name="history-form-title"],[name="address"],[name="history-form-url1"],[name="history-form-url2"],[name="history-form-source"]{
+.history-table tr, .history-update-table tr {
+	height: 45px;
+}
+
+.history-table tr th, .history-update-table tr th {
+	width: 100px;
+	text-align: left;
+}
+
+input[name="history-form-writer"], [name="history-form-title"], [name="address"],
+	[name="history-form-url1"], [name="history-form-url2"], [name="history-form-source"]
+	{
 	font-size: 11pt;
 	width: 85%;
 	height: 30px;
 	border-radius: 10;
 	border: 0.5px solid gainsboro;
 }
-.localcode[name="localcode"]{
+
+.localcode[name="localcode"] {
 	font-size: 11pt;
 	width: 50%;
 	height: 30px;
 	border-radius: 10;
 	border: 0.5px solid gainsboro;
 }
-textarea[name="history-form-content"]{
+
+textarea[name="history-form-content"] {
 	font-size: 11pt;
 	width: 85%;
 	height: 300px;
 	border-radius: 10;
 	border: 0.5px solid gainsboro;
-	resize:none;
-	margin-bottom:5px;
+	resize: none;
+	margin-bottom: 5px;
 }
 
-.history-write-buttons, .history-update-buttons{
-	text-align:right;
-	margin-right:108px;
+.history-write-buttons, .history-update-buttons {
+	text-align: right;
+	margin-right: 108px;
 }
-input[type="submit"],[type="button"] {
+
+input[type="submit"], [type="button"] {
 	width: 75px;
 	height: 35px;
 	font-size: 12pt;
@@ -275,12 +288,10 @@ input[type="submit"],[type="button"] {
 	font-weight: bold;
 	transition: 0.25s;
 	margin-left: 10px;
-	
 }
 
-input[type="submit"]:hover,[type="button"]:hover {
+input[type="submit"]:hover, [type="button"]:hover {
 	cursor: pointer;
 	background-color: turquoise;
 	color: white;
 }
-
