@@ -2,30 +2,24 @@
 /*****************/
 /****** FAQ ******/
 /*****************/
-.choose-lang{
-    margin: 0 0 0 75%;
-    width:80px;
-    height:25px;
-    font-size:11pt;
-}
 
 .faq-main {
 	position: relative;
 	margin: 0;
 	display: inline-block;
-	margin-inline: 50px;
+	margin-inline: 20px;
 	vertical-align: top;
 	text-align: left;
+	width:80%;
 }
 
-.faq-main {
-	position: relative;
-	margin: 0;
-	display: inline-block;
-	margin-inline: 50px;
-	vertical-align: top;
-	text-align: left;
+
+.faq-heading{
+	border-bottom: #777;
+	padding: 20px 60px;
 }
+
+
 .faq-info-list input[type="submit"], .faq-info-list input[type="button"] {
 	font-size: medium;
 	width: 85px;
@@ -34,6 +28,7 @@
 }
 .faq-main input[type="submit"]:hover, .faq-main input[type="button"]:hover {
 	background-color: #ebcbae !important;
+	cursor: pointer;
 }
 
 
@@ -43,7 +38,6 @@
 	text-align: center;
 	display: block;
 	transform: scale(0.9);
-	margin-bottom:50px;
 }
 .search-box-faq form input[type="text"]{
 	width: 400px;
@@ -56,55 +50,56 @@
 
 /*********************/
 /****** LIST ******/
-.faqpost-list thead{
-	background-color: #f3f9e4 !important;
-}
-
 .faqpost-list {
-	margin: 40px 0 0 0;
-	width:700px;
-    border-top: 1px rgb(36, 36, 36) solid;
-    border-bottom: 1px rgb(36, 36, 36) solid;
-    border-collapse: collapse;
+	margin: 0;
+	width:100%;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }
-.faq-info-list tr{
+.faq-info-list{
+	width:100%;
+}
+.faq-content-question{
 	font-size: larger;
-}
-.faqpost-list th {
-	text-align: center;
+	margin:0;
 }
 
 .faq-content-question:hover{
 	cursor: pointer;
-}
-
-.faq-content-answer{
-	color: #888888;
-}
-.faq-content-answer p{
-	margin-left:20px;
+	background-color:#c7e5f8;
 }
 
 /*********************/
 /****** DETAIL ******/
-
-/* .faq-info-list input[type="text"], textarea {
-	font-size: large;
-	width: 400px;
-} */
-.faq-content-answer td input[type="button"]{
-	font-size:10pt;
-	width:50px;
-	height:25px;
-	line-height:25px;
-	margin-bottom:1px;
-	margin-top:1px;
+.hr-line{
+ 	width: 100%;
+	margin:0;
 }
 
+.faq-content-answer{
+	margin:0 0 0 10%;
+	color: #888888;
+  	width: 85%; 
+}
 
-.faq-detail-content {
-	padding-top: 50px;
-	padding-bottom: 50px;
+.faq-content-answer {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+}
+
+.faq-content-answer input[type="button"]{
+	font-size:10pt;
+	width:50px;
+	height:27px;
+	line-height:24px;
+	margin:1px 0 1px 0;
+}
+.faq-content-buttons{
+	margin-left:70%;
+	margin-bottom:20px;
 }
 
 
@@ -112,8 +107,6 @@
 /****** INSERT ******/
 .faq-insertpage-title{
 	margin-bottom:10px;
-	text-align:center;
-	color:#333333;
 }
 
 .faq-underline{

@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/faq.css">
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" >
 /*	번역  */
 function language(clsSelect){
 	
@@ -30,17 +30,8 @@ function language(clsSelect){
 	
 	document.location=url;
 }
-
-/* Toggle when you click the title */
-/* $(function(){
-	$('.faq-content-answer').hide();
-	
-	$(".faq-content-question").click(function(){
-		$(".faq-content-question").css("background-color","#ffedd2");
-		$(".faq-content-answer").toggle(300);
-	});
-});  */
 </script>
+<script type="text/javascript" defer src="${pageContext.request.contextPath}/js/faq.js"></script>
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
@@ -73,49 +64,37 @@ function language(clsSelect){
 		            <option value="zh-CN">中文
 		        </select>
 		        
-				<!-- FAQ : LIST -->
-				<table class="faqpost-list">
-					<colgroup>
-						<col width="10%">
-						<col width="70%">
-						<col width="20%">
-					</colgroup>
-					<thead>
-						<tr>
-							<th>No.</th>
-							<th colspan="3">FAQ</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-					<!-- 질문 부분 -->
+				<!-- FAQ : LIST -->				
+				<section class="faqpost-list">
 					<c:choose>
-				    	<c:when test="${empty list }">
-				        	<tr>
-				            	<td colspan="3">------글이 존재하지 않습니다------</td>
-				            </tr>
-				        </c:when>
-				        <c:otherwise>
-                			<c:forEach var="dto" items="${list}">
-								<tr class="faq-content-question">
-									<td style="text-align:center;"><span>${dto.faqno}</span></td>
-									<td colspan="3"><span>${dto.title }</span></td>
-									
-									<!-- 답변 부분 -->
-									<tr class="faq-content-answer">
-										<td></td><td colspan="2"><p>${dto.content }</p></td>
-										<td>
-											<input type="button" value="수정" onclick="location.href='FAQ?command=faqupdateform&faqno=${dto.faqno}'">
-											<input type="button" value="삭제" onclick="location.href='FAQ?command=faqdelete&faqno=${dto.faqno}'">
-										</td>
-									</tr>
-								</tr>
+					    <c:when test="${empty list }">
+								<hr class="hr-line">
+					      <div class="faqs">
+					        <div class="faq-message">------글이 존재하지 않습니다------</div>
+					      </div>
+								<hr class="hr-line">
+					    </c:when>
+					    <c:otherwise>
+		              		<c:forEach var="dto" items="${list}">
+								<!-- 질문 부분 -->
+								<div class="faq-content-question">
+									<p>${dto.faqno}.&nbsp;&nbsp;&nbsp;<span>${dto.title}</span></p>
+								</div>	
 								
+								<!-- 답변 부분 -->
+								<div class="faq-content-answer">
+									<p>${dto.content}</p>
+									<div class="faq-content-buttons">
+										<input type="button" value="수정" onclick="location.href='FAQ?command=faqupdateform&faqno=${dto.faqno}'">
+										<input type="button" value="삭제" onclick="location.href='FAQ?command=faqdelete&faqno=${dto.faqno}'">
+									</div>
+								</div>
+								<hr class="hr-line">
 							</c:forEach>
-			            </c:otherwise>
-			        </c:choose>
-					</tbody>
-				</table>
+				      	</c:otherwise>
+			   	 	</c:choose>
+				</section>
+
 			</div>
 		</div>
 	</main>
