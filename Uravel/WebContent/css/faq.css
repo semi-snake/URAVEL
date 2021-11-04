@@ -47,6 +47,13 @@
 	border: 0.5px solid gainsboro;
 }
 
+.choose-lang{
+	margin-left:85%;
+	font-size: medium;
+	width: 85px;
+	height: 40px;
+	border: 0.5px solid gainsboro;
+}
 
 /*********************/
 /****** LIST ******/

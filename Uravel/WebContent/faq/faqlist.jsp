@@ -51,7 +51,7 @@ function language(clsSelect){
 %>
 						<input type="button" value="글쓰기" onclick="location.href='FAQ?command=faqinsertform'">
 <%
-			}
+				}
 %>
 					</form>					
 				</div>
@@ -84,10 +84,15 @@ function language(clsSelect){
 								<!-- 답변 부분 -->
 								<div class="faq-content-answer">
 									<p>${dto.content}</p>
+<%							if(dto != null && dto.getRole().equals("ADMIN")){ 
+%>
 									<div class="faq-content-buttons">
 										<input type="button" value="수정" onclick="location.href='FAQ?command=faqupdateform&faqno=${dto.faqno}'">
 										<input type="button" value="삭제" onclick="location.href='FAQ?command=faqdelete&faqno=${dto.faqno}'">
 									</div>
+<%
+							}
+%>
 								</div>
 								<hr class="hr-line">
 							</c:forEach>

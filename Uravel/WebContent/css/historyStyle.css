@@ -46,9 +46,10 @@ main div {
 }
 .choose-lang{
     margin: 50px 0 0 85%;
-    width:80px;
-    height:21px;
-    font-size:11pt;
+    font-size: medium;
+	width: 85px;
+	height: 40px;
+	border: 0.5px solid gainsboro;
 }
 
 
