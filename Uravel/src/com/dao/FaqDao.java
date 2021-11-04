@@ -8,12 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dto.FaqDto;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
+import api.TranslationAPI.PapagoNMT;
 import common.JDBCTemplateNOA;
 
 public class FaqDao extends JDBCTemplateNOA{
+	PapagoNMT papago = new PapagoNMT();
 	
-	public List<FaqDto> selectAll(){
+	public List<FaqDto> selectAll(String language){
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -34,8 +38,42 @@ public class FaqDao extends JDBCTemplateNOA{
 				tmp.setTitle(rs.getString(2));
 				tmp.setContent(rs.getString(3));
 				
+				if (language != null) {
+
+					// translate(String source, String target, String text
+					String titleTran = papago.translate(PapagoNMT.KOREAN, language, tmp.getTitle());
+					JsonParser parser = new JsonParser();
+					JsonElement element = parser.parse(titleTran);
+
+					if (element.getAsJsonObject().get("errorMessage") != null) {
+						System.out.println("번역 오류가 발생했습니다. " + "[오류코드 : "
+								+ element.getAsJsonObject().get("errorCode").getAsString() + "]");
+					} else if (element.getAsJsonObject().get("message") != null) {
+						System.out.println("번역 결과: ");
+						System.out.println(element.getAsJsonObject().get("message").getAsJsonObject().get("result")
+								.getAsJsonObject().get("translatedText").getAsString());
+					}
+					tmp.setTitle(element.getAsJsonObject().get("message").getAsJsonObject().get("result")
+							.getAsJsonObject().get("translatedText").getAsString());
+					
+					String contentTran = papago.translate(PapagoNMT.KOREAN, language, tmp.getContent());
+					element = parser.parse(contentTran);
+
+					if (element.getAsJsonObject().get("errorMessage") != null) {
+						System.out.println("번역 오류가 발생했습니다. " + "[오류코드 : "
+								+ element.getAsJsonObject().get("errorCode").getAsString() + "]");
+					} else if (element.getAsJsonObject().get("message") != null) {
+						System.out.println("번역 결과: ");
+						System.out.println(element.getAsJsonObject().get("message").getAsJsonObject().get("result")
+								.getAsJsonObject().get("translatedText").getAsString());
+					}
+					tmp.setContent(element.getAsJsonObject().get("message").getAsJsonObject().get("result")
+							.getAsJsonObject().get("translatedText").getAsString());
+				}
+				
 				res.add(tmp);
 			}
+			
 			
 		} catch (SQLException e) {
 			System.out.println("3/4 단계 오류");
@@ -50,7 +88,7 @@ public class FaqDao extends JDBCTemplateNOA{
 		return res;
 	}
 	
-	public FaqDto selectOne(int faqno) {
+	public FaqDto selectOne(int faqno, String language) {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -66,10 +104,44 @@ public class FaqDao extends JDBCTemplateNOA{
 			rs = pstm.executeQuery();
 			System.out.println("04.query 실행 및 리턴");
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				res.setFaqno(rs.getInt(1));
 				res.setTitle(rs.getString(2));
 				res.setContent(rs.getString(3));
+				
+			}	
+			if (language != null) {
+
+				// translate(String source, String target, String text
+				String titleTran = papago.translate(PapagoNMT.KOREAN, language, res.getTitle());
+				JsonParser parser = new JsonParser();
+				JsonElement element = parser.parse(titleTran);
+
+				if (element.getAsJsonObject().get("errorMessage") != null) {
+					System.out.println("번역 오류가 발생했습니다. " + "[오류코드 : "
+							+ element.getAsJsonObject().get("errorCode").getAsString() + "]");
+				} else if (element.getAsJsonObject().get("message") != null) {
+					System.out.println("번역 결과: ");
+					System.out.println(element.getAsJsonObject().get("message").getAsJsonObject().get("result")
+							.getAsJsonObject().get("translatedText").getAsString());
+				}
+				res.setTitle(element.getAsJsonObject().get("message").getAsJsonObject().get("result")
+						.getAsJsonObject().get("translatedText").getAsString());
+				
+				String contentTran = papago.translate(PapagoNMT.KOREAN, language, res.getContent());
+				element = parser.parse(contentTran);
+
+				if (element.getAsJsonObject().get("errorMessage") != null) {
+					System.out.println("번역 오류가 발생했습니다. " + "[오류코드 : "
+							+ element.getAsJsonObject().get("errorCode").getAsString() + "]");
+				} else if (element.getAsJsonObject().get("message") != null) {
+					System.out.println("번역 결과: ");
+					System.out.println(element.getAsJsonObject().get("message").getAsJsonObject().get("result")
+							.getAsJsonObject().get("translatedText").getAsString());
+				}
+				res.setContent(element.getAsJsonObject().get("message").getAsJsonObject().get("result")
+						.getAsJsonObject().get("translatedText").getAsString());
+			
 			}
 			
 		} catch (SQLException e) {

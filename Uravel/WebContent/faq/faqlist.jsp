@@ -18,6 +18,20 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+/*	번역  */
+function language(clsSelect){
+	
+	var url = "FAQ?command=faqlist&language=";
+	for(var i=0; i<clsSelect.options.length;i++){
+		if(clsSelect.options[i].selected){
+			url += clsSelect.options[i].value;
+		}
+	}
+	
+	document.location=url;
+}
+
+/* Toggle when you click the title */
 /* $(function(){
 	$('.faq-content-answer').hide();
 	
@@ -42,10 +56,23 @@
 						<input type="hidden" name="command" value="search"> 
 						<input type="text" name="keyword" style="text-align:center;">
 						<input type="submit" value="검색">
+<%				if(dto != null && dto.getRole().equals("ADMIN")){ 
+%>
 						<input type="button" value="글쓰기" onclick="location.href='FAQ?command=faqinsertform'">
+<%
+			}
+%>
 					</form>					
 				</div>
 				
+				<!-- 번역 언어 선택 -->
+		        <select class="choose-lang" name="language" onchange="language(this);">
+		            <option value="ko">한국어</option>
+		            <option value="en">English</option>
+		            <option value="ja">日本語</option>
+		            <option value="zh-CN">中文
+		        </select>
+		        
 				<!-- FAQ : LIST -->
 				<table class="faqpost-list">
 					<colgroup>
@@ -73,6 +100,7 @@
 								<tr class="faq-content-question">
 									<td style="text-align:center;"><span>${dto.faqno}</span></td>
 									<td colspan="3"><span>${dto.title }</span></td>
+									
 									<!-- 답변 부분 -->
 									<tr class="faq-content-answer">
 										<td></td><td colspan="2"><p>${dto.content }</p></td>

@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +27,8 @@ public class FaqController extends HttpServlet {
 		FaqDao dao = new FaqDao();
 		
 		if(command.equals("faqlist")) {
-			List<FaqDto> list = dao.selectAll();
+			String language = request.getParameter("language");
+			List<FaqDto> list = dao.selectAll(language);
 			
 			request.setAttribute("list", list);
 			
@@ -63,7 +63,8 @@ public class FaqController extends HttpServlet {
 		
 		else if(command.equals("faqupdateform")) {
 			int faqno = Integer.parseInt(request.getParameter("faqno"));
-			FaqDto dto = dao.selectOne(faqno);
+			String language = null;
+			FaqDto dto = dao.selectOne(faqno, language);
 			
 			request.setAttribute("dto", dto);
 			dispatch("faq/faqupdate.jsp",request,response);

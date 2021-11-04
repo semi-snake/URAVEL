@@ -2,6 +2,12 @@
 /*****************/
 /****** FAQ ******/
 /*****************/
+.choose-lang{
+    margin: 0 0 0 75%;
+    width:80px;
+    height:25px;
+    font-size:11pt;
+}
 
 .faq-main {
 	position: relative;
