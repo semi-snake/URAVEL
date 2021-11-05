@@ -16,9 +16,9 @@ public class JDBCTemplateDW {
 				System.out.println("01. 드라이버 연결 실패");
 				e.printStackTrace();
 			}
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String id = "DW";
-			String pw = "DW";
+			String url = "jdbc:oracle:thin:@118.130.245.226:1521:xe";
+			String id = "NOA";
+			String pw = "NOA";
 			
 			Connection conn = null;
 			

@@ -1,0 +1,181 @@
+
+/*****************/
+/****** FAQ ******/
+/*****************/
+
+.faq-main {
+	position: relative;
+	margin: 0;
+	display: inline-block;
+	margin-inline: 20px;
+	vertical-align: top;
+	text-align: left;
+	width:80%;
+}
+
+
+.faq-heading{
+	border-bottom: #777;
+	padding: 20px 60px;
+}
+
+
+.faq-info-list input[type="submit"], .faq-info-list input[type="button"] {
+	font-size: medium;
+	width: 85px;
+	height: 40px;
+	border: 0.5px solid gainsboro;
+}
+.faq-main input[type="submit"]:hover, .faq-main input[type="button"]:hover {
+	background-color: #ebcbae !important;
+	cursor: pointer;
+}
+
+
+/******************************************************/
+/****** INSERT BUTTON AND TRANSLATION SELECT BOX ******/
+.insertntran-box-faq {
+	text-align: center;
+	display: inline;
+	transform: scale(0.9);
+}
+
+.choose-lang{
+	margin-left:2%;
+	font-size: medium;
+	width: 85px;
+	height: 40px;
+	border: 0.5px solid gainsboro;
+}
+
+/*********************/
+/****** LIST ******/
+.faqpost-list {
+	margin: 0;
+	width:100%;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.faq-info-list{
+	width:100%;
+}
+.faq-content-question{
+	font-size: larger;
+	margin:0;
+}
+
+.faq-content-question:hover{
+	cursor: pointer;
+	background-color:#c7e5f8;
+}
+
+/*********************/
+/****** DETAIL ******/
+.hr-line{
+ 	width: 100%;
+	margin:0;
+}
+
+.faq-content-answer{
+	margin:0 0 0 10%;
+	color: #888888;
+  	width: 85%; 
+}
+
+.faq-content-answer {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+}
+
+.faq-content-answer input[type="button"]{
+	font-size:10pt;
+	width:50px;
+	height:27px;
+	line-height:24px;
+	margin:1px 0 1px 0;
+}
+.faq-content-buttons{
+	margin-left:70%;
+	margin-bottom:20px;
+}
+
+
+/*********************/
+/****** INSERT ******/
+.faq-insertpage-title{
+	margin-bottom:10px;
+}
+
+.faq-underline{
+	width: 30%;
+	text-align:center;
+	border: 0.5px solid #ccdcd8;
+	margin-top:0;
+	margin-bottom:50px;
+}
+
+.faq-insert-form{
+	margin-left: 15%;
+	color:#555555;
+}
+
+.faq-insert-form table tr{
+	height:45px;
+}
+
+.faq-insert-form table tr th{
+	width:100px;
+	text-align:left;
+}
+
+.faq-insert-form input[name="faq-form-title"]{
+	font-size: 11pt;
+	width: 85%;
+	height: 30px;
+	border-radius: 10;
+	border: 0.5px solid gainsboro;
+}
+
+.faq-insert-form textarea[name="faq-form-content"]{
+	font-size: 11pt;
+	width: 85%;
+	height: 300px;
+	border-radius: 10;
+	border: 0.5px solid gainsboro;
+	resize:none;
+	margin-bottom:5px;
+}
+
+.faq-insert-buttons{
+	text-align:right;
+	margin-right:108px;
+}
+
+.faq-insert-buttons input[type="submit"], .faq-insert-buttons input[type="button"]{
+	width: 80px;
+	height: 40px;
+	font-size: 11pt;
+	color:#333333;
+	border-style: none;
+	border-radius: 5%;
+	font-weight: bold;
+	transition: 0.25s;
+	margin-left: 10px;
+}
+
+.faq-insert-buttons input[type="submit"]:hover, .faq-insert-buttons input[type="button"]:hover{
+	cursor: pointer;
+	background-color: #ebcbae;
+}
+
+
+
+
+
+
+
+
+
