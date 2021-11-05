@@ -14,7 +14,7 @@ import com.google.gson.JsonParser;
 
 import api.TranslationAPI.PapagoNMT;
 
-import static common.JDBCTemplateNOA.*;
+import static common.JDBCTemplate.*;
 
 public class HistoryDaoImpl implements HistoryDao {
 	PapagoNMT papago = new PapagoNMT();

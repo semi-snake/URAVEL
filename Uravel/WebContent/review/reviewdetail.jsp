@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>  
-<% response.setContentType("text/html; charset=UTF-8"); %>
-    
+<%
+request.setCharacterEncoding("UTF-8");
+%>
+<%
+response.setContentType("text/html; charset=UTF-8");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,9 +46,11 @@ table {
 				</tr>
 				<tr>
 					<td colspan="2" align="right"><input type="button" value="수정"
-						onclick="location.href='ReviewController?command=updateform&postno=${dto.postno}'"> 
-						<input type="button" value="삭제" onclick="location.href='ReviewController?command=delete&postno=${dto.postno}'">
-						<input type="button" value="목록" onclick="location.href='ReviewController?command=list'"></td>
+						onclick="location.href='ReviewController?command=updateform&postno=${dto.postno}'">
+						<input type="button" value="삭제"
+						onclick="location.href='ReviewController?command=delete&postno=${dto.postno}'">
+						<input type="button" value="목록"
+						onclick="location.href='ReviewController?command=list'"></td>
 				</tr>
 			</table>
 		</div>

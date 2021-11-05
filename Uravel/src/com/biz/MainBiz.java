@@ -3,15 +3,18 @@ package com.biz;
 import static common.JDBCTemplateNOA.*;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.dao.HistoryDao;
 import com.dao.HistoryDaoImpl;
 import com.dao.TravelDao;
 import com.dao.WeatherDao;
+import com.dto.BlogDto;
 import com.dto.HistoryDto;
 import com.dto.TravelDto;
 import com.dto.WeatherDto;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import api.weather.WeatherAPI;

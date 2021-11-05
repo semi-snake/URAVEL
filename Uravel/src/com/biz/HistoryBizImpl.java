@@ -1,9 +1,6 @@
 package com.biz;
 
-import static common.JDBCTemplateNOA.close;
-import static common.JDBCTemplateNOA.commit;
-import static common.JDBCTemplateNOA.getConnection;
-import static common.JDBCTemplateNOA.rollback;
+import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.List;

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.biz.MainBiz;
+import com.dto.BlogDto;
 import com.dto.HistoryDto;
 import com.dto.MemberDto;
 import com.dto.TravelDto;
@@ -33,9 +34,8 @@ public class MainServlet extends HttpServlet {
 		 */
 		if (command.equals("main")) { // 메인 페이지로 이동
 			MemberDto loginUser = (MemberDto) request.getSession().getAttribute("dto");
-			
+
 			if (loginUser != null) {
-				System.out.println(loginUser);
 				request.setAttribute("mainPrefered", biz.list("pf", loginUser.getUserno()));
 			}
 

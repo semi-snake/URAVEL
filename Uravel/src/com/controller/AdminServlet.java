@@ -24,6 +24,12 @@ public class AdminServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 
+		MemberDto loginUser = (MemberDto) request.getSession().getAttribute("dto");
+		if (loginUser == null || loginUser.getRole().equals("USER")) {
+			dispatch("main/main.jsp", request, response);
+			return;
+		}
+
 		String command = request.getParameter("command");
 		System.out.println("[ command : " + command + " ]");
 

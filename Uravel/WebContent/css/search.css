@@ -15,12 +15,11 @@
 	transition: 0.5s;
 }
 
-.result-list section{
+.result-list section {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
 	margin-inline: 20px;
-	
 }
 
 .result-list article:hover {
@@ -42,6 +41,8 @@
 
 .result-list-title {
 	font-weight: bold;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .result-list-content {
@@ -55,20 +56,11 @@
 }
 
 /* review */
-.review-list article {
-	display: inline-block;
-	margin-inline: 20px;
-	vertical-align: middle;
+#naver_review .result-list-content, .result-list-title {
+	width: 200px;
 }
 
-.review-list a {
-	text-decoration: none;
-	color: black;
-}
-
-.review-list article img {
-	width: 50px;
-	height: 50px;
-	border-radius: 100%;
-	background: gray;
+#naver_review img {
+	width: 100px;
+	height: auto;
 }
