@@ -46,6 +46,7 @@ pageContext.setAttribute("end", end);
 		<div class="notice-main">
 			<div class="notice-info-list">
 				<h1>게시글 목록</h1>
+				<h3>※ 문의 내용은 작성자만 열람이 가능합니다.</h3>
 				<table class="post-list">
 					<colgroup>
 						<col width="10%">
@@ -86,11 +87,17 @@ pageContext.setAttribute("end", end);
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
+						<%
+						if (dto.getRole().equals("USER")) {
+						%>
 						<tr style="border-top: 1px black dashed;"
 							class="notice-admin-menu">
 							<td align="right" colspan="5"></td>
 							<td><a href="Inquiry?command=insertform">등록하기</a></td>
 						</tr>
+						<%
+						}
+						%>
 					</tbody>
 				</table>
 				<ul class="pagination">
