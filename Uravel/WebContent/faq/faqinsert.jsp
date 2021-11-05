@@ -42,7 +42,7 @@
 						<td colspan="2">
 							<div class="faq-insert-buttons">
 								<input type="submit" value="FAQ등록">
-								<input type="button" value="등록취소" onclick="location.href='FAQ?command=faqlist'">
+								<input type="button" value="등록취소" onclick="location.href='../FAQ?command=faqlist'">
 							</div>
 						</td>
 					</tr>

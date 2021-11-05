@@ -53,7 +53,7 @@ public class FaqController extends HttpServlet {
 			int res = dao.insert(dto);
 			
 			if(res>0) {
-				jsResponse("FAQ 작성 성공","FAQ?command=faqlist",response);
+				jsResponse("FAQ 작성 성공","../FAQ?command=faqlist",response);
 			}else {
 				jsResponse("FAQ 작성 실패","FAQ?command=faqinsertform",response);
 			}

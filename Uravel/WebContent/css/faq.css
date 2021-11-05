@@ -32,23 +32,16 @@
 }
 
 
-/*********************/
-/****** SEARCH BOX ******/
-.search-box-faq {
+/******************************************************/
+/****** INSERT BUTTON AND TRANSLATION SELECT BOX ******/
+.insertntran-box-faq {
 	text-align: center;
-	display: block;
+	display: inline;
 	transform: scale(0.9);
-}
-.search-box-faq form input[type="text"]{
-	width: 400px;
-	height: 38px;
-	margin-left:10px;
-	margin-right:10px;
-	border: 0.5px solid gainsboro;
 }
 
 .choose-lang{
-	margin-left:85%;
+	margin-left:2%;
 	font-size: medium;
 	width: 85px;
 	height: 40px;

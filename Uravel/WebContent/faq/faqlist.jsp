@@ -41,28 +41,24 @@ function language(clsSelect){
 		<div class="faq-main">
 			<div class="faq-info-list">
 				
-				<!-- FAQ : 검색-->
-				<div class="search-box-faq" style="margin-bottom: 20px;">
-					<form action="Faq" method="post">
-						<input type="hidden" name="command" value="search"> 
-						<input type="text" name="keyword" style="text-align:center;">
-						<input type="submit" value="검색">
+				
+				<div class="insertntran-box-faq" style="margin-bottom: 20px;">
+				
+					<!-- FAQ : 글쓰기 버튼 -->
 <%				if(dto != null && dto.getRole().equals("ADMIN")){ 
 %>
 						<input type="button" value="글쓰기" onclick="location.href='FAQ?command=faqinsertform'">
-<%
-				}
-%>
-					</form>					
+<%				}
+%>					
+					<!-- 번역 언어 선택 -->
+			        <select class="choose-lang" name="language" onchange="language(this);">
+			            <option value="ko">한국어</option>
+			            <option value="en">English</option>
+			            <option value="ja">日本語</option>
+			            <option value="zh-CN">中文
+			        </select>
+			        
 				</div>
-				
-				<!-- 번역 언어 선택 -->
-		        <select class="choose-lang" name="language" onchange="language(this);">
-		            <option value="ko">한국어</option>
-		            <option value="en">English</option>
-		            <option value="ja">日本語</option>
-		            <option value="zh-CN">中文
-		        </select>
 		        
 				<!-- FAQ : LIST -->				
 				<section class="faqpost-list">
