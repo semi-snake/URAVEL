@@ -1,16 +1,15 @@
 package com.travel.dao;
 
+
+import static common.JDBCTemplateDW.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.travel.dto.TravelDetailDto;
 import com.travel.dto.TravelListDto;
-
-import static common.JDBCTemplateDW.*;
 
 public class TravelDwDao {
 	
@@ -226,6 +225,95 @@ public class TravelDwDao {
 		}
 		
 		return null;
+		
+	}
+
+	public int selectLikeYn(int travelno, int userno) {
+		
+		Connection conn = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		int result = 0;
+		try {
+			String sql = " SELECT COUNT(*) AS COUNT"
+					+ " FROM LIKE_COUNT LC "
+					+ " WHERE TRAVELNO = ? AND USERNO = ?";
+			
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, travelno);
+			pstm.setInt(2, userno);
+			
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				result = rs.getInt("COUNT");
+			}
+
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+		}
+		
+		return result;
+	}
+
+	public int insertLikeYn(int travelno, int userno) {
+		
+		Connection conn = getConnection();
+		PreparedStatement pstm = null;
+		int rs = 0;
+		try {
+			
+			String sql = "INSERT INTO LIKE_COUNT VALUES (?, ?)";
+			
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, userno);
+			pstm.setInt(2, travelno);
+			
+			rs = pstm.executeUpdate();
+
+			if (rs > 0) {
+				commit(conn);
+			} else {
+				rollback(conn);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+
+	public int deleteLikeYn(int travelno, int userno) {
+		
+		Connection conn = getConnection();
+		PreparedStatement pstm = null;
+		int rs = 0;
+		
+		try {
+			
+			String sql = "DELETE FROM LIKE_COUNT WHERE USERNO = ? AND TRAVELNO = ?";
+			
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, userno);
+			pstm.setInt(2, travelno);
+			
+			rs = pstm.executeUpdate();
+
+			if (rs > 0) {
+				commit(conn);
+			} else {
+				rollback(conn);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
 		
 	}
 

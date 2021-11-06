@@ -34,6 +34,18 @@ public class TravelBiz {
 	public TravelDetailDto selectTravelDetail(int travelno) {
 		return travelDao.selectTravelDetail(travelno);
 	}
+
+	public int selectLikeYn(int travelno, int userno) {
+		return travelDao.selectLikeYn(travelno, userno);
+	}
+
+	public int insertLike(int travelno, int userno) {
+		return travelDao.insertLikeYn(travelno, userno);
+	}
+
+	public int deleteLike(int travelno, int userno) {
+		return travelDao.deleteLikeYn(travelno, userno);
+	}
 	
 
 }

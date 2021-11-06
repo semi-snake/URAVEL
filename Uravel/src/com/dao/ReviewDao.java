@@ -10,9 +10,10 @@ import java.util.List;
 
 import com.dto.ReviewDto;
 
-import common.JDBCTemplate;
+import static common.JDBCTemplateDW.*;
+import common.JDBCTemplateDW;
 
-public class ReviewDao extends JDBCTemplate{
+public class ReviewDao extends JDBCTemplateDW{
 	
 	
 	

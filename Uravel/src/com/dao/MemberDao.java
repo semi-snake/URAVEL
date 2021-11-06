@@ -1,6 +1,6 @@
 package com.dao;
 
-import static common.JDBCTemplate.*;
+import static common.JDBCTemplateDW.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,9 +11,9 @@ import java.util.List;
 
 import com.dto.MemberDto;
 
-import common.JDBCTemplate;
+import common.JDBCTemplateDW;
 
-public class MemberDao extends JDBCTemplate {
+public class MemberDao extends JDBCTemplateDW {
 	/*
 	 * ######################################################## 관리자페이지에서 사용되는 메소드
 	 * selectUnit, countAll, selectEnabled , countEnabled, disableBatch, search

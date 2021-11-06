@@ -9,7 +9,7 @@ import com.dto.WeatherDto;
 import com.google.gson.JsonObject;
 
 import api.weather.WeatherAPI;
-import static common.JDBCTemplate.*;
+import static common.JDBCTemplateDW.*;
 
 public class WeatherDao {
 	public String translate(Connection conn, int w_id) {

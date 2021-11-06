@@ -6,9 +6,11 @@ import java.sql.SQLException;
 
 import com.dto.LocationDto;
 
-import common.JDBCTemplate;
+import common.JDBCTemplateDW;
 
-public class LocationDao extends JDBCTemplate{
+import static common.JDBCTemplateDW.*;
+
+public class LocationDao extends JDBCTemplateDW{
 	
 	//테마 설정
 	public int insertLocal(LocationDto dto) {

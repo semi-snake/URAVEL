@@ -94,9 +94,9 @@ public class AdminServlet extends HttpServlet {
 			dto.setAddress(request.getParameter("address"));
 			dto.setDescription(request.getParameter("description"));
 			dto.setUrl_pic(request.getParameter("url_pic"));
-
+			
 			int res = biz.update(dto);
-
+			
 			String msg = null;
 			if (res > 0) {
 				msg = "데이터가 수정되었습니다.";

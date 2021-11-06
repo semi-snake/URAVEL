@@ -16,5 +16,4 @@ CREATE TABLE REVIEW(
     
 SELECT * FROM REVIEW;
 
-INSERT INTO REVIEW VALUES(1, 1, SYSDATE, 1324, '강남구 야경', '프로그램, 실전, 모의고사');
 

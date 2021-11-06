@@ -55,7 +55,7 @@ response.setContentType("text/html; charset=UTF-8");
 						<% for(int i = 0; i < themeList.size(); i++)  { %>
 							<tr>
 								<td class="thumnail1">
-								<img src="<%= themeList.get(i).getPic_arr()[0] %>" alt="테스트"
+								<img src="<%= themeList.get(i).getPic_arr()[0] %>" alt="사진없음"
 								style="width:100px; height:100%;">
 								</td>
 								<td class="number1"><%= themeList.get(i).getTravelno() %></td>

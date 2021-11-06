@@ -1,7 +1,9 @@
 package com.dao;
 
-import common.JDBCTemplate;
+import static common.JDBCTemplateDW.*;
 
-public class TemaDao extends JDBCTemplate{
+import common.JDBCTemplateDW;
+
+public class TemaDao extends JDBCTemplateDW{
 
 }

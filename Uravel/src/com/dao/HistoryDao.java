@@ -1,6 +1,6 @@
 package com.dao;
 
-import static common.JDBCTemplate.close;
+import static common.JDBCTemplateDW.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
