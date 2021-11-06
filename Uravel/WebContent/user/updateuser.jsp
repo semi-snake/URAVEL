@@ -28,12 +28,14 @@
 		$("#updateform").submit(function(){
 			var count = 0;
 			$(".updateval").each(function(){
-				if($(this).val()=="" || $(this).val()==null){
-					alert($(this).parent().prev("th").text() + "입력하세요.");
-					$(this).focus();
-					count++;
-					return;
-				}	
+				if($(this).attr("id") !== "checkPhone"){
+					if($(this).val()=="" || $(this).val()==null){
+						alert($(this).parent().prev("th").text() + "입력하세요.");
+						$(this).focus();
+						count++;
+						return;
+					}	
+				}
 			});
 			if(count>0){
 				return false;
@@ -88,7 +90,7 @@
 			</tr>
 			<tr>
 				<th>핸드폰</th>
-				<td><input type="text" class="updateval" name="phone" value="<%=dto.getPhone()%>"></td>
+				<td><input type="text" class="updateval" name="phone" id="checkPhone" value="<%=dto.getPhone()%>"></td>
 			</tr>
 			<tr>
 				<th>등급</th>

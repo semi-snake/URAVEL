@@ -460,19 +460,29 @@ public class MemberDao extends JDBCTemplate {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		int res = 0;
-
-		String sql = " UPDATE MEMBER SET USERPW=?, EMAIL=?, PHONE=? WHERE USERNO=? ";
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append(" UPDATE MEMBER SET");
+		sbf.append(" USERPW=?, EMAIL=?");
+		if(dto.getPhone() != null && !dto.getPhone().trim().equals("")) {
+			sbf.append(" ,PHONE=?");	
+		}
+		sbf.append(" WHERE USERNO=?");
 
 		try {
-			pstm = con.prepareStatement(sql);
+			pstm = con.prepareStatement(sbf.toString());
 			pstm.setString(1, dto.getUserpw());
 			pstm.setString(2, dto.getEmail());
-			pstm.setString(3, dto.getPhone());
-			pstm.setInt(4, dto.getUserno());
-			System.out.println("03.query 준비: " + sql);
+			
+			if(dto.getPhone() != null && !dto.getPhone().trim().equals("")) {
+				pstm.setString(3, dto.getPhone());
+				pstm.setInt(4, dto.getUserno());
+			}else {
+				pstm.setInt(3, dto.getUserno());
+			}
+			
 
 			res = pstm.executeUpdate();
-			System.out.println("04. query 실행 및 리턴");
 
 			if (res > 0) {
 				commit(con);
@@ -481,12 +491,10 @@ public class MemberDao extends JDBCTemplate {
 			}
 
 		} catch (SQLException e) {
-			System.out.println("3/4 단계 오류");
 			e.printStackTrace();
 		} finally {
 			close(pstm);
 			close(con);
-			System.out.println("05.db 종료");
 		}
 
 		return (res > 0) ? true : false;
