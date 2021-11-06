@@ -1,9 +1,18 @@
+<%@page import="com.dto.UserLocalDto"%>
+<%@page import="com.dto.UserThemeDto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
+
+<%@page import="java.util.ArrayList"%>    
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@ page import="com.dto.MemberDto" %>
+<%@page import="com.dao.MemberDao"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +48,13 @@
 		<%@ include file="./user_side.jsp"%>
 <%
 	MemberDto userupdate = (MemberDto)request.getAttribute("dto");
+	
+	MemberDao memberDao = new MemberDao();
+	ArrayList themeInfoList = memberDao.getThemeInfoList();
+	ArrayList locationInfoList = memberDao.getLocationInfoList();
+	
+	List<UserThemeDto> resultThemeList = (List<UserThemeDto>)request.getAttribute("resultUserThemeList"); 
+	List<UserLocalDto> resultLocalList = (List<UserLocalDto>)request.getAttribute("resultUserLocalList");
 %>
 	<h1>내 정보 수정</h1>
 	<form action="logincontroller.jsp" method="post" id="updateform">
@@ -78,6 +94,60 @@
 				<th>등급</th>
 				<td><%=dto.getRole() %></td>
 			</tr>
+			<tr>
+				<th>선호하는 테마</th>
+				<td>
+				<% 
+					Boolean checkMytheme = false; 
+					for(int i=0;i<themeInfoList.size();i++){ 
+						checkMytheme = false; 
+						Map tMap = new HashMap();
+						tMap = (Map)themeInfoList.get(i);
+						for(int j=0;j<resultThemeList.size();j++){
+							int tempThemecode = resultThemeList.get(j).getThemecode();
+							if(tempThemecode == (int)tMap.get("themeCode")){
+								checkMytheme = true;
+							}
+						}
+				%>
+				<%		
+						if(checkMytheme){	
+				%>
+					<label><input type="checkbox" checked="checked" name="thema" value="<%=tMap.get("themeCode")%>" ><%=tMap.get("themeName")%></label>			
+				<%		}else{ %>
+					<label><input type="checkbox" name="thema" value="<%=tMap.get("themeCode")%>" ><%=tMap.get("themeName")%></label>	
+				<%		}
+						
+					}
+					checkMytheme = false;
+				%>
+				</td>
+			</tr>
+			<tr>
+				<th>선호하는 지역</th>
+				<td>
+				<% for(int i=0;i<locationInfoList.size();i++){ 
+						checkMytheme = false; 
+						Map tMap = new HashMap();
+						tMap = (Map)locationInfoList.get(i);
+						for(int j=0;j<resultLocalList.size();j++){
+							int tempLocalCode = resultLocalList.get(j).getLocalcode();
+							if(tempLocalCode == (int)tMap.get("localCode")){
+								checkMytheme = true;
+							}
+						}
+						if(checkMytheme){	
+				%>
+					<label><input type="checkbox" checked="checked" name="local" value="<%=tMap.get("localCode")%>"><%=tMap.get("localName")%></label>			
+				<%		}else{  %>
+					<label><input type="checkbox" name="local" value="<%=tMap.get("localCode")%>"><%=tMap.get("localName")%></label>	
+				<% 		}
+					}
+				%>
+				</td>
+			</tr>
+			
+			
 			<tr>
 				<td colspan="2"><input type="submit" value="완료"></td>
 			</tr>

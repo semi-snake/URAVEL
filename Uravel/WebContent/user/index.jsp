@@ -15,7 +15,7 @@
 
 </head>
 <body>
-	<div>
+	<div style="background-image: url('.img/bg.jpg')">
 		<div class="content">
 			<header>URAVEL</header>
 			<form action="logincontroller.jsp" method="post">
