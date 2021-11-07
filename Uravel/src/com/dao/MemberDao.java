@@ -54,7 +54,7 @@ public class MemberDao extends JDBCTemplate {
 			close(rs);
 			close(pstm);
 		}
-		
+
 		return res;
 	}
 
