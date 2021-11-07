@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.dto.TravelDto;
 
-import static common.JDBCTemplateDW.*;
+import static common.JDBCTemplate.*;
 
 public class TravelDao {
 	/*

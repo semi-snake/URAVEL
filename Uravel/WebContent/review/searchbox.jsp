@@ -23,7 +23,7 @@
 <body>
 	<div class="visible-search-box">
 		<a href="javascript: showSearch();"
-			style="font-size: xx-large; font-weight: bold;">&#127859 후기 게시글
+			style="font-size: x-large; font-weight: bold;">&#127859 후기 게시글
 			검색하기 &#127859</a>
 	</div>
 	<div class="review-search-section">

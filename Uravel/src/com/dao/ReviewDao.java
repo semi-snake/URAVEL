@@ -12,10 +12,9 @@ import com.dto.LocationDto;
 import com.dto.ThemeDto;
 import com.dto.TravelDto;
 
-import static common.JDBCTemplateDW.*;
-import common.JDBCTemplateDW;
+import static common.JDBCTemplate.*;
 
-public class ReviewDao extends JDBCTemplate {
+public class ReviewDao {
 
 	public List<ReviewDto> searchReview(String keyword) {
 		Connection con = getConnection();

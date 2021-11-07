@@ -16,8 +16,6 @@ CREATE TABLE "TRAVEL" (
 CREATE SEQUENCE TRAVELSEQ START WITH 123 NOCACHE;
 SELECT * FROM TRAVEL;
 
-CREATE SEQUENCE travelseq START WITH 122;
-
 SELECT *
 FROM tab;
 
@@ -212,4 +210,7 @@ SELECT *
 FROM LIKE_COUNT LC
 WHERE TRAVELNO = ? AND USERNO = ?;
 
-    
+/*http://www.heritage.go.kr/unisearch/images/history_site/2021070809303201.jpg, http://www.heritage.go.kr/unisearch/images/history_site/2021070809303502.jpg
+*/    
+
+ALTER TABLE TRAVEL MODIFY URL_PIC VARCHAR2(2000);

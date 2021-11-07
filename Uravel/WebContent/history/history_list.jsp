@@ -82,12 +82,15 @@ List<HistoryDto> list = (List<HistoryDto>) request.getAttribute("list");
 						<li>글이 존재하지 않습니다.</li>
 					</c:when>
 					<c:otherwise>
-						<c:forEach var="dto" items="${list}">
+						<c:forEach var="dto" items="${list}" varStatus="status">
 							<c:set var="historyno" value="${dto.historyno}" />
 							<li><a
 								href="history_Controller?command=desc&historyno=${historyno}">
 									<img src="${dto.url_pic1}"> <span>${dto.travelname }</span>
 							</a></li>
+							<c:if test="${status.count % 5 eq 0 }">
+								<li><br></li>
+							</c:if>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
