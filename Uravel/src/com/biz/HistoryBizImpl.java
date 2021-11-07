@@ -41,11 +41,9 @@ public class HistoryBizImpl implements HistoryBiz {
 		Connection con = getConnection();
 		TravelDao tdao = new TravelDao();
 		tdto.setTravelno(tdao.getTopNumber(con) + 1);
-		
+
 		boolean res = dao.insert(con, dto, tdto);
-		
-		
-		
+
 		if (res) {
 			commit(con);
 		} else {

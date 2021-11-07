@@ -177,7 +177,7 @@ public class ReviewDao extends JDBCTemplate {
 				res.setFilesize(rs.getLong(8));
 				res.setLocalname(rs.getString(9));
 				res.setThemename(rs.getString(10));
-				
+
 				res.setUsername(new MemberDao().selectUser(res.getUserno()).getUsername());
 			}
 		} catch (SQLException e) {
@@ -320,7 +320,7 @@ public class ReviewDao extends JDBCTemplate {
 
 		// POSTNO USERNO POSTDATE TRAVELNO TITLE CONTENT FILENAME FILESIZE localname
 		// themename travelname
-		String sql = " INSERT INTO REVIEW " + " VALUES(POSTNOSQ.NEXTVAL, ?, SYSDATE, ?,?,?,?,?,?,? ) ";
+		String sql = " INSERT INTO REVIEW " + " VALUES(POSTNOSEQ.NEXTVAL, ?, SYSDATE, ?,?,?,?,?,?,? ) ";
 
 		try {
 
@@ -394,6 +394,7 @@ public class ReviewDao extends JDBCTemplate {
 			close(con);
 			System.out.println("05. db종료\n");
 		}
+
 		return res;
 
 	}

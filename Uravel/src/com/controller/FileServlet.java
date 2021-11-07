@@ -20,7 +20,6 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class FileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String UPLOAD_PATH = null;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -39,9 +38,6 @@ public class FileServlet extends HttpServlet {
 		String command = multi.getParameter("command");
 
 		if (command.equals("reviewwrite")) {
-
-			// int postno = Integer.parseInt(multi.getParameter("postno"));
-
 			int userno = Integer.parseInt(multi.getParameter("userno"));
 			String title = multi.getParameter("title");
 			int travelno = Integer.parseInt(multi.getParameter("travelno"));
@@ -51,21 +47,16 @@ public class FileServlet extends HttpServlet {
 			String filename = null;
 			long filesize = 0;
 
-			// 코드가 잘못된게 아니라 이게 file이 null이면 넘어가야되는데 그게 안되서 음... file을 찍어봐야할것같아요네
 			if (file != null) {
 				filename = file.getName();
 				filesize = file.length();
 			}
 
-			int localcode = Integer.parseInt(multi.getParameter("localcode"));
-			int themecode = Integer.parseInt(multi.getParameter("themecode"));
-
-			String localname = new LocationDto().getLocalname(localcode);
-			String themename = new ThemeDto().getThemename(themecode);
+			String localname = multi.getParameter("localname");
+			String themename = multi.getParameter("themename");
 
 			ReviewDto dto = new ReviewDto();
 
-			// dto.setPostno(postno);
 			dto.setTitle(title);
 			dto.setUserno(userno);
 			dto.setTravelno(travelno);
@@ -80,17 +71,16 @@ public class FileServlet extends HttpServlet {
 			if (res > 0) {
 				request.setCharacterEncoding("UTF-8");
 				response.setContentType("text/html; charset=UTF-8");
-				dispatch("review/ReviewController?command=list", request, response);
+				dispatch("ReviewController?command=list", request, response);
 			} else {
 				request.setCharacterEncoding("UTF-8");
 				response.setContentType("text/html; charset=UTF-8");
-				dispatch("review/ReviewController?command=writeform", request, response);
+				dispatch("ReviewController?command=writeform", request, response);
 			}
 
 			return;
 
 		} else if (command.equals("reviewupdate")) {
-
 			int postno = Integer.parseInt(multi.getParameter("postno"));
 
 			String title = multi.getParameter("title");
@@ -114,19 +104,13 @@ public class FileServlet extends HttpServlet {
 			ReviewDto dto = new ReviewDto();
 
 			dto.setPostno(postno);
+			dto.setTravelno(travelno);
 			dto.setTitle(title);
 			dto.setContent(content);
 			dto.setThemename(themename);
 			dto.setLocalname(localname);
 			dto.setFilename(filename);
 			dto.setFilesize(filesize);
-			// dto.setPostno(postno);
-
-			System.out.println(dto.getTitle());
-			System.out.println(dto.getContent());
-			System.out.println(dto.getFilename());
-			System.out.println(dto.getFilesize());
-			System.out.println(dto.getPostno());
 
 			int res = dao.update(dto);
 
