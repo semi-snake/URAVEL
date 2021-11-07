@@ -20,16 +20,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
+	<%
 	String command = request.getParameter("command");
 	System.out.println("[command: " + command + "]");
-	
+
 	MemberDao dao = new MemberDao();
-	
-	if(command.equals("login")){
+
+	if (command.equals("login")) {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		
+    
 		MemberDto dto = dao.login(id,pw);
 		
 		if(dto.getUserid() != null){
@@ -103,14 +103,13 @@
 			alert("회원가입성공");
 			location.href="../Main?command=main";
 		</script>
-<%
-		}else{
-%>
-		<script type="text/javascript">
+	<%
+	} else {
+	%>
+	<script type="text/javascript">
 			alert("회원가입실패");
 			location.href="logincontroller.jsp?command=registform";
 		</script>
-
 <%			
 		}
 	}else if(command.equals("logout")){
@@ -185,40 +184,39 @@
 			location.href="logincontroller.jsp?command=userinfo&userno=<%=userno%>";
 		</script>
 
-<%			
-		}else{
-%>
-		<script type="text/javascript">
+	<%
+	} else {
+	%>
+	<script type="text/javascript">
 			alert("수정 실패");
 			location.href="logincontroller.jsp?command=userinfo&userno=<%=userno%>";
 		</script>
-<%			
-		}
-		
-	}else if(command.equals("deleteuser")){
-		int userno = Integer.parseInt(request.getParameter("userno"));
-		boolean res = dao.deleteUser(userno);
-		
-		if(res){
-%>
-		<script type="text/javascript">
+	<%
+	}
+
+	} else if (command.equals("deleteuser")) {
+	int userno = Integer.parseInt(request.getParameter("userno"));
+	boolean res = dao.deleteUser(userno);
+
+	if (res) {
+	%>
+	<script type="text/javascript">
 			alert("탈퇴 성공");
 			location.href="logincontroller.jsp?command=logout";
 		</script>
-<%			
-		}else{
-%>
-		<script type="text/javascript">
+	<%
+	} else {
+	%>
+	<script type="text/javascript">
 			alert("탈퇴 실패");
-			location.href="logincontroller.jsp?command=userinfo&userno=<%=userno%>";
-		</script>
-<%		
-			
-		}
+			location.href="logincontroller.jsp?command=userinfo&userno=<%=userno%>
+		";
+	</script>
+	<%
+	}
 	}
 	
 %>
-
 
 
 

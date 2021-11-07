@@ -21,13 +21,12 @@ response.setContentType("text/html; charset=UTF-8");
 <link rel="stylesheet" href="css/search.css">
 <link rel="stylesheet" href="css/error.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/main.js"></script>
 <script>
-	function clickArticle(travelno){
-		window.location.href="Main?command=traveldetail&travelno=" + travelno;
-	}
-	function clickHistory(historyno){
-		window.location.href="history_controller?command=desc&historyno=" + historyno;
-	}
+$(function(){
+	var keyword = '<%=request.getParameter("keyword")%>';
+	search(keyword);
+});
 </script>
 </head>
 <body>
@@ -35,9 +34,19 @@ response.setContentType("text/html; charset=UTF-8");
 	<main>
 		<!--검색 결과 표시-->
 		<div id="search-result">
-			<h1>
-				'<%=request.getParameter("keyword")%>' 키워드에 대한 검색 결과입니다.
-			</h1>
+			<div>
+				<h1>
+					'<%=request.getParameter("keyword")%>' 키워드에 대한 검색 결과입니다.
+				</h1>
+			</div>
+			<!--통합 검색창-->
+			<div id="search-box">
+				<form action="Main" method="post" onsubmit="return checkEmpty();">
+					<input type="hidden" name="command" value="searchMain"> <input
+						type="text" name="keyword"> <input type="submit"
+						value="검색">
+				</form>
+			</div>
 			<br>
 			<h2>사이트 내 검색</h2>
 			<div class="result-list">
@@ -93,9 +102,21 @@ response.setContentType("text/html; charset=UTF-8");
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<h2>외부 사이트 리뷰</h2>
-			<br>
-			<div class="review-list"></div>
+			<div class="result-list" id="naver_review">
+				<h2>외부 사이트 리뷰</h2>
+				<h4>* 네이버 블로그를 기준으로 검색된 결과입니다.</h4>
+				<c:forEach var="dto" items="${naverReview }">
+					<article onclick="clickBlogData(${dto.url})">
+						<section>
+							<img src="${dto.thumbnail}" alt="${dto.title }">
+						</section>
+						<section>
+							<span class="result-list-title">${dto.title }</span><span
+								class="result-list-content">${dto.contents }</span>
+						</section>
+					</article>
+				</c:forEach>
+			</div>
 		</div>
 	</main>
 	<%@ include file="../common/footer.jsp"%>

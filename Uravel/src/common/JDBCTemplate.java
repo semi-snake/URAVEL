@@ -15,27 +15,27 @@ public class JDBCTemplate {
 			e.printStackTrace();
 			System.out.println("01. 드라이버 연결 오류");
 		}
-		
+
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String id="KH";
-		String pw="KH";
-		
+		String id = "KH";
+		String pw = "KH";
+
 		Connection con = null;
-		
+
 		try {
 			con = DriverManager.getConnection(url, id, pw);
 			System.out.println("02. 계정 연결");
-			
+
 			con.setAutoCommit(false);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("02. 계정 연결 오류");
 		}
-		
+
 		return con;
 	}
-	
+
 	public static void close(Connection con) {
 		try {
 			con.close();
@@ -43,7 +43,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void close(Statement stmt) {
 		try {
 			stmt.close();
@@ -51,7 +51,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void close(ResultSet rs) {
 		try {
 			rs.close();
@@ -59,7 +59,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void commit(Connection con) {
 		try {
 			con.commit();
@@ -67,7 +67,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void rollback(Connection con) {
 		try {
 			con.rollback();
@@ -75,5 +75,5 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

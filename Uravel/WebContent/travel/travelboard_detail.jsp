@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.travel.dto.TravelListDto"%>
-<%@ page import="java.util.*, com.travel.dto.TravelDetailDto" %>
+<%@ page import="com.dto.TravelListDto"%>
+<%@ page import="java.util.*,com.dto.TravelDetailDto" %>
 <%
 request.setCharacterEncoding("UTF-8");
 %>

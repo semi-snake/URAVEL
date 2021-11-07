@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+w<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,12 +21,12 @@
 			<form action="/Uravel/user/login" method="post">
 			<input type="hidden" name="command" value="login">
 				<div class="field">
-					<span class="fa fa-user"></span>
-					<input type="text" placeholder="ID" name="id">
+					<span class="fa fa-user"></span> <input type="text"
+						placeholder="ID" name="id">
 				</div>
 				<div class="field space">
-					<span class="fa fa-lock"></span>
-					<input type="password" placeholder="Password" name="pw">
+					<span class="fa fa-lock"></span> <input type="password"
+						placeholder="Password" name="pw">
 				</div>
 				<div class="field">
 					<input type="submit" value="LOGIN">
@@ -35,16 +35,11 @@
 					<input type="button" value="회원가입" onclick="registForm();">
 				</div>
 				<div class="login">Or login with</div>
-				
-				<div class="kakaotalk">
-				
-				</div>
-				<div class="naver">
-				
-				</div>
-				
+
+				<div class="kakaotalk"></div>
+				<div class="naver"></div>
+
 				<%@ include file="./kakaoAPI.jsp"%>
-				
 			</form>
 		</div>
 	</div>

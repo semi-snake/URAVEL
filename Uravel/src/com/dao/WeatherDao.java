@@ -33,9 +33,6 @@ public class WeatherDao {
 		} catch (SQLException e) {
 			System.out.println("3/4단계 에러");
 			e.printStackTrace();
-		} finally {
-			close(rs);
-			close(pstm);
 		}
 
 		return res;

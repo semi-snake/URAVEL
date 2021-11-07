@@ -22,10 +22,11 @@
 <link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="../css/mypage.css">
 </head>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$("#updateform").submit(function(){
+	$(function() {
+		$("#updateform").submit(function() {
 			var count = 0;
 			$(".updateval").each(function(){
 				if($(this).attr("id") !== "checkPhone"){
@@ -37,10 +38,10 @@
 					}	
 				}
 			});
-			if(count>0){
+			if (count > 0) {
 				return false;
 			}
-		});		
+		});
 	});
 </script>
 
@@ -157,7 +158,7 @@
 		</table>
 	</form>
 	</main>
-		<%@ include file="../common/footer.jsp"%>
-	
+	<%@ include file="../common/footer.jsp"%>
+
 </body>
 </html>

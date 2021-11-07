@@ -1,13 +1,13 @@
 package com.dao;
 
+import static common.JDBCTemplate.*;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.dto.MemberDto;
 
@@ -54,7 +54,7 @@ public class MemberDao extends JDBCTemplate {
 			close(rs);
 			close(pstm);
 		}
-		
+
 		return res;
 	}
 
@@ -260,77 +260,6 @@ public class MemberDao extends JDBCTemplate {
 
 		return res;
 	}
-	
-	// 선호하는테마저장
-	public int insertThema(MemberDto dto) {
-		Connection con = getConnection();
-		PreparedStatement pstm = null;
-		int res = 0;
-
-		String sql = " INSERT INTO MEMBER VALUES(MEMBERSEQ.NEXTVAL, ?,?,?,?,?,?,'USER','Y') ";
-
-		try {
-			pstm = con.prepareStatement(sql);
-			pstm.setString(1, dto.getUserid());
-			pstm.setString(2, dto.getUserpw());
-			pstm.setString(3, dto.getUsername());
-			pstm.setString(4, dto.getBirth());
-			pstm.setString(5, dto.getEmail());
-			pstm.setString(6, dto.getPhone());
-			System.out.println("03.query 준비: " + sql);
-
-			res = pstm.executeUpdate();
-			System.out.println("04.query 실행 및 리턴");
-
-			if (res > 0) {
-				commit(con);
-			} else {
-				rollback(con);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("3/4 단계 오류");
-		} finally {
-			close(pstm);
-			close(con);
-			System.out.println("05. db 종료");
-		}
-
-		return res;
-	}
-	
-	// 이메일 인증
-	public String getEmail(String userid) {
-		Connection con = getConnection();
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-		
-		String sql = " SELECT EMAIL FROM MEMBER WHERE USERID=? ";
-		
-		try {
-			pstm = con.prepareStatement(sql);
-			pstm.setString(1, userid);
-			System.out.println("03. query 준비: " + sql);
-			
-			pstm.executeQuery();
-			System.out.println("04. query 실행 및 리턴");
-			
-			if(rs.next()) {
-				return rs.getString(1);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rs);
-			close(pstm);
-			close(con);
-		}
-		
-		return null; // 데이터베이스 오류
-	}
-	
 
 	// 내 정보 조회
 	public MemberDto selectUser(int userno) {
@@ -460,29 +389,19 @@ public class MemberDao extends JDBCTemplate {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		int res = 0;
-		
-		StringBuffer sbf = new StringBuffer();
-		sbf.append(" UPDATE MEMBER SET");
-		sbf.append(" USERPW=?, EMAIL=?");
-		if(dto.getPhone() != null && !dto.getPhone().trim().equals("")) {
-			sbf.append(" ,PHONE=?");	
-		}
-		sbf.append(" WHERE USERNO=?");
+
+		String sql = " UPDATE MEMBER SET USERPW=?, EMAIL=?, PHONE=? WHERE USERNO=? ";
 
 		try {
-			pstm = con.prepareStatement(sbf.toString());
+			pstm = con.prepareStatement(sql);
 			pstm.setString(1, dto.getUserpw());
 			pstm.setString(2, dto.getEmail());
-			
-			if(dto.getPhone() != null && !dto.getPhone().trim().equals("")) {
-				pstm.setString(3, dto.getPhone());
-				pstm.setInt(4, dto.getUserno());
-			}else {
-				pstm.setInt(3, dto.getUserno());
-			}
-			
+			pstm.setString(3, dto.getPhone());
+			pstm.setInt(4, dto.getUserno());
+			System.out.println("03.query 준비: " + sql);
 
 			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
 
 			if (res > 0) {
 				commit(con);
@@ -491,10 +410,12 @@ public class MemberDao extends JDBCTemplate {
 			}
 
 		} catch (SQLException e) {
+			System.out.println("3/4 단계 오류");
 			e.printStackTrace();
 		} finally {
 			close(pstm);
 			close(con);
+			System.out.println("05.db 종료");
 		}
 
 		return (res > 0) ? true : false;
@@ -532,66 +453,6 @@ public class MemberDao extends JDBCTemplate {
 		}
 
 		return (res > 0) ? true : false;
-	}
-	
-	public ArrayList getThemeInfoList() {
-		Connection con = getConnection();
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-
-		String sql = " SELECT THEMECODE,THEMENAME FROM THEME ";
-		
-		ArrayList rtnList = new ArrayList();
-		
-		try {
-			pstm = con.prepareStatement(sql);
-
-			rs = pstm.executeQuery();
-			
-			while(rs.next()) {
-				Map temMap = new HashMap();
-				temMap.put("themeCode", rs.getInt("THEMECODE"));
-				temMap.put("themeName", rs.getString("THEMENAME"));
-				rtnList.add(temMap);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstm);
-			close(con);
-		}
-		
-		return rtnList;
-	}
-	
-	public ArrayList getLocationInfoList() {
-		Connection con = getConnection();
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-
-		String sql = " SELECT LOCALCODE,LOCALNAME FROM LOCATION ";
-		
-		ArrayList rtnList = new ArrayList();
-		
-		try {
-			pstm = con.prepareStatement(sql);
-
-			rs = pstm.executeQuery();
-			
-			while(rs.next()) {
-				Map temMap = new HashMap();
-				temMap.put("localCode", rs.getInt("LOCALCODE"));
-				temMap.put("localName", rs.getString("LOCALNAME"));
-				rtnList.add(temMap);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstm);
-			close(con);
-		}
-		
-		return rtnList;
 	}
 
 }

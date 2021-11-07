@@ -21,14 +21,22 @@
       <servlet-class>com.controller.TravelController</servlet-class>
    </servlet>
 
-   <servlet>
-      <servlet-name>UC2</servlet-name>
-      <servlet-class>com.controller.history_Controller</servlet-class>
-   </servlet>
-   <servlet>
-      <servlet-name>ReviewController</servlet-name>
-      <servlet-class>com.controller.ReviewController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>UC2</servlet-name>
+		<servlet-class>com.controller.history_Controller</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ReviewController</servlet-name>
+		<servlet-class>com.controller.ReviewController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>FaqController</servlet-name>
+		<servlet-class>com.controller.FaqController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>File</servlet-name>
+		<servlet-class>com.controller.FileServlet</servlet-class>
+	</servlet>
 
    <servlet-mapping>
       <servlet-name>MainServlet</servlet-name>
@@ -95,5 +103,25 @@
       <servlet-name>LoginCtr</servlet-name>
       <url-pattern>/user/login</url-pattern>
    </servlet-mapping>
-   
+
+	<servlet-mapping>
+		<servlet-name>FaqController</servlet-name>
+		<url-pattern>/FAQ</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FaqController</servlet-name>
+		<url-pattern>/faq/FAQ</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>File</servlet-name>
+		<url-pattern>/review/File</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>File</servlet-name>
+		<url-pattern>/File</url-pattern>
+	</servlet-mapping>
+
 </web-app>

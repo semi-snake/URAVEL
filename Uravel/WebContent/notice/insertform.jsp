@@ -37,8 +37,7 @@ hr {
 			<div class="notice-info">
 				<h1>게시글 작성</h1>
 				<form action="../Notice" method="POST">
-					<input type="hidden" name="command" value="insert"> <input
-						type="hidden" name="noticeno" value="${res.noticeno }">
+					<input type="hidden" name="command" value="insert">
 					<table>
 						<colgroup>
 							<col width="20%">
