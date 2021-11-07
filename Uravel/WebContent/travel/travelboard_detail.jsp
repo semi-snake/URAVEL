@@ -127,7 +127,7 @@
 					</div> 
 				</div>
 			</div>
-			<div class="bottom_box">
+		<!--<div class="bottom_box">
 				<div class="review_container"
 					style="background-color: rgb(68, 138, 255, 0.2);">
 					<div class="review_header_container">
@@ -221,7 +221,7 @@
 
 					</div>
 
-					<div class="page_detail"
+					<!--  <div class="page_detail"
 						style="text-align: center; margin-bottom: 30px; background-color: rgb(255, 255, 255);">
 						<div class="page_detail_button"
 							style="margin-left: 25%; margin-right: 25%;">
@@ -235,10 +235,10 @@
 								</ul>
 							</div>
 						</div>
-					</div>
+					</div>-->
 
 				</div>
-			</div>
+			</div>-->
 		</div>
 	</main>
 	<%@ include file="../common/footer.jsp" %>

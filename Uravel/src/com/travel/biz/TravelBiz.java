@@ -1,13 +1,20 @@
 package com.travel.biz;
 
+import static common.JDBCTemplateDW.close;
+import static common.JDBCTemplateDW.getConnection;
+
+import java.sql.Connection;
 import java.util.List;
 
+import com.dao.TravelDao;
+import com.dto.TravelDto;
 import com.travel.dao.TravelDwDao;
 import com.travel.dto.TravelDetailDto;
 import com.travel.dto.TravelListDto;
 
 public class TravelBiz {
 	
+	private TravelDao t_dao = new TravelDao();
 	TravelDwDao travelDao = new TravelDwDao();
 	
 	// 지역구명 호출
@@ -46,6 +53,6 @@ public class TravelBiz {
 	public int deleteLike(int travelno, int userno) {
 		return travelDao.deleteLikeYn(travelno, userno);
 	}
-	
+
 
 }

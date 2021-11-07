@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dto.MemberDto;
+import com.dto.TravelDto;
 import com.travel.biz.TravelBiz;
 import com.travel.dto.TravelDetailDto;
 import com.travel.dto.TravelListDto;
@@ -37,17 +38,19 @@ public class TravelController extends HttpServlet {
 		TravelBiz travelBiz = new TravelBiz();
 			
 			if(command.equals("list")) {
-			// 지역 여행지 조회
-			List<TravelListDto> travelList = travelBiz.selectTravelList(Integer.parseInt(request.getParameter("localcode")));
-			request.setAttribute("travelList",travelList);
-			
-			
-			String localName = travelBiz.selectLocalName(Integer.parseInt(request.getParameter("localcode")));
-			request.setAttribute("localName",localName);
-			
-			dispatch("travel/travelboard.jsp", request, response);
-			
+				// 지역 여행지 조회
+				List<TravelListDto> travelList = travelBiz.selectTravelList(Integer.parseInt(request.getParameter("localcode")));
+				request.setAttribute("travelList",travelList);
+				
+				
+				String localName = travelBiz.selectLocalName(Integer.parseInt(request.getParameter("localcode")));
+				request.setAttribute("localName",localName);
+
+				
+				dispatch("travel/travelboard.jsp", request, response);
+				
 			}
+
 			
 			else if(command.equals("areadetail")) {
 				

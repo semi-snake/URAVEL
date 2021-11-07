@@ -84,6 +84,7 @@ public class TravelDwDao {
 				travelDto.setTravelname(rs.getString("TRAVELNAME"));
 				travelDto.setLike_count(rs.getInt("LIKE_COUNT"));
 				
+				
 				travelList.add(travelDto);
 			}
 			
@@ -317,8 +318,7 @@ public class TravelDwDao {
 		
 	}
 
-
-
+	
 }
 
 
