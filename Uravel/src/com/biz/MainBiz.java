@@ -1,6 +1,6 @@
 package com.biz;
 
-import static common.JDBCTemplate.*;
+import static common.JDBCTemplateDW.*;
 
 import java.sql.Connection;
 import java.util.List;

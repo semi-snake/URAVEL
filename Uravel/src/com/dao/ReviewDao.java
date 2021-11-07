@@ -12,7 +12,8 @@ import com.dto.LocationDto;
 import com.dto.ThemeDto;
 import com.dto.TravelDto;
 
-import common.JDBCTemplate;
+import static common.JDBCTemplateDW.*;
+import common.JDBCTemplateDW;
 
 public class ReviewDao extends JDBCTemplate {
 

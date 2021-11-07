@@ -7,8 +7,8 @@ import com.dao.MemberDao;
 import com.dao.TravelDao;
 import com.dto.MemberDto;
 import com.dto.TravelDto;
-
-import static common.JDBCTemplate.*;
+ 
+import static common.JDBCTemplateDW.*;
 
 public class AdminBiz {
 	private TravelDao t_dao = new TravelDao();

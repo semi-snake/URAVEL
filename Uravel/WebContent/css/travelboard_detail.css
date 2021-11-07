@@ -191,7 +191,7 @@ header a:hover {
 
 .info_box {
 	position: relative;
-	top: -26px;
+	top: -129px;
 	display: inline-block;
 	margin-left: 10%;
 	width: 35%;
@@ -203,7 +203,7 @@ header a:hover {
 	display: inline-block;
 	border: 1px groove;
 	width: 40%;
-	height: 600px;
+	height: 577px;
 	margin-left: 4%;
 }
 

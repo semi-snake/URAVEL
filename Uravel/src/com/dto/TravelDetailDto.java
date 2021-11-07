@@ -19,17 +19,16 @@ public class TravelDetailDto {
 
 
 
-	public TravelDetailDto(String travelName, int like_count, String travelAddress, String url_pic, String review,
-			String[] pic_arr, int travelno, String userName) {
+	public TravelDetailDto(String travelName, int like_count, String travelAddress, String url_pic, String[] pic_arr,
+			String review, int travelno, String userName) {
 		super();
 		this.travelName = travelName;
 		this.like_count = like_count;
 		this.travelAddress = travelAddress;
 		this.url_pic = url_pic;
-		this.review = review;
-		this.pic_arr = pic_arr;
-		this.travelno = travelno;
 		this.setPic_arr();
+		this.review = review;
+		this.travelno = travelno;
 		this.userName = userName;
 	}
 
@@ -77,10 +76,6 @@ public class TravelDetailDto {
 	public void setReview(String review) {
 		this.review = review;
 	}
-	
-	public void setPic_arr() {
-		this.pic_arr = url_pic.split(","); 
-	}
 
 	public int getTravelno() {
 		return travelno;
@@ -97,6 +92,22 @@ public class TravelDetailDto {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
+
+
+	public String[] getPic_arr() {
+		return pic_arr;
+	}
+
+
+
+	public void setPic_arr(String[] pic_arr) {
+		this.pic_arr = pic_arr;
+	}
+	
+	public void setPic_arr() {
+		this.pic_arr = url_pic.split(","); 
+	}	
 
 
 
