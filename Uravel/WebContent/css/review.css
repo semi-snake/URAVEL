@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.notice-title {
+	padding: 100px;
+	background-color: #ffe9e3;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+	background-color: #c4c1e0 !important;
+}
+
+.review-search-section input, select {
+	font-size: medium;
+	width: auto;
+	height: auto;
+	text-align: center;
+}
+
+input[type="text"], select {
+	padding: 10px;
+}

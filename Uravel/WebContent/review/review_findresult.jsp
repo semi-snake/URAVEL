@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%
 request.setCharacterEncoding("UTF-8");
 %>
@@ -19,7 +20,7 @@ response.setContentType("text/html; charset=UTF-8");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>후기 게시판</title>
+<title>후기 검색결과</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/header.css">
 <link rel="stylesheet"
@@ -31,12 +32,22 @@ response.setContentType("text/html; charset=UTF-8");
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/review.css">
 </head>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	
+</script>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
 		<%@ include file="./reviewtitle.jsp"%>
 		<div class="notice-info">
 			<div class="notice-info-list">
+				<h2>
+					'<%=request.getParameter("localname")%>' 또는 '<%=request.getParameter("themename")%>'으로
+					검색한 결과입니다.
+				</h2>
+				<br>
 				<table class="post-list">
 					<colgroup>
 						<col width="10%">
@@ -44,7 +55,7 @@ response.setContentType("text/html; charset=UTF-8");
 						<col width="10%">
 						<col width="20%">
 					</colgroup>
-					<thead>
+					<thead style="background-color: grey;">
 						<tr>
 							<th>No.</th>
 							<th>Title</th>
@@ -65,24 +76,23 @@ response.setContentType("text/html; charset=UTF-8");
 									<tr>
 										<td>${dto.postno }</td>
 										<td><a
-											href="${pageContext.request.contextPath}/ReviewController?command=detail&postno=${dto.postno}">${dto.title }</a></td>
+											href="ReviewController?command=detail&postno=${dto.postno}">${dto.title }</a></td>
 										<td>${dto.username }</td>
 										<td>${dto.postdate }</td>
 									</tr>
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
-						<tr>
 						<tr style="border-top: 1px black dashed;"
 							class="notice-admin-menu">
 							<td colspan="4" align="right"><input type="button"
-								value="등록"
-								onclick="location.href='${pageContext.request.contextPath}/ReviewController?command=writeform'"></td>
+								value="목록"
+								onclick="location.href='${pageContext.request.contextPath}/ReviewController?command=list'"></td>
 						</tr>
 					</tbody>
 				</table>
+				<%@ include file="./searchbox.jsp"%>
 			</div>
-			<%@ include file="./searchbox.jsp"%>
 		</div>
 	</main>
 	<%@ include file="../common/footer.jsp"%>

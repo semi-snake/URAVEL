@@ -33,6 +33,10 @@
 		<servlet-name>FaqController</servlet-name>
 		<servlet-class>com.controller.FaqController</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>File</servlet-name>
+		<servlet-class>com.controller.FileServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>MainServlet</servlet-name>
@@ -94,5 +98,14 @@
 		<url-pattern>/faq/FAQ</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>File</servlet-name>
+		<url-pattern>/review/File</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>File</servlet-name>
+		<url-pattern>/File</url-pattern>
+	</servlet-mapping>
 
 </web-app>

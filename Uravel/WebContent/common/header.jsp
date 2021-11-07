@@ -49,7 +49,8 @@ MemberDto dto = (MemberDto) session.getAttribute("dto");
 				<li><a
 					href="${pageContext.request.contextPath}/history/history_Controller?command=list">역사
 						문화</a></li>
-				<li><a href="#">후기</a></li>
+				<li><a
+					href="${pageContext.request.contextPath }/ReviewController?command=list">후기</a></li>
 				<li><a
 					href="${pageContext.request.contextPath }/Notice?command=noticelist">공지사항</a></li>
 				<li><a href="#">고객센터</a> <!-- 하위 메뉴 -->
