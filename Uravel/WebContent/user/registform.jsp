@@ -115,7 +115,6 @@
 						<option value="daum">daum.net</option>
 						<option value="google">google.com</option>
 					</select>
-					<input type="button" value="인증" style="margin-left:130px;" onclick="emailSend()">
 				</span>
 			</div>
 			

@@ -15,8 +15,12 @@
 </head>
 <%
 MemberDto dto = (MemberDto) request.getSession().getAttribute("userInfo");
-if(dto == null){
-	pageContext.forward("../user/index.jsp");
+
+String currentUrl = request.getRequestURI();
+if(currentUrl.indexOf("/main.jsp") < 0){
+	if(dto == null){
+		pageContext.forward("../user/index.jsp");
+	}
 }
 %>
 <body>
@@ -58,7 +62,7 @@ if(dto == null){
             <%
             } else {
             %>
-            <li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=login">로그인</a></li>
+            <li><a href="${pageContext.request.contextPath}/user/loginForm?command=loginform">로그인</a></li>
             <li><a href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=registform">회원가입</a></li>
             <%
             }

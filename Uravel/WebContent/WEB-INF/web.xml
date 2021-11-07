@@ -77,4 +77,23 @@
       <servlet-name>ReviewController</servlet-name>
       <url-pattern>/review/ReviewController</url-pattern>
    </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>LoginForm</servlet-name>
+      <servlet-class>com.controller.LoginForm</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>LoginForm</servlet-name>
+      <url-pattern>/user/loginForm</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>LoginCtr</servlet-name>
+      <servlet-class>com.controller.LoginController</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>LoginCtr</servlet-name>
+      <url-pattern>/user/login</url-pattern>
+   </servlet-mapping>
+   
 </web-app>

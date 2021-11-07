@@ -12,8 +12,6 @@
 <%@ page import="com.dao.MemberDao" %>
 <%@ page import="com.dto.MemberDto" %>
 <%@ page import="com.dto.LocationDto" %>
-<%@ page import="com.gmail.SHA256" %>
-<%@ page import="com.gmail.Gmail" %>
     
 <!DOCTYPE html>
 <html>
@@ -50,9 +48,10 @@
 <%			
 		}
 	
+	}else if(command.equals("loginform")){
+		response.sendRedirect("index.jsp");
 	}else if(command.equals("registform")){
 		response.sendRedirect("registform.jsp");
-		
 	}else if(command.equals("idchk")){
 		String userid = request.getParameter("id");
 		String res = dao.idChk(userid);
