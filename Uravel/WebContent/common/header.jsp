@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-request.setCharacterEncoding("UTF-8");
-%>
-<%
-response.setContentType("text/html; charset=UTF-8");
-%>
+<%request.setCharacterEncoding("UTF-8");%>
+<%response.setContentType("text/html; charset=UTF-8");%>
 
 <%@ page import="com.dto.MemberDto"%>
 
@@ -25,7 +21,14 @@ response.setContentType("text/html; charset=UTF-8");
 </style>
 </head>
 <%
-MemberDto dto = (MemberDto) session.getAttribute("dto");
+MemberDto dto = (MemberDto) request.getSession().getAttribute("userInfo");
+
+String currentUrl = request.getRequestURI();
+if(currentUrl.indexOf("/main.jsp") < 0){
+	if(dto == null){
+		pageContext.forward("../user/index.jsp");
+	}
+}
 %>
 <body>
 	<!-- 상단부 -->

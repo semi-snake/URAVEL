@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 
-<%
-request.setCharacterEncoding("UTF-8");
-%>
-<%
-response.setContentType("text/html; charset=UTF-8");
-%>
+<%@page import="java.util.*"%>
+<%@page import="com.dto.MemberDto"%>    
+<%@page import="com.dto.UserThemeDto"%>
+<%@page import="com.dto.UserLocalDto"%>
 
+<% request.setCharacterEncoding("UTF-8"); %>    
+<% response.setContentType("text/html; charset=UTF-8"); %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,10 +32,12 @@ response.setContentType("text/html; charset=UTF-8");
 	<main>
 
 		<%@ include file="./user_side.jsp"%>
-		<%
-		MemberDto userinfo = (MemberDto) request.getAttribute("dto");
-		%>
-
+<%
+	MemberDto userinfo = (MemberDto)request.getAttribute("dto");
+	List<UserThemeDto> resultThemeList = (List<UserThemeDto>)request.getAttribute("resultUserThemeList"); 
+	List<UserLocalDto> resultLocalList = (List<UserLocalDto>)request.getAttribute("resultUserLocalList");
+%>
+		
 		<div class="admin-main">
 			<div class="travel-info">
 				<h1>내 정보 관리</h1>
@@ -80,10 +83,23 @@ response.setContentType("text/html; charset=UTF-8");
 						</tr>
 						<tr>
 							<th>선호 테마</th>
-							<td></td>
+							<td>
+							<% for(int i=0; i<resultThemeList.size(); i++){ %>
+								<%if(i != 0){ %>,<%} %>
+								<%=resultThemeList.get(i).getThemename() %>	 	
+							<% } %>
+							</td>
 						</tr>
 						<tr>
 							<th>선호 지역</th>
+							<td>
+							<% for(int i=0; i<resultLocalList.size(); i++){ %>
+								 <%if(i != 0){ %>,<%} %>
+								 <%=resultLocalList.get(i).getLocalname() %>	 	
+							<% } %>
+							
+							</td>
+							
 						</tr>
 						<tr>
 							<td colspan="2" align="right">

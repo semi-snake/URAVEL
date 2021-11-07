@@ -8,18 +8,18 @@ w<%@ page language="java" contentType="text/html; charset=UTF-8"
 <link rel="stylesheet" href="../css/loginstyle.css">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
-	function registForm() {
-		location.href = "logincontroller.jsp?command=registform"
+	function registForm(){
+		location.href="/Uravel/user/login?command=registform";
 	}
 </script>
 
 </head>
 <body>
-	<div>
+	<div class="bg-img">
 		<div class="content">
 			<header>URAVEL</header>
-			<form action="logincontroller.jsp" method="post">
-				<input type="hidden" name="command" value="login">
+			<form action="/Uravel/user/login" method="post">
+			<input type="hidden" name="command" value="login">
 				<div class="field">
 					<span class="fa fa-user"></span> <input type="text"
 						placeholder="ID" name="id">
