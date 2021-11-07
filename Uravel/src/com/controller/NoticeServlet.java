@@ -27,7 +27,7 @@ public class NoticeServlet extends HttpServlet {
 		String command = request.getParameter("command");
 		System.out.println("[ command : " + command + " ]");
 
-		MemberDto loginUser = (MemberDto) request.getSession().getAttribute("dto");
+		MemberDto loginUser = (MemberDto) request.getSession().getAttribute("userInfo");
 
 		NoticeBiz biz = new NoticeBiz();
 
@@ -71,7 +71,7 @@ public class NoticeServlet extends HttpServlet {
 			}
 			NoticeDto dto = new NoticeDto();
 			dto.setTitle(request.getParameter("title"));
-			dto.setContent(request.getParameter("content"));
+			dto.setContent(request.getParameter("content").replace("\n", "<br>"));
 
 			int res = biz.insert(dto);
 
@@ -93,6 +93,8 @@ public class NoticeServlet extends HttpServlet {
 			int noticeno = Integer.parseInt(request.getParameter("noticeno"));
 			NoticeDto res = biz.read(noticeno);
 
+			res.setContent(res.getContent().replace("<br>", ""));
+
 			request.setAttribute("res", res);
 
 			dispatch("notice/updateform.jsp", request, response);
@@ -104,7 +106,7 @@ public class NoticeServlet extends HttpServlet {
 			}
 			int noticeno = Integer.parseInt(request.getParameter("noticeno"));
 			String title = request.getParameter("title");
-			String content = request.getParameter("content");
+			String content = request.getParameter("content").replace("\n", "<br>");
 
 			NoticeDto dto = new NoticeDto();
 

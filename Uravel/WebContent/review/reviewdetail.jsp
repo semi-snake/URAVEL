@@ -76,18 +76,19 @@ table {
 						<td colspan="4"><hr></td>
 					</tr>
 					<tr>
-						<td colspan="4">${dto.content }</td>
-					</tr>
-					<tr>
 						<%
 						String filename = ((ReviewDto) request.getAttribute("dto")).getFilename();
 						if (filename != null) {
 						%>
 						<td colspan="2"><img alt="<%=filename%>"
-							src="${pageContext.request.contextPath }/img/<%=filename%>"></td>
+							src="${pageContext.request.contextPath }/img/<%=filename%>"
+							width="500px"></td>
 						<%
 						}
 						%>
+					</tr>
+					<tr>
+						<td colspan="4">${dto.content }</td>
 					</tr>
 					<tr>
 						<td colspan="4"><hr></td>
@@ -95,8 +96,8 @@ table {
 					<tr>
 						<td colspan="4" align="right">
 							<%
-							if (dto != null && (((ReviewDto) request.getAttribute("dto")).getUserno() == dto.getUserno()
-									|| dto.getRole().equals("ADMIN"))) {
+							if (userInfo != null && (((ReviewDto) request.getAttribute("dto")).getUserno() == userInfo.getUserno()
+									|| userInfo.getRole().equals("ADMIN"))) {
 							%> <input type="button" value="수정"
 							onclick="location.href='ReviewController?command=updateform&postno=${dto.postno}'">
 							<input type="button" value="삭제"

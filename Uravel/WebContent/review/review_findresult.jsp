@@ -42,6 +42,7 @@ response.setContentType("text/html; charset=UTF-8");
 	<main>
 		<%@ include file="./reviewtitle.jsp"%>
 		<div class="notice-info">
+			<%@ include file="./searchbox.jsp"%>
 			<div class="notice-info-list">
 				<h2>
 					'<%=request.getParameter("localname")%>' 또는 '<%=request.getParameter("themename")%>'으로
@@ -91,7 +92,6 @@ response.setContentType("text/html; charset=UTF-8");
 						</tr>
 					</tbody>
 				</table>
-				<%@ include file="./searchbox.jsp"%>
 			</div>
 		</div>
 	</main>

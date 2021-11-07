@@ -24,7 +24,7 @@ public class InquiryServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 
-		MemberDto loginUser = (MemberDto) request.getSession().getAttribute("dto");
+		MemberDto loginUser = (MemberDto) request.getSession().getAttribute("userInfo");
 
 		InquiryBiz biz = new InquiryBiz();
 

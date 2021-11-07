@@ -33,6 +33,7 @@ response.setContentType("text/html; charset=UTF-8");
 	<main>
 		<%@ include file="./reviewtitle.jsp"%>
 		<div class="notice-info">
+			<%@ include file="./searchbox.jsp"%>
 			<div class="notice-info-list">
 				<h2>
 					'<%=request.getParameter("keyword")%>' 에 대한 후기 검색결과입니다.
@@ -81,7 +82,6 @@ response.setContentType("text/html; charset=UTF-8");
 						</tr>
 					</tbody>
 				</table>
-				<%@ include file="./searchbox.jsp"%>
 			</div>
 		</div>
 	</main>

@@ -68,7 +68,7 @@ hr {
 						<td colspan="2" align="right">
 							<ul>
 								<%
-								if (dto != null && dto.getRole().equals("ADMIN")) {
+								if (userInfo != null && userInfo.getRole().equals("ADMIN")) {
 								%>
 								<li class="notice-admin-menu"><a
 									href="${pageContext.request.contextPath}/Notice?command=updateform&noticeno=${res.noticeno }">수정</a></li>

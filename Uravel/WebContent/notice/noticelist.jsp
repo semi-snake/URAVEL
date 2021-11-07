@@ -77,7 +77,7 @@ pageContext.setAttribute("end", end);
 							</c:otherwise>
 						</c:choose>
 						<%
-						if (dto != null && dto.getRole().equals("ADMIN")) {
+						if (userInfo != null && userInfo.getRole().equals("ADMIN")) {
 						%>
 						<tr style="border-top: 1px black dashed;"
 							class="notice-admin-menu">
