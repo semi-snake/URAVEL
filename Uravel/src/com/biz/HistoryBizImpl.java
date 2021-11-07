@@ -1,12 +1,13 @@
 package com.biz;
 
-import static common.JDBCTemplateNOA.*;
+import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.List;
 
 import com.dao.HistoryDao;
 import com.dao.HistoryDaoImpl;
+import com.dao.TravelDao;
 import com.dto.HistoryDto;
 import com.dto.TravelDto;
 
@@ -38,8 +39,13 @@ public class HistoryBizImpl implements HistoryBiz {
 	@Override
 	public boolean insert(HistoryDto dto, TravelDto tdto) {
 		Connection con = getConnection();
+		TravelDao tdao = new TravelDao();
+		tdto.setTravelno(tdao.getTopNumber(con) + 1);
+		
 		boolean res = dao.insert(con, dto, tdto);
-
+		
+		
+		
 		if (res) {
 			commit(con);
 		} else {

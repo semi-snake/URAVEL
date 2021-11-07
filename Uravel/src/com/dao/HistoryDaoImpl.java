@@ -14,8 +14,7 @@ import com.google.gson.JsonParser;
 
 import api.TranslationAPI.PapagoNMT;
 
-import static common.JDBCTemplate.close;
-import static common.JDBCTemplateNOA.*;
+import static common.JDBCTemplate.*;
 
 public class HistoryDaoImpl implements HistoryDao {
 	PapagoNMT papago = new PapagoNMT();
@@ -189,20 +188,16 @@ public class HistoryDaoImpl implements HistoryDao {
 			// INSERT INTO
 			// TRAVEL(TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,URL_PIC)
 			// VALUES(TRAVELSEQ.NEXTVAL,?,?,6,?,?,?)
+			// VALUES(?,?,?,6,?,?,?)
 			pstm1 = con.prepareStatement(insertTravelSql);
-			System.out.println(dto.getTravelname());
-			System.out.println(dto.getDescription());
-			System.out.println(dto.getUrl_pic());
+			
+			pstm1.setInt(1, dto.getTravelno());
+			pstm1.setString(2, dto.getTravelname());
+			pstm1.setInt(3, dto.getLocalcode());
 
-			System.out.println(dto.getLocalcode());
-			System.out.println(dto.getAddress());
-
-			pstm1.setString(1, dto.getTravelname());
-			pstm1.setInt(2, dto.getLocalcode());
-
-			pstm1.setString(3, dto.getAddress());
-			pstm1.setString(4, dto.getDescription());
-			pstm1.setString(5, dto.getUrl_pic());
+			pstm1.setString(4, dto.getAddress());
+			pstm1.setString(5, dto.getDescription());
+			pstm1.setString(6, dto.getUrl_pic());
 			System.out.println("03.query 준비: " + insertTravelSql);
 
 			res = pstm1.executeUpdate();

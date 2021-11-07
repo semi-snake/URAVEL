@@ -13,6 +13,6 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/workspace/semi/Uravel_TeamProject/Uravel/WebContent/WEB-INF/lib/gson-2.8.7.jar"/>
+	<classpathentry kind="lib" path="/Users/noa/git/Uravel_TeamProject/Uravel/WebContent/WEB-INF/lib/gson-2.8.7.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

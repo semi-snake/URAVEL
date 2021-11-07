@@ -29,7 +29,7 @@ main div {
 
 #service-info article {
 	display: block;
-	transform: translateY(200%);
+	transform: translateY(150%);
 }
 
 .image-list {
@@ -109,6 +109,7 @@ input[name="keyword"] {
 	height: 50px;
 	border-radius: 10;
 	border: 0.5px solid gainsboro;
+	text-align: center;
 }
 
 input[type="submit"], input[type="button"] {

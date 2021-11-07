@@ -35,7 +35,7 @@
 				<table class="history-update-table">
 					<tr>
 						<th>작성자</th>
-						<td>구렁이</td>
+						<td>${sessionScope.dto.username}</td>
 					</tr>
 					<tr>
 						<th>장소명</th>

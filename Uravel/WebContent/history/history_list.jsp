@@ -6,6 +6,7 @@
 
 <%@ page import="java.util.List" %>
 <%@ page import="com.dto.HistoryDto" %>
+<%@ page import="com.dto.MemberDto"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <% List<HistoryDto> list = (List<HistoryDto>)request.getAttribute("list"); %>
@@ -51,11 +52,16 @@ function language(clsSelect){
 	    
 	    <!-- 검색창 -->
         <div id="search-box-history">
-            <form action="controller.do" method="post">
-                <input type="hidden" name="command" value="history-search">
+            <form action="../Main" method="post">
+                <input type="hidden" name="command" value="searchMain">
                 <input type="text" name="keyword">
                 <input type="submit" value="검색">
+<%			if(dto != null && dto.getRole().equals("ADMIN")){ 
+%>
                 <input type="button" value="글쓰기" onclick="location.href='history_Controller?command=writeform'">
+<%
+			}
+%>           
             </form>
         </div>
     

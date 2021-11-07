@@ -1,86 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-	version="4.0">
-	<display-name>Uravel</display-name>
-	<welcome-file-list>
-		<welcome-file>main/index.jsp</welcome-file>
-	</welcome-file-list>
+   xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+   version="4.0">
+   <display-name>Uravel</display-name>
+   <welcome-file-list>
+      <welcome-file>main/index.jsp</welcome-file>
+   </welcome-file-list>
 
-	<servlet>
-		<servlet-name>MainServlet</servlet-name>
-		<servlet-class>com.controller.MainServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>AdminServlet</servlet-name>
-		<servlet-class>com.controller.AdminServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Travel</servlet-name>
-		<servlet-class>com.controller.TravelController</servlet-class>
-	</servlet>
+   <servlet>
+   	<servlet-name>MainServlet</servlet-name>
+   	<servlet-class>com.controller.MainServlet</servlet-class>
+   </servlet>
+   <servlet>
+      <servlet-name>AdminServlet</servlet-name>
+      <servlet-class>com.controller.AdminServlet</servlet-class>
+   </servlet>
+   <servlet>
+      <servlet-name>Travel</servlet-name>
+      <servlet-class>com.controller.TravelController</servlet-class>
+   </servlet>
 
-	<servlet>
-		<servlet-name>UC2</servlet-name>
-		<servlet-class>com.controller.history_Controller</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ReviewController</servlet-name>
-		<servlet-class>com.controller.ReviewController</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>File</servlet-name>
-		<servlet-class>com.controller.FileServlet</servlet-class>
-	</servlet>
+   <servlet>
+      <servlet-name>UC2</servlet-name>
+      <servlet-class>com.controller.history_Controller</servlet-class>
+   </servlet>
+   <servlet>
+      <servlet-name>ReviewController</servlet-name>
+      <servlet-class>com.controller.ReviewController</servlet-class>
+   </servlet>
+   <servlet>
+      <servlet-name>FaqController</servlet-name>
+      <servlet-class>com.controller.FaqController</servlet-class>
+   </servlet>
 
-	<servlet-mapping>
-		<servlet-name>MainServlet</servlet-name>
-		<url-pattern>/Main</url-pattern>
-	</servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>MainServlet</servlet-name>
+      <url-pattern>/Main</url-pattern>
+   </servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>MainServlet</servlet-name>
-		<url-pattern>/main/Main</url-pattern>
-	</servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>MainServlet</servlet-name>
+      <url-pattern>/main/Main</url-pattern>
+   </servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>MainServlet</servlet-name>
-		<url-pattern>/common/Main</url-pattern>
-	</servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>MainServlet</servlet-name>
+      <url-pattern>/common/Main</url-pattern>
+   </servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>AdminServlet</servlet-name>
-		<url-pattern>/Admin</url-pattern>
-	</servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>AdminServlet</servlet-name>
+      <url-pattern>/Admin</url-pattern>
+   </servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>AdminServlet</servlet-name>
-		<url-pattern>/admin/Admin</url-pattern>
-	</servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>AdminServlet</servlet-name>
+      <url-pattern>/admin/Admin</url-pattern>
+   </servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>Travel</servlet-name>
-		<url-pattern>/TravelController</url-pattern>
-	</servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>Travel</servlet-name>
+      <url-pattern>/TravelController</url-pattern>
+   </servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>UC2</servlet-name>
-		<url-pattern>/history_Controller</url-pattern>
-	</servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>UC2</servlet-name>
+      <url-pattern>/history_Controller</url-pattern>
+   </servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>UC2</servlet-name>
-		<url-pattern>/history/history_Controller</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ReviewController</servlet-name>
-		<url-pattern>/ReviewController</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ReviewController</servlet-name>
-		<url-pattern>/review/ReviewController</url-pattern>
-	</servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>UC2</servlet-name>
+      <url-pattern>/history/history_Controller</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+      <servlet-name>ReviewController</servlet-name>
+      <url-pattern>/ReviewController</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+      <servlet-name>ReviewController</servlet-name>
+      <url-pattern>/review/ReviewController</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+      <servlet-name>FaqController</servlet-name>
+      <url-pattern>/FAQ</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+      <servlet-name>FaqController</servlet-name>
+      <url-pattern>/faq/FAQ</url-pattern>
+   </servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>File</servlet-name>
 		<url-pattern>/review/File</url-pattern>

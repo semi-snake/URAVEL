@@ -1,10 +1,10 @@
-package com.travel.biz;
+package com.biz;
 
 import java.util.List;
 
-import com.travel.dao.TravelDwDao;
-import com.travel.dto.TravelDetailDto;
-import com.travel.dto.TravelListDto;
+import com.dao.TravelDwDao;
+import com.dto.TravelDetailDto;
+import com.dto.TravelListDto;
 
 public class TravelBiz {
 	

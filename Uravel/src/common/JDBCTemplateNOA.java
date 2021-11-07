@@ -16,7 +16,8 @@ public class JDBCTemplateNOA {
 			System.out.println("01. 드라이버 연결 오류");
 		}
 
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@118.130.245.226:1521:xe";
+										//118.130.245.226 used this before what?
 		String id = "NOA";
 		String pw = "NOA";
 

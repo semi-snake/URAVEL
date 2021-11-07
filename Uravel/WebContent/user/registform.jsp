@@ -92,7 +92,7 @@
 						<input id="signup-birth-yy" type="text" name="birth" placeholder="년(4자)" onclick="idChkConfirm();">
 					</span>
 					<span class="signup-input" style="margin-left: 10px;">
-						<select id="signup-birth-mm" class="selectbox" name="Month" onchange="">
+						<select id="signup-birth-mm" class="selectbox" name="month" onchange="">
 							<option value="month">월</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -109,7 +109,7 @@
 						</select>
 					</span>
 					<span class="signup-input" style="margin-left:10px;">
-						<input id="signup-birth-dd" type="text" placeholder="일" onclick="idChkConfirm();">
+						<input id="signup-birth-dd" type="text" name="day" placeholder="일" onclick="idChkConfirm();">
 					</span>
 				</span>
 				
@@ -137,7 +137,7 @@
 				</span>
 				<div style="display:flex;">
 					<span class="signup-input" style="width:100%; margin:10px 0px 0px 0px">
-						<input id="signup-phone" type="text" placeholder="전화번호 입력">
+						<input id="signup-phone" type="text" name="phone" placeholder="전화번호 입력">
 					</span>
 				</div>
 			</div>
