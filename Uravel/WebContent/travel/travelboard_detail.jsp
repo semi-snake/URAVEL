@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.travel.dto.TravelListDto"%>
-<%@ page import="java.util.*, com.travel.dto.TravelDetailDto, com.dto.MemberDto" %>
+<%@ page import="com.dto.TravelListDto"%>
+<%@ page import="java.util.*, com.dto.TravelDetailDto, com.dto.MemberDto" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8");
@@ -13,7 +13,7 @@
 	int travelno = (int)request.getAttribute("travelno");
 	
 	int userno = 0;
-	MemberDto mem = (MemberDto)session.getAttribute("dto");
+	MemberDto mem = (MemberDto)session.getAttribute("userInfo");
 	if(mem != null) {
 		userno = mem.getUserno();
 	}	
@@ -95,150 +95,29 @@
 
 					<div class="review">
 						<div class="comment_box"
-							style="background-color: rgb(68, 138, 255, 0.1); height: 150px;">
-							<!--  <h4 class="top_review"
-								style="margin-left: 15px; margin-top: 15px;"></h4>
-							<p class="comment" style="margin-left: 15px; margin-top: 15px">
-								<% if(travelDetail.getReview() == null) { %>
-									등록된 리뷰가 없습니다.
-								<% } else { %>
-									<%= travelDetail.getReview() %>
-								<% }  %>
-							</p>
-							<input id="detailViewBtn" type="button" value="더보기" style="margin-left: 15px;">-->
-
+							style="background-color: rgb(68, 138, 255, 0.1); height: 150px; text-align: center;">
 						</div>
 					</div>
 				</div>
+				<!-- 포토박스 시작 -->
 				<div class="photo_box">
 					<div class="photoWrap">
 						<div id="mainImgWrap"></div>
 			            <div class="slidePhotoWrap">
 			                <div class="sub_wrap">
-			                    <div data-type="prev" class="arrowBtn"><i class="fas fa-arrow-left arrowIcon"></i></div>
+			                    <div data-type="prev" class="arrowBtn"><span>&#9194;</span></div>
 			                    <div id="slideImgWrap">
 			                        <ul>
 			                            <!--이미지가 들어갈자리-->
 			                        </ul>
 			                    </div>
-			                    <div data-type="next" class="arrowBtn"><i class="fas fa-arrow-right arrowIcon"></i></div>
+			                    <div data-type="next" class="arrowBtn"><span>&#9193;</span></div>
 			                </div>
 			            </div>
 					</div> 
 				</div>
+				<!-- 포토박스 끝 -->
 			</div>
-		<!--<div class="bottom_box">
-				<div class="review_container"
-					style="background-color: rgb(68, 138, 255, 0.2);">
-					<div class="review_header_container">
-						<div class="header_container_title"
-							style="font-size: 24px; font-weight: bold; margin-left: 15px;">리뷰</div>
-
-						<span class="tip_text"
-							style="font-size: 16px; color: rgb(172, 180, 191); margin-left: 15px;">
-							<i class="icon_tip"
-							style="position: relative; width: 20px; height: 20px; top: 3px;"><img
-								src="http://drive.google.com/uc?export=view&id=1i9JyxxltWWcXP8cea-KpeXSaOelUfUq0"
-								style="width: 20px; height: 20px; position: relative;"></i> 리뷰
-							일부분은 번역기로 번역되어 보일 수 있습니다
-						</span>
-					</div>
-					<div class="review_content_container"
-						style="margin: 15px; background-color: white;">
-						<div class="content_container_detail">
-							<div class="container_detail_rating" style="padding: 10px;">
-								<span style="font-size: 40px; color: rgb(73, 120, 206); font-weight: bold; line-height: 52px;">
-								<%= travelDetail.getLike_count() %>
-								</span>
-								<span style="font-size: 16px; color: rgb(73, 120, 206); margin-left: 10px; font-weight: bold;">
-								<% if(travelDetail.getLike_count()>=20){ %>
-									너무 좋아요!
-								<%} else if(travelDetail.getLike_count()>=10){ %>
-									괜찮아요!
-								<%} else if(travelDetail.getLike_count()>=5) {%>
-									나쁘지않아요!
-								<%} else if(travelDetail.getLike_count()==0) {%>
-									아직 좋아요가 없어요!
-								<%} %>
-									
-								</span>
-							</div>
-
-						</div>
-
-						<div class="content_container_review">
-								<div class="user_review" style="display: block;">
-									<ul class="review_list" style="padding: 20px;">
-										<li style="border-top: 1px solid #DADFE6; display: flex; flex-direction: column; align-items: flex-start;">
-											<div class="user_info_box" style="display: flex;">
-												<div class="info_box_detail"
-													style="cursor: pointer; font-size: 18px; margin-left: 80px; margin-bottom: 20px; margin-top: 20px;">
-													<% if(travelDetail.getUserName()==null) {%>
-														아직 작성자가 없습니다
-													<%} else{ travelDetail.getUserName(); }%>
-													
-													</div>
-											</div>
-											<div class="user_comment" style="margin-left: 80px;">
-												<div class="comment_rating">
-													<span
-														style="font-size: 30px; color: rgb(73, 120, 206); font-weight: bold;"><%= travelDetail.getLike_count() %></span>
-													<span
-														style="margin-left: 5px; font-size: 28px; color: rgb(73, 120, 206); font-weight: bold;">
-														<% if(travelDetail.getLike_count()>=20){ %>
-															너무 좋아요!
-														<%} else if(travelDetail.getLike_count()>=10){ %>
-															괜찮아요!
-														<%} else if(travelDetail.getLike_count()>=5) {%>
-															나쁘지않아요!
-														<%} else if(travelDetail.getLike_count()==0) {%>
-															아직 좋아요가 없어요!
-														<%} %>
-														</span>
-												</div>
-												<div class="user_comment_content"
-													style="margin-top: 15px; flex-wrap: wrap;">
-													<span> 
-													<% if(travelDetail.getReview() == null) {%>
-													 등록된 리뷰가 아직 없습니다
-													<%} else{ %>
-													<%= travelDetail.getReview() %>
-													<%} %>
-													</span>
-												</div>
-												<div class="comment_photo_list"
-													style="height: 110px; overflow: hidden; position: relative;">
-													<div class="photo_list_detail" style="display: flex;">
-														<img src=<% %> alt="리뷰이미지 없음"
-														style="float: left; width: 150px; height: 150px; margin-right: 4px; margin-top: 12px; cursor: pointer;">
-													</div>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-						</div>
-
-					</div>
-
-					<!--  <div class="page_detail"
-						style="text-align: center; margin-bottom: 30px; background-color: rgb(255, 255, 255);">
-						<div class="page_detail_button"
-							style="margin-left: 25%; margin-right: 25%;">
-							<div style="align-items: center;">
-								<ul class="page_detail_number">
-									<li class="page_style"><a href="#">이전</a></li>
-									<li class="page_style"><a href="#">1</a></li>
-									<li class="page_style"><a href="#">...</a></li>
-									<li class="page_style"><a href="#">1</a></li>
-									<li class="page_style"><a href="#">다음</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div-->
 		</div>
 	</main>
 	<%@ include file="../common/footer.jsp" %>

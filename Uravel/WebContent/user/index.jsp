@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 페이지</title>
-<link rel="stylesheet" href="../css/loginstyle.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loginstyle.css">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
 	function registForm() {

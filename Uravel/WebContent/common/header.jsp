@@ -88,7 +88,7 @@ MemberDto userInfo = (MemberDto) request.getSession().getAttribute("userInfo");
 				} else {
 				%>
 				<li><a
-					href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=login">로그인</a></li>
+					href="${pageContext.request.contextPath}/user/loginForm?command=loginform">로그인</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/user/logincontroller.jsp?command=registform">회원가입</a></li>
 				<%

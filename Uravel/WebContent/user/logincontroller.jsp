@@ -117,13 +117,17 @@ response.setContentType("text/html; charset=UTF-8");
 	<%
 	}
 	} else if (command.equals("logout")) {
-	session.invalidate();
-	response.sendRedirect("index.jsp");
-
+		session.invalidate();
+	%>
+	<script>
+		alert("로그아웃 되었습니다!");
+		location.href="../Main?command=main";
+	</script>
+	<%
 	} else if (command.equals("userinfo")) {
 	MemberDto memberDto = (MemberDto) request.getSession().getAttribute("userInfo");
 	if (memberDto == null) {
-	pageContext.forward("index.jsp");
+		pageContext.forward("index.jsp");
 	}
 	request.setAttribute("dto", memberDto);
 
@@ -170,19 +174,19 @@ response.setContentType("text/html; charset=UTF-8");
 	boolean res = dao.updateUser(memberDto);
 
 	if (res) {
-	UserLocalDao lDao = new UserLocalDao();
-	lDao.deleteUserLocal(memberDto.getUserid());
-	for (int i = 0; i < local.length; i++) {
-		lDao.insertLocal(memberDto.getUserid(), local[i]);
-	}
+		UserLocalDao lDao = new UserLocalDao();
+		lDao.deleteUserLocal(memberDto.getUserid());
+		for (int i = 0; i < local.length; i++) {
+			lDao.insertLocal(memberDto.getUserid(), local[i]);
+		}
 
-	UserThemeDao tDao = new UserThemeDao();
-	tDao.deleteUserTheme(memberDto.getUserid());
-	for (int i = 0; i < thema.length; i++) {
-		tDao.insertTheme(memberDto.getUserid(), thema[i]);
-	}
+		UserThemeDao tDao = new UserThemeDao();
+		tDao.deleteUserTheme(memberDto.getUserid());
+		for (int i = 0; i < thema.length; i++) {
+			tDao.insertTheme(memberDto.getUserid(), thema[i]);
+		}
 
-	request.getSession().setAttribute("userInfo", memberDto);
+		request.getSession().setAttribute("userInfo", memberDto);
 	%>
 	<script type="text/javascript">
 			alert("수정 완료");

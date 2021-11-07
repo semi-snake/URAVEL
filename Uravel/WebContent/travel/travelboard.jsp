@@ -24,66 +24,57 @@ List<TravelListDto> travelList = (List<TravelListDto>) request.getAttribute("tra
 </script>
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/header.css">
+	href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/travelboard.css">
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
-		<h1 style="text-align: center; margin-top: 100px;"><%=localName%></h1>
-		<form name="board_list">
-			<div class="board_list" style="margin-left: 7%;">
-				<table class="table table-striped"
-					style="text-align: center; margin-left: 15%; display: inline-block; border: 1px solid #dddddd">
+		<%@ include file="./areatitle.jsp"%>
+		<h1 style="text-align: center;"><%=localName%></h1>
+		<div class="board_list">
+			<table class="table table-striped"
+				style="text-align: center; inline-block; border: 1px solid #dddddd">
 
-					<colgroup>
-						<col class="thumnail">
-						<col class="number">
-						<col class="tag">
-						<col class="title">
-						<col class="recommend">
-					</colgroup>
-					<thead>
-						<tr>
-							<th style="background-color: #eeeeee; text-align: center;">이미지</th>
-							<th style="background-color: #eeeeee; text-align: center;">번호</th>
-							<th style="background-color: #eeeeee; text-align: center;">태그</th>
-							<th style="background-color: #eeeeee; text-align: center;">제목</th>
-							<th style="background-color: #eeeeee; text-align: center;">좋아요</th>
-						</tr>
-					</thead>
-					<tbody> 
-						<% for(int i = 0; i < travelList.size(); i++)  { %>
-							<tr>
-								<td class="thumnail1">
-								<img src="<%= travelList.get(i).getPic_arr()[0] %>" alt="사진없음"
-								style="width:100px; height:100%;">
-								</td>
-								<td class="number1"><%= travelList.get(i).getTravelno() %></td>
-								<td class="tag1"><%= travelList.get(i).getThemename() %></td>
-								<td class="title1">
-									<a href="http://localhost:8787/Uravel/TravelController?travelno=
-									<%= travelList.get(i).getTravelno() %>&command=areadetail">
-									<%= travelList.get(i).getTravelname() %></a>
-								</td>
-								<td class="like_count"><%= travelList.get(i).getLike_count() %></td>
-							</tr>
-						<% } %>
+				<colgroup>
+					<col class="thumnail">
+					<col class="number">
+					<col class="tag">
+					<col class="title">
+					<col class="recommend">
+				</colgroup>
+				<thead>
+					<tr>
+						<th style="background-color: #eeeeee; text-align: center;">이미지</th>
+						<th style="background-color: #eeeeee; text-align: center;">번호</th>
+						<th style="background-color: #eeeeee; text-align: center;">태그</th>
+						<th style="background-color: #eeeeee; text-align: center;">제목</th>
+						<th style="background-color: #eeeeee; text-align: center;">좋아요</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					for (int i = 0; i < travelList.size(); i++) {
+					%>
+					<tr>
+						<td class="thumnail1"><img
+							src="<%=travelList.get(i).getPic_arr()[0]%>" alt="사진없음"
+							style="width: 100px; height: 100%;"></td>
+						<td class="number1"><%=travelList.get(i).getTravelno()%></td>
+						<td class="tag1"><%=travelList.get(i).getThemename()%></td>
+						<td class="title1"><a
+							href="http://localhost:8787/Uravel/TravelController?travelno=
+									<%=travelList.get(i).getTravelno()%>&command=areadetail">
+								<%=travelList.get(i).getTravelname()%></a></td>
+						<td class="like_count"><%=travelList.get(i).getLike_count()%></td>
+					</tr>
+					<%
+					}
+					%>
 
-					</tbody>
-				</table>
-			</div>
-
-		</form>
-		<div class="search_box">
-			<form action="Controller" method="post">
-				<input type="hidden" name="command" value="searchMain"> <input
-					type="text" name="keyword"> <input type="submit" value="검색">
-		</div>
-		<div class="page_list">
-			<a href="#">prev</a> <a href="#">●</a> <a href="#">●</a> <a href="#">●</a>
-			<a href="#">●</a> <a href="#">next</a>
+				</tbody>
+			</table>
 		</div>
 	</main>
 	<%@ include file="../common/footer.jsp"%>

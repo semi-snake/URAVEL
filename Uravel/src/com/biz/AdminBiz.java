@@ -7,8 +7,8 @@ import com.dao.MemberDao;
 import com.dao.TravelDao;
 import com.dto.MemberDto;
 import com.dto.TravelDto;
- 
-import static common.JDBCTemplateDW.*;
+
+import static common.JDBCTemplate.*;
 
 public class AdminBiz {
 	private TravelDao t_dao = new TravelDao();
@@ -49,7 +49,7 @@ public class AdminBiz {
 
 		List<?> res = null;
 
-		if (type==1) {
+		if (type == 1) {
 			res = t_dao.selectLocalUnit(conn, code, begin, end);
 		} else {
 			res = t_dao.selectThemeUnit(conn, code, begin, end);
@@ -86,7 +86,7 @@ public class AdminBiz {
 		}
 		close(conn);
 		System.out.println("05. db 종료\n");
-		
+
 		return res;
 	}
 
