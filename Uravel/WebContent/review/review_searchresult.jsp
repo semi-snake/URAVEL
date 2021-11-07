@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>후기 검색어 검색결과</title>
 <link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="../css/style.css">
 <style>
@@ -32,25 +32,24 @@ div {
 	<%@ include file="../common/header.jsp"%>
 	<main>
 		<div class="reviewlist">
-			<h1>후기 게시판</h1>
-			<select name="themelist">
+			<h1>후기 게시판</h1><select name="themename">
 				<option value="theme">테마별</option>
-				<option value="1">호캉스</option>
-				<option value="2">산책</option>
-				<option value="3">역사/문화</option>
-				<option value="4">책방</option>
+				<option value="1">공원</option>
+				<option value="2">등산</option>
+				<option value="3">맛집</option>
+				<option value="4">산책</option>
 				<option value="5">야경</option>
-				<option value="6">카페</option>
-				<option value="7">공원</option>
-				<option value="8">맛집</option>
-				<option value="9">등산</option>
-				<option value="10">캠핑</option>
-			</select>&nbsp; <select name="locallist">
+				<option value="6">역사/문화</option>
+				<option value="7">책방</option>
+				<option value="8">카페</option>
+				<option value="9">캠핑</option>
+				<option value="10">호캉스</option>
+			</select>&nbsp; <select name="localname">
 				<option value="gu">구별</option>
-				<option value="1">강서구</option>
-				<option value="2">강남구</option>
-				<option value="3">강동구</option>
-				<option value="4">강북구</option>
+				<option value="1">강남구</option>
+				<option value="2">강동구</option>
+				<option value="3">강북구</option>
+				<option value="4">강서구</option>
 				<option value="5">관악구</option>
 				<option value="6">광진구</option>
 				<option value="7">구로구</option>
@@ -72,12 +71,7 @@ div {
 				<option value="23">종로구</option>
 				<option value="24">중구</option>
 				<option value="25">중랑구</option>
-			</select>&nbsp; <select name="orderlist">
-				<option value="1">최신순</option>
-				<option value="2">좋아요순</option>
-				<option value="3">내 후기</option>
-				
-			</select>
+			</select>&nbsp;  &nbsp;&nbsp;<input type="submit" value="찾기">
 		</div>
 		
 		
@@ -89,7 +83,7 @@ div {
 			<colgroup>
 				<col width="100">
 				<col width="300">
-				<col width="300">
+				<col width="100">
 				<col width="100">
 			</colgroup>
 			<thead style="background-color: grey;">
@@ -110,7 +104,7 @@ div {
 				<tr>		
 					<td>${dto.postno }</td>
 					<td><a href="ReviewController?command=detail&postno=${dto.postno}">${dto.title }</a></td>
-					<td>${dto.userno }</td>
+					<td>${dto.username }</td>
 					<td>${dto.postdate }</td>
 				</tr>
 			   </c:forEach>

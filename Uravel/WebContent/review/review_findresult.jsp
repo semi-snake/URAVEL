@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%
 request.setCharacterEncoding("UTF-8");
 %>
@@ -8,10 +9,10 @@ response.setContentType("text/html; charset=UTF-8");
 %>
 <%@ page import="java.util.List"%>
 <%@ page import="com.dto.ReviewDto"%>
-<%@ page import="com.dto.TravelDto"%>
-<%@ page import="com.dto.LocationDto"%>
-<%@ page import="com.dto.ThemeDto"%>
-<%@ page import="com.dao.ReviewDao"%>
+<%@ page import="com.dto.TravelDto" %>
+<%@ page import="com.dto.LocationDto" %>
+<%@ page import="com.dto.ThemeDto" %>
+<%@ page import="com.dao.ReviewDao" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -19,7 +20,7 @@ response.setContentType("text/html; charset=UTF-8");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>후기 게시판</title>
+<title>후기 검색결과</title>
 <link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="../css/style.css">
 <style>
@@ -28,12 +29,16 @@ div {
 }
 </style>
 </head>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	
+</script>
 <body>
 	<%@ include file="../common/header.jsp"%>
-
 	<main>
 		<div class="reviewlist">
-			<h1>후기 게시판</h1>
+			<h1>후기 검색결과</h1>
 			<form action="ReviewController" method="post">
 				<input type="hidden" name="command" value="findReview"> <select
 					name="themename">
@@ -59,17 +64,11 @@ div {
 			</form>
 
 		</div>
-		<br> <br>
-		<div id="search-box">
-			<form action="ReviewController" method="post">
-				<input type="hidden" name="command" value="searchReview"> <input
-					type="text" name="keyword" placeholder="내용을 입력해주세요"> <input
-					type="submit" value="검색">
-			</form>
-		</div>
 
-		<br>
 
+		<h3>
+			'<%=request.getParameter("localname")%>,<%=request.getParameter("themename")%>'에 대한 후기 검색결과입니다.
+		</h3>
 
 		<table id="review-table">
 			<colgroup>
@@ -108,11 +107,15 @@ div {
 				</c:choose>
 				<tr>
 					<td colspan="4" align="right"><input type="button" value="등록"
-						onclick="location.href='${pageContext.request.contextPath}/ReviewController?command=writeform'"></td>
+						onclick="location.href='${pageContext.request.contextPath}/File?command=writeform'"></td>
 				</tr>
 			</tbody>
 		</table>
 	</main>
 	<%@ include file="../common/footer.jsp"%>
+
+
+
+
 </body>
 </html>
