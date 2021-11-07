@@ -96,8 +96,8 @@
 					<div class="review">
 						<div class="comment_box"
 							style="background-color: rgb(68, 138, 255, 0.1); height: 150px;">
-							<h4 class="top_review"
-								style="margin-left: 15px; margin-top: 15px;">대표 리뷰:</h4>
+							<!--  <h4 class="top_review"
+								style="margin-left: 15px; margin-top: 15px;"></h4>
 							<p class="comment" style="margin-left: 15px; margin-top: 15px">
 								<% if(travelDetail.getReview() == null) { %>
 									등록된 리뷰가 없습니다.
@@ -105,7 +105,7 @@
 									<%= travelDetail.getReview() %>
 								<% }  %>
 							</p>
-							<input id="detailViewBtn" type="button" value="더보기" style="margin-left: 15px;">
+							<input id="detailViewBtn" type="button" value="더보기" style="margin-left: 15px;">-->
 
 						</div>
 					</div>
@@ -235,10 +235,10 @@
 								</ul>
 							</div>
 						</div>
-					</div>-->
+					</div>
 
 				</div>
-			</div>-->
+			</div-->
 		</div>
 	</main>
 	<%@ include file="../common/footer.jsp" %>
