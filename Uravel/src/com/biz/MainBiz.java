@@ -43,7 +43,7 @@ public class MainBiz {
 		return res;
 	}
 
-	public List<TravelDto> list(String type, int userno) {
+	public List<TravelDto> list(String type, String userid) {
 		Connection conn = getConnection();
 
 		List<TravelDto> res = null;
@@ -51,7 +51,7 @@ public class MainBiz {
 		if (type.equals("pp")) {
 			res = t_dao.selectPopular(conn);
 		} else if (type.equals("pf")) {
-			res = t_dao.selectPrefered(conn, userno);
+			res = t_dao.selectPrefered(conn, userid);
 		}
 
 		close(conn);

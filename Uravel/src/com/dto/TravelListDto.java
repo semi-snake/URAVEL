@@ -1,4 +1,4 @@
-package com.travel.dto;
+package com.dto;
 
 
 public class TravelListDto {
@@ -9,23 +9,65 @@ public class TravelListDto {
 	private String themename;
 	private String travelname;
 	private int like_count;
+	private String username;
+	private int userno;
+	private String review;
 	
 	
 	public TravelListDto() {
 		super();
 	}
 
-	
+
 
 	public TravelListDto(String url_pic, String[] pic_arr, int travelno, String themename, String travelname,
-			int like_count) {
+			int like_count, String username, int userno, String review) {
 		super();
 		this.url_pic = url_pic;
 		this.setPic_arr();
+		this.pic_arr = pic_arr;
 		this.travelno = travelno;
 		this.themename = themename;
 		this.travelname = travelname;
 		this.like_count = like_count;
+		this.username = username;
+		this.userno = userno;
+		this.review = review;
+	}
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+	public int getUserno() {
+		return userno;
+	}
+
+
+
+	public void setUserno(int userno) {
+		this.userno = userno;
+	}
+
+
+
+	public String getReview() {
+		return review;
+	}
+
+
+
+	public void setReview(String review) {
+		this.review = review;
 	}
 
 
@@ -33,6 +75,7 @@ public class TravelListDto {
 	public String getUrl_pic() {
 		return url_pic;
 	}
+
 
 
 	public void setUrl_pic(String url_pic) {

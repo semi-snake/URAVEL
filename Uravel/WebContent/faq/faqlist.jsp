@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%
 request.setCharacterEncoding("UTF-8");
 %>
@@ -8,97 +9,109 @@ response.setContentType("text/html; charset=UTF-8");
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ page import="com.dto.NoticeDto"%>
+<%@ page import="com.dto.FaqDto"%>
 <%@ page import="java.util.List"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/admin.css">
-<link rel="stylesheet" href="css/notice.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/faq.css">
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-	$(function() {
-		$('a[title="${pageno}"]').addClass('page-selected');
-	});
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	/*	번역  */
+	function language(clsSelect) {
+
+		var url = "FAQ?command=faqlist&language=";
+		for (var i = 0; i < clsSelect.options.length; i++) {
+			if (clsSelect.options[i].selected) {
+				url += clsSelect.options[i].value;
+			}
+		}
+
+		document.location = url;
+	}
 </script>
+<script type="text/javascript" defer
+	src="${pageContext.request.contextPath}/js/faq.js"></script>
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>
 		<%@ include file="./faqtitle.jsp"%>
-		<!-- 공지사항 본문 -->
-		<div class="notice-main">
-			<div class="notice-info-list">
-				<h1>게시글 목록</h1>
-				<table class="post-list">
-					<colgroup>
-						<col width="10%">
-						<col width="80%">
-						<col width="10%">
-					</colgroup>
-					<thead>
-						<tr>
-							<th>No.</th>
-							<th>제목</th>
-							<th>작성일</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:choose>
-							<c:when test="${empty res }">
-								<tr>
-									<td colspan="3">데이터가 존재하지 않습니다.</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach var="dto" items="${res }" begin="0" end="20">
-									<tr>
-										<td>${dto.noticeno }</td>
-										<td><a
-											href="Notice?command=detail&noticeno=${dto.noticeno }">${dto.title }</a></td>
-										<td>${dto.postdate }</td>
-									</tr>
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-						<tr style="border-top: 1px black dashed;" class="notice-admin-menu">
-							<td align="right" colspan="2"></td>
-							<td><a href="Notice?command=insertform">등록하기</a></td>
-						</tr>
-					</tbody>
-				</table>
-				<ul class="pagination">
-					<c:if test="${pageno ne 1}">
-						<li><a
-							href="${pageContext.request.contextPath}/Notice?command=noticelist&page=${pageno-1}">이전</a></li>
-					</c:if>
-					<c:forEach var="i" begin="1" end="${end}">
-						<li><a
-							href="${pageContext.request.contextPath}/Notice?command=noticelist&page=${i}"
-							title="${i}">${i}</a></li>
-					</c:forEach>
-					<c:if test="${pageno ne end}">
-						<li><a
-							href="${pageContext.request.contextPath}/Notice?command=noticelist&page=${pageno+1}">다음</a></li>
-					</c:if>
-				</ul>
-				<!--공지사항 : 검색-->
-				<div class="search-box-admin">
-					<table>
-						<tr>
-							<td><h3>통합 검색</h3></td>
-							<td><form action="Notice" method="post">
-									<input type="hidden" name="command" value="search"> <input
-										type="text" name="keyword" style="text-align: center;">
-									<input type="submit" value="검색">
-								</form></td>
-						</tr>
-					</table>
+		<!-- FAQ 본문 -->
+		<div class="faq-main">
+			<div class="faq-info-list">
+
+
+				<div class="insertntran-box-faq" style="margin-bottom: 20px;">
+
+					<!-- FAQ : 글쓰기 버튼 -->
+					<%
+					if (userInfo != null && userInfo.getRole().equals("ADMIN")) {
+					%>
+					<input type="button" value="글쓰기"
+						onclick="location.href='FAQ?command=faqinsertform'">
+					<%
+					}
+					%>
+					<!-- 번역 언어 선택 -->
+					<select class="choose-lang" name="language"
+						onchange="language(this);">
+						<option value="ko">한국어</option>
+						<option value="en">English</option>
+						<option value="ja">日本語</option>
+						<option value="zh-CN">中文
+					</select>
+
 				</div>
+
+				<!-- FAQ : LIST -->
+				<section class="faqpost-list">
+					<c:choose>
+						<c:when test="${empty list }">
+							<hr class="hr-line">
+							<div class="faqs">
+								<div class="faq-message">------글이 존재하지 않습니다------</div>
+							</div>
+							<hr class="hr-line">
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="dto" items="${list}">
+								<!-- 질문 부분 -->
+								<div class="faq-content-question">
+									<p>${dto.faqno}.&nbsp;&nbsp;&nbsp;<span>${dto.title}</span>
+									</p>
+								</div>
+
+								<!-- 답변 부분 -->
+								<div class="faq-content-answer">
+									<p>${dto.content}</p>
+									<%
+									if (userInfo != null && userInfo.getRole().equals("ADMIN")) {
+									%>
+									<div class="faq-content-buttons">
+										<input type="button" value="수정"
+											onclick="location.href='FAQ?command=faqupdateform&faqno=${dto.faqno}'">
+										<input type="button" value="삭제"
+											onclick="location.href='FAQ?command=faqdelete&faqno=${dto.faqno}'">
+									</div>
+									<%
+									}
+									%>
+								</div>
+								<hr class="hr-line">
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</section>
+
 			</div>
 		</div>
 	</main>

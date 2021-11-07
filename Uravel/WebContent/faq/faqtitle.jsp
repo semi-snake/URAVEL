@@ -12,15 +12,17 @@ response.setContentType("text/html; charset=UTF-8");
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-.notice-title {
+.faq-title {
 	padding: 100px;
 	background-color: #a6e4e7;
 }
+
 </style>
 </head>
 <body>
 	<div class="faq-title">
 		<h1>자주 묻는 질문</h1>
+		
 	</div>
 </body>
 </html>

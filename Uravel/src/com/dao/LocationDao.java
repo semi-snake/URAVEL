@@ -6,32 +6,32 @@ import java.sql.SQLException;
 
 import com.dto.LocationDto;
 
-import common.JDBCTemplate;
+import static common.JDBCTemplate.*;
 
-public class LocationDao extends JDBCTemplate{
-	
-	//테마 설정
+public class LocationDao {
+
+	// 테마 설정
 	public int insertLocal(LocationDto dto) {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		int res = 0;
-		
+
 		String sql = " INSERT INTO USERLOCAL VLAUES(USERLOCALSEQ.NEXTVAL, ?) ";
-		
+
 		try {
 			pstm = con.prepareStatement(sql);
 			pstm.setString(1, dto.getLocalname());
 			System.out.println("03.query 준비: " + sql);
-			
+
 			res = pstm.executeUpdate();
 			System.out.println("04.query 실행 및 리턴");
-			
-			if(res>0) {
+
+			if (res > 0) {
 				commit(con);
-			}else {
+			} else {
 				rollback(con);
 			}
-			
+
 		} catch (SQLException e) {
 			System.out.println("3/4 단계 오류");
 			e.printStackTrace();
@@ -39,7 +39,7 @@ public class LocationDao extends JDBCTemplate{
 			close(pstm);
 			close(con);
 		}
-		
+
 		return res;
 	}
 }

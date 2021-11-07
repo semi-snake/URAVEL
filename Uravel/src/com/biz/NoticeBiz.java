@@ -1,7 +1,6 @@
 package com.biz;
 
-import static common.JDBCTemplate.close;
-import static common.JDBCTemplate.getConnection;
+import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.List;
@@ -89,7 +88,7 @@ public class NoticeBiz {
 
 		close(conn);
 		System.out.println("05. db 종료\n");
-		
+
 		return res;
 	}
 }

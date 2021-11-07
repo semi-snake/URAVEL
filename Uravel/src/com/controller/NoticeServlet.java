@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.biz.NoticeBiz;
+import com.dto.MemberDto;
 import com.dto.NoticeDto;
 
 @WebServlet("/Notice")
@@ -25,6 +26,8 @@ public class NoticeServlet extends HttpServlet {
 
 		String command = request.getParameter("command");
 		System.out.println("[ command : " + command + " ]");
+
+		MemberDto loginUser = (MemberDto) request.getSession().getAttribute("userInfo");
 
 		NoticeBiz biz = new NoticeBiz();
 
@@ -55,12 +58,20 @@ public class NoticeServlet extends HttpServlet {
 			dispatch("notice/noticedetail.jsp", request, response);
 
 		} else if (command.equals("insertform")) {
+			if (loginUser == null || !(loginUser.getRole().equals("ADMIN"))) {
+				dispatch("Main?command=main", request, response);
+				return;
+			}
 			response.sendRedirect("notice/insertform.jsp");
 
 		} else if (command.equals("insert")) {
+			if (loginUser == null || !(loginUser.getRole().equals("ADMIN"))) {
+				dispatch("Main?command=main", request, response);
+				return;
+			}
 			NoticeDto dto = new NoticeDto();
 			dto.setTitle(request.getParameter("title"));
-			dto.setContent(request.getParameter("content"));
+			dto.setContent(request.getParameter("content").replace("\n", "<br>"));
 
 			int res = biz.insert(dto);
 
@@ -75,17 +86,27 @@ public class NoticeServlet extends HttpServlet {
 			dispatch("notice/executeresult.jsp", request, response);
 
 		} else if (command.equals("updateform")) {
+			if (loginUser == null || !(loginUser.getRole().equals("ADMIN"))) {
+				dispatch("Main?command=main", request, response);
+				return;
+			}
 			int noticeno = Integer.parseInt(request.getParameter("noticeno"));
 			NoticeDto res = biz.read(noticeno);
+
+			res.setContent(res.getContent().replace("<br>", ""));
 
 			request.setAttribute("res", res);
 
 			dispatch("notice/updateform.jsp", request, response);
 
 		} else if (command.equals("update")) {
+			if (loginUser == null || !(loginUser.getRole().equals("ADMIN"))) {
+				dispatch("Main?command=main", request, response);
+				return;
+			}
 			int noticeno = Integer.parseInt(request.getParameter("noticeno"));
 			String title = request.getParameter("title");
-			String content = request.getParameter("content");
+			String content = request.getParameter("content").replace("\n", "<br>");
 
 			NoticeDto dto = new NoticeDto();
 
@@ -106,6 +127,10 @@ public class NoticeServlet extends HttpServlet {
 			dispatch("notice/executeresult.jsp", request, response);
 
 		} else if (command.equals("delete")) {
+			if (loginUser == null || !(loginUser.getRole().equals("ADMIN"))) {
+				dispatch("Main?command=main", request, response);
+				return;
+			}
 			int noticeno = Integer.parseInt(request.getParameter("noticeno"));
 
 			int res = biz.delete(noticeno);

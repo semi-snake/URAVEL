@@ -17,6 +17,10 @@ if (request.getParameter("page") != null) {
 	pageno = Integer.parseInt(request.getParameter("page"));
 }
 pageContext.setAttribute("pageno", pageno);
+
+int size = (int) request.getAttribute("size");
+int end = ((size - 1) / 20 + 1);
+pageContext.setAttribute("end", end);
 %>
 <!DOCTYPE html>
 <html>
@@ -29,11 +33,6 @@ pageContext.setAttribute("pageno", pageno);
 <script src="js/admin.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<%
-int size = (int) request.getAttribute("size");
-int end = (size / 20 + 1);
-pageContext.setAttribute("end", end);
-%>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<main>

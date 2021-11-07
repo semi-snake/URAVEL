@@ -21,11 +21,12 @@ response.setContentType("text/html; charset=UTF-8");
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/error.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/main.js"></script>
 <script>
 	$(function() {
 		// 로그인 상태 확인 : 로그아웃 상태인 경우에는 사용자 맞춤 리스트를 표시하지 않음
 		<c:choose>
-			<c:when test="${sessionScope.dto ne null }">
+			<c:when test="${sessionScope.userInfo ne null }">
 				$("#user-list").show();
 			</c:when>
 			<c:otherwise>
@@ -225,7 +226,7 @@ response.setContentType("text/html; charset=UTF-8");
 				</tr>
 			</table>
 		</div>
-	<%@ include file="chatbot.jsp"%>
+		<%@ include file="chatbot.jsp"%>
 	</main>
 	<%@ include file="../common/footer.jsp"%>
 </body>

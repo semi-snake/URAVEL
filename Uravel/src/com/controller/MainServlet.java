@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.biz.MainBiz;
+import com.dto.BlogDto;
 import com.dto.HistoryDto;
 import com.dto.MemberDto;
 import com.dto.TravelDto;
@@ -32,18 +33,17 @@ public class MainServlet extends HttpServlet {
 		 * 메인 페이지
 		 */
 		if (command.equals("main")) { // 메인 페이지로 이동
-			MemberDto loginUser = (MemberDto) request.getSession().getAttribute("dto");
-			
+			MemberDto loginUser = (MemberDto) request.getSession().getAttribute("userInfo");
+
 			if (loginUser != null) {
-				System.out.println(loginUser);
-				request.setAttribute("mainPrefered", biz.list("pf", loginUser.getUserno()));
+				request.setAttribute("mainPrefered", biz.list("pf", loginUser.getUserid()));
 			}
 
 			// 날씨 정보 설정
 			request.setAttribute("w_dto", biz.forecast());
 
 			// 인기 여행지 정보 설정
-			request.setAttribute("mainPopular", biz.list("pp", 0));
+			request.setAttribute("mainPopular", biz.list("pp", null));
 
 			dispatch("main/main.jsp", request, response);
 

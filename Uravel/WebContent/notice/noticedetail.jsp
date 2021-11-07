@@ -67,10 +67,16 @@ hr {
 					<tr>
 						<td colspan="2" align="right">
 							<ul>
+								<%
+								if (userInfo != null && userInfo.getRole().equals("ADMIN")) {
+								%>
 								<li class="notice-admin-menu"><a
 									href="${pageContext.request.contextPath}/Notice?command=updateform&noticeno=${res.noticeno }">수정</a></li>
 								<li class="notice-admin-menu"><a
 									href="${pageContext.request.contextPath}/Notice?command=delete&noticeno=${res.noticeno }">삭제</a></li>
+								<%
+								}
+								%>
 								<li><a href="javascript:history.back()">목록</a></li>
 							</ul>
 						</td>

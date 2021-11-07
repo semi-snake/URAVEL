@@ -16,8 +16,6 @@ CREATE TABLE "TRAVEL" (
 CREATE SEQUENCE TRAVELSEQ START WITH 123 NOCACHE;
 SELECT * FROM TRAVEL;
 
-CREATE SEQUENCE travelseq START WITH 122;
-
 SELECT *
 FROM tab;
 
@@ -186,7 +184,7 @@ INSERT INTO TRAVEL (TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,
 INSERT INTO TRAVEL (TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,URL_PIC) VALUES (111,'매봉산',24,2,'서울 중구 신당동  매봉산 공원','서울 10대 야경 명소 중 하나','http://drive.google.com/uc?export=view&id=1cB99akNuaiF-OAR4GfYQyQGzEbHxozod');
 INSERT INTO TRAVEL (TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,URL_PIC) VALUES (112,'덕수궁',24,6,'서울 중구 세종대로 99','  덕수궁은 조선시대를 통틀어 크게 두 차례 궁궐로 사용되었다. 덕수궁이 처음 궁궐로 사용 된 것은 임진왜란 때 피난 갔다 돌아온 선조가 머물 궁궐이 마땅치 않아 월산대군의 집이었던 이곳을 임시 궁궐(정릉동 행궁)로 삼으면서 부터이다. 이후 광해군이 창덕궁으로 옮겨가면서 정릉동 행궁에 새 이름을 붙여 경운궁이라고 불렀다. 경운궁이 다시 궁궐로 사용된 것은 조선 말기 러시아 공사관에 있던 고종이 이곳으로 옮겨 오면서부터이다.
   덕수궁의 독특한 건물은 다수 남아 있다. 함녕전 뒤편에 있는 정관헌은 전통식 지붕 구조와 서양식 기둥 양식이 절충된 건물이다. 석조전은 내부와 외부가 모두 서양식으로 꾸며진 건물이다. 이처럼 덕수궁에 여러 서양식 건물이 남아 있는 것을 통해 고종이 서구 문물을 적극적으로 도입한 점을 알 수 있다.
-  현재 덕수궁 권역은 고종 당시의 궁궐 면모에는 크게 못 미치지만, 덕수궁에는 저마다 사연을 안은 유서 깊은 전각들이 오순도순 자리하고 있다. 석어당에서 석조전에 이르는 뒤쪽에는 도심의 번잡함을 잊게 하는 호젓한 산책로도 있다. 파란만장한 근대사의 자취를 기억하는 덕수궁은 서울에서 손꼽히는 산책로인 정동길과 더불어 도심의 직장인과 연인들에게 사랑받고 있다.','http://www.heritage.go.kr/unisearch/images/history_site/2021070809303201.jpg, http://www.heritage.go.kr/unisearch/images/history_site/2021070809303502.jpg');
+  현재 덕수궁 권역은 고종 당시의 궁궐 면모에는 크게 못 미치지만, 덕수궁에는 저마다 사연을 안은 유서 깊은 전각들이 오순도순 자리하고 있다. 석어당에서 석조전에 이르는 뒤쪽에는 도심의 번잡함을 잊게 하는 호젓한 산책로도 있다. 파란만장한 근대사의 자취를 기억하는 덕수궁은 서울에서 손꼽히는 산책로인 정동길과 더불어 도심의 직장인과 연인들에게 사랑받고 있다.','https://www.c3korea.net/wp-content/uploads/2019/09/%EB%8D%95%EC%88%98%EA%B6%81%EC%84%9C%EC%9A%B8%EC%95%BC%EC%99%B8_%EC%98%A4%EB%B9%84%EB%B9%84%EC%97%90%EC%9D%B4_%EB%8C%80%ED%95%9C%EC%97%B0%ED%96%A5_%EC%95%BC%EA%B0%84-%EC%A0%84%EA%B2%BD-1.jpg,http://www.heritage.go.kr/unisearch/images/history_site/2021070809303201.jpg, http://www.heritage.go.kr/unisearch/images/history_site/2021070809303502.jpg,https://lh3.googleusercontent.com/proxy/UG-5sNcmVvIrRGIGcZ1aeY2ZskEdIg7pcvtuyB33rYMi6JuhmMaXR01u3pJ_npqOwIlrUfItsXOytDVScD1EU2a82IrnuA-MUJpTT7Qu,http://ojsfile.ohmynews.com/STD_IMG_FILE/2018/1031/IE002413897_STD.jpg');
 INSERT INTO TRAVEL (TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,URL_PIC) VALUES (113,'남산공원',24,1,'서울 중구 삼일대로 231','서울에 있는 공원중 가장 넓은 공원, 다양한 문화행사','http://drive.google.com/uc?export=view&id=1BhEA-kZf1EPkEShl-stFsevwhzN-F9Mc');
 INSERT INTO TRAVEL (TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,URL_PIC) VALUES (114,'동보성',24,3,'서울 중구 퇴계로18길 5','중국의 광동 및 사천요리를 우리입맛에 맞게 하는 곳이다.','https://drive.google.com/uc?export=view&id=197zcmFx9jVe5iDaHvUkmROar--wOY-B3');
 INSERT INTO TRAVEL (TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,URL_PIC) VALUES (115,'그랜드 앰배서더 서울 어소시에이티드 풀만 호텔',24,10,'서울 중구 동호로 287','서울 중구에 위치한 5성급 호텔','http://drive.google.com/uc?export=view&id=1SBxhpkSTV3dpz1OHMjjChx-sdyGOhIfs');
@@ -202,9 +200,17 @@ INSERT INTO TRAVEL (TRAVELNO,TRAVELNAME,LOCALCODE,THEMECODE,ADDRESS,DESCRIPTION,
 SELECT * FROM LOCATION;
 
 
-   SELECT URL_PIC, TR.TRAVELNO, TH.THEMENAME, TRAVELNAME, LIKE_COUNT, LOCALCODE
+   SELECT URL_PIC, TR.TRAVELNO, TH.THEMENAME, TR.TRAVELNAME, LO.LOCALCODE, LO.LOCALNAME
      FROM TRAVEL TR
      JOIN THEME TH ON TR.THEMECODE = TH.THEMECODE
-LEFT JOIN LIKE_COUNT L ON TR.TRAVELNO = L.TRAVELNO
-    WHERE LOCALCODE = 1;
+     JOIN LOCATION LO ON TR.LOCALCODE = LO.LOCALCODE
+    WHERE LO.LOCALCODE = 24;
     
+SELECT *
+FROM LIKE_COUNT LC
+WHERE TRAVELNO = ? AND USERNO = ?;
+
+/*http://www.heritage.go.kr/unisearch/images/history_site/2021070809303201.jpg, http://www.heritage.go.kr/unisearch/images/history_site/2021070809303502.jpg
+*/    
+
+ALTER TABLE TRAVEL MODIFY URL_PIC VARCHAR2(2000);

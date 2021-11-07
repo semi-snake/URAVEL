@@ -7,13 +7,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.dto.MemberDto;
 
-import common.JDBCTemplate;
-
-public class MemberDao extends JDBCTemplate {
+public class MemberDao {
 	/*
 	 * ######################################################## 관리자페이지에서 사용되는 메소드
 	 * selectUnit, countAll, selectEnabled , countEnabled, disableBatch, search
@@ -54,7 +54,7 @@ public class MemberDao extends JDBCTemplate {
 			close(rs);
 			close(pstm);
 		}
-		
+
 		return res;
 	}
 
@@ -453,6 +453,66 @@ public class MemberDao extends JDBCTemplate {
 		}
 
 		return (res > 0) ? true : false;
+	}
+
+	public ArrayList getThemeInfoList() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+
+		String sql = " SELECT THEMECODE,THEMENAME FROM THEME ";
+
+		ArrayList rtnList = new ArrayList();
+
+		try {
+			pstm = con.prepareStatement(sql);
+
+			rs = pstm.executeQuery();
+
+			while (rs.next()) {
+				Map temMap = new HashMap();
+				temMap.put("themeCode", rs.getInt("THEMECODE"));
+				temMap.put("themeName", rs.getString("THEMENAME"));
+				rtnList.add(temMap);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
+		}
+
+		return rtnList;
+	}
+
+	public ArrayList getLocationInfoList() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+
+		String sql = " SELECT LOCALCODE,LOCALNAME FROM LOCATION ";
+
+		ArrayList rtnList = new ArrayList();
+
+		try {
+			pstm = con.prepareStatement(sql);
+
+			rs = pstm.executeQuery();
+
+			while (rs.next()) {
+				Map temMap = new HashMap();
+				temMap.put("localCode", rs.getInt("LOCALCODE"));
+				temMap.put("localName", rs.getString("LOCALNAME"));
+				rtnList.add(temMap);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
+		}
+
+		return rtnList;
 	}
 
 }

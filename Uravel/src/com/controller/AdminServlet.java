@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.biz.AdminBiz;
 import com.dto.MemberDto;
+import com.dto.ThemeDto;
 import com.dto.TravelDto;
 
 public class AdminServlet extends HttpServlet {
@@ -23,6 +24,12 @@ public class AdminServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+
+		MemberDto loginUser = (MemberDto) request.getSession().getAttribute("userInfo");
+		if (loginUser == null || loginUser.getRole().equals("USER")) {
+			dispatch("main/main.jsp", request, response);
+			return;
+		}
 
 		String command = request.getParameter("command");
 		System.out.println("[ command : " + command + " ]");
@@ -118,9 +125,19 @@ public class AdminServlet extends HttpServlet {
 			dto.setDescription(request.getParameter("description"));
 			dto.setUrl_pic(request.getParameter("url_pic"));
 
+			String msg = null;
+			if (new ThemeDto().getThemename(dto.getThemecode()).equals("역사/문화")) {
+				msg = "역사/문화 테마의 게시글은 해당 게시판에서만 추가가 가능합니다.";
+
+				request.setAttribute("msg", msg);
+				request.setAttribute("executeType", "travel");
+				dispatch("admin/executeresult.jsp", request, response);
+
+				return;
+			}
+
 			int res = biz.insert(dto);
 
-			String msg = null;
 			if (res > 0) {
 				msg = "데이터가 추가되었습니다.";
 			} else {
