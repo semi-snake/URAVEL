@@ -18,7 +18,7 @@ if (request.getParameter("page") != null) {
 pageContext.setAttribute("pageno", pageno);
 
 int size = (int) request.getAttribute("size");
-int end = (size / 20 + 1);
+int end = ((size-1) / 20 + 1);
 
 pageContext.setAttribute("end", end);
 %>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 request.setCharacterEncoding("UTF-8");
 %>
@@ -54,7 +54,8 @@ MemberDto dto = (MemberDto) session.getAttribute("dto");
 					href="${pageContext.request.contextPath }/Notice?command=noticelist">공지사항</a></li>
 				<li><a href="#">고객센터</a> <!-- 하위 메뉴 -->
 					<ul class="sub-menu">
-						<li><a href="${pageContext.request.contextPath }/faq/FAQ?command=faqlist">FAQ</a></li>
+						<li><a
+							href="${pageContext.request.contextPath }/FAQ?command=faqlist">FAQ</a></li>
 						<li><a
 							href="${pageContext.request.contextPath }/Inquiry?command=inqlist">1:1문의</a></li>
 					</ul></li>
