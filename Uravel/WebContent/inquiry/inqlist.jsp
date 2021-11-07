@@ -88,7 +88,7 @@ pageContext.setAttribute("end", end);
 							</c:otherwise>
 						</c:choose>
 						<%
-						if (dto.getRole().equals("USER")) {
+						if (userInfo.getRole().equals("USER")) {
 						%>
 						<tr style="border-top: 1px black dashed;"
 							class="notice-admin-menu">

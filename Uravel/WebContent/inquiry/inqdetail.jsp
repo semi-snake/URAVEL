@@ -100,7 +100,7 @@ hr {
 						<td colspan="2" align="right">
 							<ul>
 								<%
-								if ((dto.getRole().equals("ADMIN"))) {
+								if ((userInfo.getRole().equals("ADMIN"))) {
 								%>
 								<li><a
 									href="${pageContext.request.contextPath}/Inquiry?command=replyform&inqno=${inqno }">답글</a></li>

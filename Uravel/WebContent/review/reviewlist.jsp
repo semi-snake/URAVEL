@@ -36,6 +36,7 @@ response.setContentType("text/html; charset=UTF-8");
 	<main>
 		<%@ include file="./reviewtitle.jsp"%>
 		<div class="notice-info">
+			<%@ include file="./searchbox.jsp"%>
 			<div class="notice-info-list">
 				<table class="post-list">
 					<colgroup>
@@ -82,7 +83,6 @@ response.setContentType("text/html; charset=UTF-8");
 					</tbody>
 				</table>
 			</div>
-			<%@ include file="./searchbox.jsp"%>
 		</div>
 	</main>
 	<%@ include file="../common/footer.jsp"%>

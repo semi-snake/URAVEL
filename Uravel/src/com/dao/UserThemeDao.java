@@ -12,7 +12,7 @@ import com.dto.UserThemeDto;
 
 import common.JDBCTemplate;
 
-public class UserThemeDao extends JDBCTemplate{
+public class UserThemeDao extends JDBCTemplate {
 
 	// 유저별 선호테마 저장
 	public int insertTheme(String userId, String themeCode) {
@@ -44,7 +44,7 @@ public class UserThemeDao extends JDBCTemplate{
 
 		return res;
 	}
-	
+
 	// 유저별 선호테마 삭제
 	public void deleteUserTheme(String userId) {
 		Connection con = getConnection();
@@ -72,13 +72,13 @@ public class UserThemeDao extends JDBCTemplate{
 			close(con);
 		}
 	}
-	
-	//유저별 선호테마 조회
+
+	// 유저별 선호테마 조회
 	public List<UserThemeDto> selectUserTheme(String userId) {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		
+
 		StringBuffer sbf = new StringBuffer();
 		sbf.append(" SELECT");
 		sbf.append("   A.THEMECODE");
@@ -86,30 +86,30 @@ public class UserThemeDao extends JDBCTemplate{
 		sbf.append(" FROM USER_THEMA A");
 		sbf.append(" LEFT JOIN THEME B ON A.THEMECODE = B.THEMECODE");
 		sbf.append(" WHERE A.USERID = ?");
-		
+
 		List<UserThemeDto> rtnList = new ArrayList<UserThemeDto>();
-		
+
 		try {
 			pstm = con.prepareStatement(sbf.toString());
 			pstm.setString(1, userId);
-			
+
 			rs = pstm.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				UserThemeDto userThemeDto = new UserThemeDto();
 				userThemeDto.setThemecode(rs.getInt("THEMECODE"));
 				userThemeDto.setThemename(rs.getString("THEMENAME"));
 				rtnList.add(userThemeDto);
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstm);
 			close(con);
 		}
-		
+
 		return rtnList;
 	}
-	
+
 }

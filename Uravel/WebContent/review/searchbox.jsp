@@ -9,9 +9,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/js/jquery-3.6.0.min.js"></script>
+<script>
+	$(function() {
+		$(".review-search-section").hide();
+	})
+	function showSearch() {
+		$(".review-search-section").slideToggle();
+	}
+</script>
 </head>
 <body>
-	<div></div>
+	<div class="visible-search-box">
+		<a href="javascript: showSearch();"
+			style="font-size: xx-large; font-weight: bold;">&#127859 후기 게시글
+			검색하기 &#127859</a>
+	</div>
 	<div class="review-search-section">
 		<table>
 			<tr>

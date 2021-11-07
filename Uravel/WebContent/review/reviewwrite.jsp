@@ -68,7 +68,7 @@ List<ThemeDto> themelist = (List<ThemeDto>) request.getAttribute("themelist");
 				<form action="File" encType="multipart/form-data" method="POST">
 					<input type="hidden" name="postno" value=""> <input
 						type="hidden" name="command" value="reviewwrite"> <input
-						type="hidden" name="userno" value="<%=dto.getUserno()%>">
+						type="hidden" name="userno" value="<%=userInfo.getUserno()%>">
 					<table>
 						<colgroup>
 							<col width="30%">
@@ -83,7 +83,7 @@ List<ThemeDto> themelist = (List<ThemeDto>) request.getAttribute("themelist");
 						</tr>
 						<tr>
 							<th>작성자</th>
-							<td><%=dto.getUsername()%></td>
+							<td><%=userInfo.getUsername()%></td>
 						</tr>
 						<tr>
 							<th>테마</th>

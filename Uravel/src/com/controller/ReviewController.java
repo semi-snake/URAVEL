@@ -30,7 +30,7 @@ public class ReviewController extends HttpServlet {
 
 		ReviewDao dao = new ReviewDao();
 
-		MemberDto loginUser = (MemberDto) request.getSession().getAttribute("dto");
+		MemberDto loginUser = (MemberDto) request.getSession().getAttribute("userInfo");
 		command = request.getParameter("command");
 
 		System.out.println("[command:" + command + "]");

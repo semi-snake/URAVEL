@@ -50,11 +50,12 @@ List<ThemeDto> themelist = (List<ThemeDto>) request.getAttribute("themelist");
 			<h1>후기 수정하기</h1>
 			<div>
 				<form action="File" encType="multipart/form-data" method="POST">
-					<input type="hidden" name="userno" value="<%=dto.getUserno()%>">
-					<input type="hidden" name="postno" value="${dto.postno }">
-					<input type="hidden" name="command" value="reviewupdate"> <input
-						type="hidden" name="filename" value="${dto.filename }" /> <input
-						type="hidden" name="filesize" value="${dto.filesize }" />
+					<input type="hidden" name="userno"
+						value="<%=userInfo.getUserno()%>"> <input type="hidden"
+						name="postno" value="${dto.postno }"> <input type="hidden"
+						name="command" value="reviewupdate"> <input type="hidden"
+						name="filename" value="${dto.filename }" /> <input type="hidden"
+						name="filesize" value="${dto.filesize }" />
 					<table>
 						<colgroup>
 							<col width="400px">

@@ -26,7 +26,7 @@ response.setContentType("text/html; charset=UTF-8");
 	$(function() {
 		// 로그인 상태 확인 : 로그아웃 상태인 경우에는 사용자 맞춤 리스트를 표시하지 않음
 		<c:choose>
-			<c:when test="${sessionScope.dto ne null }">
+			<c:when test="${sessionScope.userInfo ne null }">
 				$("#user-list").show();
 			</c:when>
 			<c:otherwise>

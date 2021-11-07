@@ -96,21 +96,21 @@ public class TravelDao {
 		return res;
 	}
 
-	public List<TravelDto> selectPrefered(Connection conn, int userno) {
+	public List<TravelDto> selectPrefered(Connection conn, String userid) {
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 
 		List<TravelDto> res = new ArrayList<TravelDto>();
 
-		String sql = "(SELECT * FROM travel JOIN usertheme using(themecode) WHERE userno=?) " + "UNION "
-				+ "(SELECT * FROM travel JOIN USERLOCAL u using(localcode) WHERE userno=?)";
+		String sql = "(SELECT * FROM travel JOIN USER_THEMA using(themecode) WHERE userid=?) " + "UNION "
+				+ "(SELECT * FROM travel JOIN USER_LOCATION using(localcode) WHERE userid=?) ";
 
 		System.out.println("03. 쿼리 준비 : " + sql);
 
 		try {
 			pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, userno);
-			pstm.setInt(2, userno);
+			pstm.setString(1, userid);
+			pstm.setString(2, userid);
 
 			rs = pstm.executeQuery();
 
