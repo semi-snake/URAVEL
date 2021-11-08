@@ -1,5 +1,5 @@
 function clickArticle(travelno) {
-	window.location.href = "Main?command=traveldetail&travelno=" + travelno;
+	window.location.href = "TravelController?command=areadetail&travelno=" + travelno;
 }
 function clickHistory(historyno) {
 	window.location.href = "history/history_Controller?command=desc&historyno=" + historyno;

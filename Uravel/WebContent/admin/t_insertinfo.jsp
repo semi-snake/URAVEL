@@ -80,7 +80,6 @@ response.setContentType("text/html; charset=UTF-8");
 									<option value="3">맛집</option>
 									<option value="4">산책</option>
 									<option value="5">야경</option>
-									<option value="6">역사/문화</option>
 									<option value="7">책방</option>
 									<option value="8">카페</option>
 									<option value="9">캠핑</option>

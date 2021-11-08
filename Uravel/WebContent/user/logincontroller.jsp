@@ -46,7 +46,7 @@ response.setContentType("text/html; charset=UTF-8");
 		} else {
 	%>
 	<script type="text/javascript">
-			alert("login 실패");
+			alert("로그인에 실패하였습니다.");
 			location.href="index.jsp";
 		</script>
 	<%
@@ -104,14 +104,14 @@ response.setContentType("text/html; charset=UTF-8");
 	if (res > 0) {
 	%>
 	<script type="text/javascript">
-			alert("회원가입성공");
+			alert("회원가입에 성공하였습니다.");
 			location.href="../Main?command=main";
 		</script>
 	<%
 	} else {
 	%>
 	<script type="text/javascript">
-			alert("회원가입실패");
+			alert("회원가입에 실패하였습니다.");
 			location.href="logincontroller.jsp?command=registform";
 		</script>
 	<%
@@ -189,7 +189,7 @@ response.setContentType("text/html; charset=UTF-8");
 		request.getSession().setAttribute("userInfo", memberDto);
 	%>
 	<script type="text/javascript">
-			alert("수정 완료");
+			alert("수정되었습니다.");
 			location.href="logincontroller.jsp?command=userinfo&userno=<%=userno%>";
 		</script>
 
@@ -197,7 +197,7 @@ response.setContentType("text/html; charset=UTF-8");
 	} else {
 	%>
 	<script type="text/javascript">
-			alert("수정 실패");
+			alert("수정되지 않았습니다.");
 			location.href="logincontroller.jsp?command=userinfo&userno=<%=userno%>";
 		</script>
 	<%
@@ -210,14 +210,14 @@ response.setContentType("text/html; charset=UTF-8");
 	if (res) {
 	%>
 	<script type="text/javascript">
-			alert("탈퇴 성공");
+			alert("성공적으로 탈퇴되었습니다.");
 			location.href="logincontroller.jsp?command=logout";
 		</script>
 	<%
 	} else {
 	%>
 	<script type="text/javascript">
-			alert("탈퇴 실패");
+			alert("탈퇴에 실패하였습니다.");
 			location.href="logincontroller.jsp?command=userinfo&userno=<%=userno%>
 		";
 	</script>
@@ -225,17 +225,5 @@ response.setContentType("text/html; charset=UTF-8");
 	}
 	}
 	%>
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

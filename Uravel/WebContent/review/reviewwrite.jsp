@@ -53,10 +53,17 @@ footer h5 {
 
 <%
 List<TravelDto> travel_list = (List<TravelDto>) request.getAttribute("travel_list");
-List<LocationDto> locallist = (List<LocationDto>) request.getAttribute("locallist");
-List<ThemeDto> themelist = (List<ThemeDto>) request.getAttribute("themelist");
+int travelno = 0;
+if (request.getParameter("travelno") != null) {
+	travelno = Integer.parseInt(request.getParameter("travelno"));
+}
 %>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	window.onload = function() {
+		$("select[name=travelno] option[value="+ <%=travelno%> +"]").attr("selected", "selected");
+	}
+</script>
 
 </head>
 <body>
@@ -84,30 +91,6 @@ List<ThemeDto> themelist = (List<ThemeDto>) request.getAttribute("themelist");
 						<tr>
 							<th>작성자</th>
 							<td><%=userInfo.getUsername()%></td>
-						</tr>
-						<tr>
-							<th>테마</th>
-							<td><select name="themename">
-									<%
-									for (int i = 0; i < themelist.size(); i++) {
-									%>
-									<option value="<%=themelist.get(i).getThemename()%>"><%=themelist.get(i).getThemename()%></option>
-									<%
-									}
-									%>
-							</select></td>
-						</tr>
-						<tr>
-							<th>지역구</th>
-							<td><select name="localname">
-									<%
-									for (int i = 0; i < locallist.size(); i++) {
-									%>
-									<option value="<%=locallist.get(i).getLocalname()%>"><%=locallist.get(i).getLocalname()%></option>
-									<%
-									}
-									%>
-							</select></td>
 						</tr>
 						<tr>
 							<th>여행지</th>

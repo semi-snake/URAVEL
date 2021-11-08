@@ -26,7 +26,12 @@ response.setContentType("text/html; charset=UTF-8");
 <meta charset="UTF-8">
 <title>후기 상세보기</title>
 <script type="text/javascript">
-	
+	function clickDelete(postno) {
+		var returnValue = confirm("정말로 삭제하시겠습니까?");
+		if (returnValue) {
+			window.location.href = "ReviewController?command=delete&postno=" + postno;
+		}
+	}
 </script>
 <style>
 table {
@@ -101,10 +106,9 @@ table {
 							%> <input type="button" value="수정"
 							onclick="location.href='ReviewController?command=updateform&postno=${dto.postno}'">
 							<input type="button" value="삭제"
-							onclick="location.href='ReviewController?command=delete&postno=${dto.postno}'">
-							<%
-							}
-							%> <input type="button" value="목록"
+							onclick="clickDelete(${dto.postno});"> <%
+ }
+ %> <input type="button" value="목록"
 							onclick="location.href='ReviewController?command=list'">
 						</td>
 					</tr>

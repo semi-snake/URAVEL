@@ -45,7 +45,7 @@ response.setContentType("text/html; charset=UTF-8");
 			case 1:
 				<c:forEach var="dto" items="${mainPopular }" begin="4" end="7" varStatus = "status">
 				var eachTag = atag.eq(${status.count-1});
-				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.attr("href", "TravelController?command=areadetail&travelno=${dto.travelno }");
 				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
 				eachTag.children("span").html("${dto.travelname}");
 				</c:forEach>
@@ -53,7 +53,7 @@ response.setContentType("text/html; charset=UTF-8");
 			case 2: 
 				<c:forEach var="dto" items="${mainPopular }" begin="8" end="11" varStatus = "status">
 				var eachTag = atag.eq(${status.count-1});
-				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.attr("href", "TravelController?command=areadetail&travelno=${dto.travelno }");
 				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
 				eachTag.children("span").html("${dto.travelname}");
 				</c:forEach>
@@ -61,7 +61,7 @@ response.setContentType("text/html; charset=UTF-8");
 			case 3: 
 				<c:forEach var="dto" items="${mainPopular }" begin="12" end="15" varStatus = "status">
 				var eachTag = atag.eq(${status.count-1});
-				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.attr("href", "TravelController?command=areadetail&travelno=${dto.travelno }");
 				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
 				eachTag.children("span").html("${dto.travelname}");
 				</c:forEach>
@@ -70,7 +70,7 @@ response.setContentType("text/html; charset=UTF-8");
 			default:
 				<c:forEach var="dto" items="${mainPopular }" begin="0" end="3" varStatus = "status">
 					var eachTag = atag.eq(${status.count-1});
-					eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+					eachTag.attr("href", "TravelController?command=areadetail&travelno=${dto.travelno }");
 					eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
 					eachTag.children("span").html("${dto.travelname}");
 				</c:forEach>
@@ -90,7 +90,7 @@ response.setContentType("text/html; charset=UTF-8");
 			case 1:
 				<c:forEach var="dto" items="${mainPrefered }" begin="4" end="7" varStatus = "status">
 				var eachTag = atag.eq(${status.count-1});
-				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.attr("href", "TravelController?command=areadetail&travelno=${dto.travelno }");
 				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
 				eachTag.children("span").html("${dto.travelname}");
 				</c:forEach>
@@ -98,7 +98,7 @@ response.setContentType("text/html; charset=UTF-8");
 			case 2: 
 				<c:forEach var="dto" items="${mainPrefered }" begin="8" end="11" varStatus = "status">
 				var eachTag = atag.eq(${status.count-1});
-				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.attr("href", "TravelController?command=areadetail&travelno=${dto.travelno }");
 				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
 				eachTag.children("span").html("${dto.travelname}");
 				</c:forEach>
@@ -106,7 +106,7 @@ response.setContentType("text/html; charset=UTF-8");
 			case 3: 
 				<c:forEach var="dto" items="${mainPrefered }" begin="12" end="15" varStatus = "status">
 				var eachTag = atag.eq(${status.count-1});
-				eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+				eachTag.attr("href", "TravelController?command=areadetail&travelno=${dto.travelno }");
 				eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
 				eachTag.children("span").html("${dto.travelname}");
 				</c:forEach>
@@ -115,7 +115,7 @@ response.setContentType("text/html; charset=UTF-8");
 			default:
 				<c:forEach var="dto" items="${mainPrefered }" begin="0" end="3" varStatus = "status">
 					var eachTag = atag.eq(${status.count-1});
-					eachTag.attr("href", "Main?command=travelinfo&travelno=${dto.travelno }");
+					eachTag.attr("href", "TravelController?command=areadetail&travelno=${dto.travelno }");
 					eachTag.children("img").attr("src", "${dto.pic_arr[0]}");
 					eachTag.children("span").html("${dto.travelname}");
 				</c:forEach>
@@ -154,7 +154,8 @@ response.setContentType("text/html; charset=UTF-8");
 			<br>
 			<div class="image-list" id="1">
 				<c:forEach var="dto" items="${mainPopular }" begin="0" end="3">
-					<a href="Main?command=travelinfo&travelno=${dto.travelno }"><img
+					<a
+						href="TravelController?command=areadetail&travelno=${dto.travelno }"><img
 						alt="${dto.travelname }" src="${dto.pic_arr[0] }"><span>${dto.travelname}</span></a>
 				</c:forEach>
 			</div>
@@ -179,7 +180,8 @@ response.setContentType("text/html; charset=UTF-8");
 			</c:if>
 			<div class="image-list" id="2">
 				<c:forEach var="dto" items="${mainPrefered }" begin="0" end="3">
-					<a href="Main?command=travelinfo&travelno=${dto.travelno }"><img
+					<a
+						href="TravelController?command=areadetail&travelno=${dto.travelno }"><img
 						alt="${dto.travelname }" src="${dto.pic_arr[0] }"><span>${dto.travelname}</span></a>
 				</c:forEach>
 			</div>

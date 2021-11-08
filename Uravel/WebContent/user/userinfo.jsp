@@ -96,14 +96,6 @@ List<UserLocalDto> resultLocalList = (List<UserLocalDto>) request.getAttribute("
 							<td><%=phone_var%></td>
 						</tr>
 						<tr>
-							<th>등급</th>
-							<td><%=userinfo.getRole()%></td>
-						</tr>
-						<tr>
-							<th>계정활성화</th>
-							<td><%=userinfo.getEnabled()%></td>
-						</tr>
-						<tr>
 							<th>선호 테마</th>
 							<td>
 								<%

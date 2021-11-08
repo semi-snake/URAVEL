@@ -70,7 +70,7 @@ response.setContentType("text/html; charset=UTF-8");
 			<hr class="history-desc-under02">
 			<div class="history-desc-buttons">
 				<%
-				if (userInfo.getRole().equals("ADMIN")) {
+				if (userInfo!=null && userInfo.getRole().equals("ADMIN")) {
 				%>
 				<input type="button" value="수정"
 					onclick="location.href='history_Controller?command=updateform&historyno=${dto.historyno}'">
