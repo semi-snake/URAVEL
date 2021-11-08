@@ -25,7 +25,11 @@ ArrayList locationInfoList = dao.getLocationInfoList();
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/register.css">
-
+<style>
+* {
+	font-family: "Noto Sans KR", sans-serif !important;
+}
+</style>
 <script type="text/javascript">
 	function idChk() {
 		var doc = document.getElementsByName("userid")[0];

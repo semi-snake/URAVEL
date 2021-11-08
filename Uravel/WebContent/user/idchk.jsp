@@ -38,7 +38,7 @@
 			<td><input type="text" name="id"></td>
 		</tr>
 		<tr>
-			<td><%=idnotused.equals("true")?"아이디 생성 가능":"중복 아이디 존재" %></td>
+			<td><%=idnotused.equals("true")?"아이디 생성이 가능합니다.":"중복된 아이디가 존재합니다." %></td>
 		</tr>
 		<tr>
 			<td>

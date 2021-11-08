@@ -200,7 +200,7 @@ public class ReviewDao {
 
 		List<TravelDto> res = new ArrayList<TravelDto>();
 
-		String sql = " SELECT TRAVELNO, TRAVELNAME FROM TRAVEL ";
+		String sql = " SELECT TRAVELNO, TRAVELNAME FROM TRAVEL ORDER BY TRAVELNO";
 
 		System.out.println("03. query 준비 : " + sql);
 

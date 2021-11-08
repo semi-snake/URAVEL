@@ -21,9 +21,15 @@ String executeType = (String) request.getAttribute("executeType");
 <title>Insert title here</title>
 <script>
 	var msg = "<%=msg%>";
+	var executeType = "<%=executeType%>";
+
 	window.onload = function() {
 		alert(msg);
-		location.href = "${pageContext.request.contextPath}/ReviewController?command=list";
+		if (executeType == 'failure') {
+			history.back();
+		} else {
+			location.href = "${pageContext.request.contextPath}/ReviewController?command=list";
+		}
 	}
 </script>
 

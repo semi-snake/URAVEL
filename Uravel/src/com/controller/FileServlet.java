@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.dto.LocationDto;
 import com.dto.ThemeDto;
 import com.dto.TravelDto;
+import com.biz.AdminBiz;
+import com.biz.TravelBiz;
 import com.dao.ReviewDao;
 import com.dto.ReviewDto;
 import com.oreilly.servlet.MultipartRequest;
@@ -32,6 +34,7 @@ public class FileServlet extends HttpServlet {
 		String encType = "utf-8";
 
 		ReviewDao dao = new ReviewDao();
+		AdminBiz abiz = new AdminBiz();
 		MultipartRequest multi = new MultipartRequest(request, UPLOAD_PATH, maxFileSize, encType,
 				new DefaultFileRenamePolicy());
 
@@ -52,8 +55,10 @@ public class FileServlet extends HttpServlet {
 				filesize = file.length();
 			}
 
-			String localname = multi.getParameter("localname");
-			String themename = multi.getParameter("themename");
+			TravelDto tdto = abiz.read(travelno);
+
+			String localname = new LocationDto().getLocalname(tdto.getLocalcode());
+			String themename = new ThemeDto().getThemename(tdto.getThemecode());
 
 			ReviewDto dto = new ReviewDto();
 
@@ -86,8 +91,11 @@ public class FileServlet extends HttpServlet {
 			String title = multi.getParameter("title");
 			int travelno = Integer.parseInt(multi.getParameter("travelno"));
 			String content = multi.getParameter("content");
-			String localname = multi.getParameter("localname");
-			String themename = multi.getParameter("themename");
+
+			TravelDto tdto = abiz.read(travelno);
+
+			String localname = new LocationDto().getLocalname(tdto.getLocalcode());
+			String themename = new ThemeDto().getThemename(tdto.getThemecode());
 
 			File file = multi.getFile("file[0]");
 			String filename = null;

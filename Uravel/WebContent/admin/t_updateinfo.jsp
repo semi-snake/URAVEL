@@ -27,8 +27,8 @@ TravelDto res = (TravelDto) request.getAttribute("res");
 
 <script>
 	$(function() {
-		document.getElementsByName('localcode')[0].options[<%=res.getLocalcode() - 1%>].selected = true;
-		document.getElementsByName('themecode')[0].options[<%=res.getThemecode() - 1%>].selected = true;
+		$("select[name=localcode] option[value="+ <%=res.getLocalcode()%> +"]").attr("selected", "selected");
+		$("select[name=themecode] option[value="+ <%=res.getThemecode()%> +"]").attr("selected", "selected");
 	});
 </script>
 </head>

@@ -83,11 +83,7 @@ public class ReviewController extends HttpServlet {
 			}
 
 			List<TravelDto> travel_list = dao.selectTravel();
-			List<LocationDto> locallist = dao.selectLocation();
-			List<ThemeDto> themelist = dao.selectTheme();
 
-			request.setAttribute("locallist", locallist);
-			request.setAttribute("themelist", themelist);
 			request.setAttribute("travel_list", travel_list);
 			RequestDispatcher dis = request.getRequestDispatcher("review/reviewwrite.jsp");
 			dis.forward(request, response);
